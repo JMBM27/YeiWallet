@@ -316,9 +316,26 @@ a.navbarLogo{
     .header{
         display: none;
     }
-
-
 }
+
+
+#rc-imageselect, .g-recaptcha {
+    display: inline; //the most important
+}
+
+#rc-imageselect{
+    max-width: 100%;
+}
+
+.g-recaptcha>div>div{
+    width: 100% !important;
+    height: 78px;
+    transform:scale(0.77);
+    -webkit-transform:scale(0.77);
+    text-align: center;
+    position: relative;
+}
+
 
 .divTxtCrypt{
     float: left;
@@ -454,4 +471,11 @@ a.navbarLogo{
 .ir-abajo:hover{
     cursor: pointer;
     border-bottom: 2px solid white;
+}
+
+#gwd-reCAPTCHA_2, #rc-imageselect   {
+    transform:scale(0.86);
+    -webkit-transform:scale(0.86);
+    transform-origin:0 0;
+    -webkit-transform-origin:0 0;
 }

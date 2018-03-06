@@ -30,3 +30,6 @@ Route::get('/dashboard',function (){
 
 });
 
+Route::get('/recovery',function (){
+    return view( 'forgot_psw');
+});

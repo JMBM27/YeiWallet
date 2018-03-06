@@ -4,9 +4,6 @@
         Iniciar Sesión
     @endsection
 
-
-    <script src= "js/validar.js"></script>
-
     @section("body")
 
 
@@ -22,7 +19,7 @@
             <input maxlength="20" minlength="8" id="password" name="Contraseña" placeholder="Introducir tu Contraseña" type="password">
           <!--  <button class="action-button">Volver</button>-->
             <input type="submit" id="enviar_1" value="Ingresar"/>
-            <a href="#"><h6>¿Olvido su contraseña?</h6></a>
+            <a href="#"><h6>¿Olvidó su contraseña?</h6></a>
 
         @endsection
     @endsection

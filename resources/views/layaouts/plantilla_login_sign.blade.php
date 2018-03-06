@@ -11,6 +11,7 @@
     <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/scroll_formulario.css') }}" rel="stylesheet">
     <script src= "{{ asset('js/validar.js') }}"></script>
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
 <body>
@@ -20,7 +21,7 @@
             @yield("body")
 
             <div class="center-block">
-                <form action="" method="post" id="hola" autocomplete="off">
+                <form action="captcha.php" method="post" id="msform" autocomplete="off">
                     <fieldset>
                     @yield("ventana_formulario")
                     </fieldset>
