@@ -1,36 +1,27 @@
 <!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Navbar</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Features</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Pricing</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled" href="#">Disabled</a>
-            </li>
-        </ul>
+
+    <body>
+
+    <div class="row">
+        <div class="div_izq_dashboard col-xs-12 col-sm-3 col-md-3">
+            <nav class="nav_dashboard">
+                <ul>
+                    <img src="Imagenes/LOGO1.1.svg" width="30" alt="User-photo" align="center">
+                    User
+                <li><a href=""><span></span>Tus Wallets</a></li>
+                <li><a href=""><span></span>Enviar</a></li>
+                <li><a href=""><span></span>Historial</a></li>
+                <li><a href=""><span></span>Configuración</a></li>
+                <li><a href=""><span></span>Salir</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="div_der_dashboard col-xs-12 col-sm-9 col-md-9">
+            @yield("content")
+        </div>
     </div>
-</nav>
 
-
-</body>
+    </body>
 </html>

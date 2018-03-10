@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,30 +9,26 @@
 
     <title>YeiWallet - @yield('title')</title>
     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/scroll_formulario.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
     <script src= "{{ asset('js/validar.js') }}"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 
-<body>
+<body class="body_login_sign">
 
 
-        <div class="body_login_sign">
-            @yield("body")
-
-            <div class="center-block">
-                <form action="captcha.php" method="post" id="msform" autocomplete="off">
-                    <fieldset>
-                    @yield("ventana_formulario")
-                    </fieldset>
-                </form>
-            </div>
-        </div>
+            @yield('body')
 
 
-        <!-- JS -->
-        <script src= "{{ asset('js/jquery.js') }}"></script>
-        <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
+
+
+             <script src= "{{ asset('js/jquery.js') }}"></script>
+             <script src= "{{ asset('js/jquery.easy.js') }}"></script>
+             <script src= "{{ asset('js/multi_form.js') }}"></script>
+             <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
+             <script src= " {{ asset('refresh.js') }}"></script>
+
+
 </body>
 </html>

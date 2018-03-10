@@ -12,31 +12,19 @@
     <link href="{{ asset('css/aos.css')}}" rel="stylesheet">
     <link href="{{ asset('css/Footer.css') }}" rel="stylesheet">
 
-
-
 </head>
 
 <body>
-    <!--
-        <div class="header">
-            @yield("header")
-                <div class="divLogo">
-                <a class ="Link_Header" href="http://www.facebook.com">
-                 <img alt="Logo" height="50" src="Imagenes/LOGO.png" width="50">Wallet</a>
-                </div>
-        </div>
-        -->
+
+
         <div class="body">
             <div class="wrapper">
                 @yield("body")
             </div>
         </div>
 
-        <div class="footer">
-            @yield("footer")
-            <h1>YeiWallet</h1>
-            <p>Copyright © - 2018 YeiWallet</p>
-        </div>
+
+        @include("layaouts.plantilla_footer")
 
 
         <!-- JS -->

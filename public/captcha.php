@@ -7,4 +7,5 @@
             $validar_servidor = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$clave_secreta&response=$valor_recaptcha&remoteip=$ip");
             var_dump($validar_servidor);
         }
+
 ?>

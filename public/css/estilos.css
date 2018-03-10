@@ -1,7 +1,11 @@
-body,html,header{
+body,html{
     width: 100%;
     height: 100%;
     margin: 0;
+}
+
+header{
+    height: 80px;
 }
 
 /* --------- EL TIPO DE FUENTES ------------*/
@@ -38,9 +42,9 @@ body,html,header{
 
 /* ------------------- CONTAINER DE LAS PLANTILLAS --------------------------------------*/
 .header{
-    height: 70px;
+    height: 80px;
     font-family: Roboto;
-    background-color: blue;
+    background-color: darkblue;
 }
 
 .body{
@@ -49,7 +53,7 @@ body,html,header{
     background-size: 100% 100%;
 }
 
-.footer{
+footer{
     height: 300px;
     bottom: 0;
     text-align: center;
@@ -100,15 +104,17 @@ body,html,header{
 .divLogo{
     top: 9px;
     margin: 10px auto auto 20px;
-    font-size: 25px;
+    font-size: 22px;
     float: left;
 }
 
 .divRegistrarse{
-    width: 120px;
-    margin: 17px 20px auto auto;
+    width: 130px;
+    height: 45px;
+    margin: 10px 20px auto auto;
     float:right;
     font-size: 22px;
+    text-align: center;
 }
 
 .divIngresar{
@@ -151,8 +157,12 @@ a.class_a_href{
 }
 
 a.class_a_href:hover{
-    color: black;
-    border-bottom: 1px solid white;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .nav-link{
@@ -204,7 +214,7 @@ a.navbarLogo{
     padding: 15px;
     background-color: #585858;
     color: white;
-    margin-top: 30px;
+    margin-top: 60px;
 }
 
 .divCryptInfor{
@@ -315,12 +325,23 @@ a.navbarLogo{
 
     .header{
         display: none;
+        cursor: none;
     }
+
+    .div_der_dashboard #titulo_trans{
+        font-size: 25px;
+    }
+
+    .div_enviar_money input{
+        margin: 0;
+        width: 100%;
+    }
+
 }
 
 
 #rc-imageselect, .g-recaptcha {
-    display: inline; //the most important
+    display: inline; /*the most important*/
 }
 
 #rc-imageselect{
@@ -348,7 +369,7 @@ a.navbarLogo{
 }
 
 /* ------------------------------------------------*/
-
+/*
 .bordetxt{
 	position:absolute;
 	color: black;
@@ -365,7 +386,7 @@ a.navbarLogo{
     background-color: #D8D8D8;
     height: 30px;
 }
-
+*/
 /* ------------- */
 
 
@@ -377,6 +398,7 @@ a.navbarLogo{
   transition: all 0.5s ease 0s;
 }
 
+/* ---------------- */
 
 /*
 .arrow {
@@ -407,30 +429,6 @@ a.navbarLogo{
     background-attachment: fixed;
 }
 
-.div_izq_dashboard{
-    height: 100%;
-    width: 20%;
-    border: 2px solid black;
-    text-align: center;
-    background-color: #062c33;
-    color: white;
-    font-family: Roboto;
-    margin: 0;
-    padding: 0;
-}
-
-.div_der_dashboard{
-    width: 100%;
-    height: 1000px;
-    border: 2px solid black;
-    margin: 0;
-}
-
-.body_dashboard{
-    margin: 0;
-    padding: 0;
-    background-color: #0c5460;
-}
 
 .divNombre_usuario{
     height: 80px;
@@ -479,3 +477,95 @@ a.navbarLogo{
     transform-origin:0 0;
     -webkit-transform-origin:0 0;
 }
+
+
+/* ------------------ BARRA DE NAVEGACION DEL DASHBOARD ----------------------------------*/
+
+.div_izq_dashboard{
+    height: 1000px;
+    width: 100%;
+    background-color: #062c33;
+    font-family: Roboto;
+    /*   display: block;*/
+}
+
+.nav_dashboard{
+    margin-right: -37px;
+}
+
+.nav_dashboard ul{
+    margin: auto;
+    width: 100%;
+}
+
+.nav_dashboard ul,li{
+    color: white;
+    width: 100%;
+    margin-left: -20px;
+}
+
+.nav_dashboard li,a{
+    display: block;
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.nav_dashboard a:hover{
+    text-decoration: none;
+    color: white;
+}
+
+.nav_dashboard li:hover{
+    background-color: #2e6da4;
+}
+
+
+/* ----------------- PARTE DERECHA DEL DASHBOARD ------------------------------*/
+
+.div_der_dashboard{
+    width: 100%;
+    border: 2px solid black;
+    font-family: Roboto;
+    margin: 0;
+}
+
+#titulo_trans{
+    font-size: 50px;
+    margin: 20px;
+}
+
+.div_btc_wallet{
+    width: 100%;
+    background-color: orange;
+    height: 300px;
+    margin: 30px auto;
+
+}
+
+.div_eth_wallet{
+    background-color: #2e6da4;
+    height: 300px;
+    margin: 30px auto;
+}
+
+.div_onix_wallet{
+    background-color: #2E2E2E;
+    height: 300px;
+    margin: 30px auto;
+}
+
+.div_enviar_money{
+    border: 4px solid black;
+    display: block;
+    padding: 40px;
+    background-color: darkgrey;
+}
+
+.div_enviar_money label,input{
+    margin: 5px;
+    width: auto;
+}
+
+
+/* -------------------------------------------------------------------------*/

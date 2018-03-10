@@ -5,18 +5,17 @@
             Inicio
         @endsection
 
-<div class="header">
-    <div class="divLogo">
-        <a class ="Link_Header" href="http://www.facebook.com">
-            <img alt="Logo" height="50" src="Imagenes/LOGO1.1.svg" width="50">Wallet</a>
-    </div>
+        <div class="header">
+            <div class="divLogo">
+                <a class ="Link_Header" href="http://www.facebook.com">
+                    <img alt="Logo" height="50" src="Imagenes/LOGO1.1.svg" width="50">Wallet</a>
+            </div>
 
-    <div class="divRegistrarse">
-        <a class="Link_Header" href="/sign">Registrarse</a>
-    </div>
-    <a class="divIngresar" href="/login">Ingresar</a>
-
-</div>
+            <div class="divRegistrarse">
+                 <a class="Link_Header" href="/sign">Registrarse</a>
+             </div>
+            <a class="divIngresar" href="/login">Ingresar</a>
+        </div>
 
 <nav class="navbar-light navbar-toggleable-sm">
     <a href="#" class="navbarLogo">
@@ -59,14 +58,14 @@
                     <div class="divInfo col-xs-12 col-sm-12 col-md-4 col-lg-4">
                         <div class="divInformacion" data-aos="fade-right" data-aos-duration="2000">
                             <img alt="Social" height="200" src="Imagenes/Transferencia.svg" width="100%" data-aos="fade-down" data-aos-duration="3000"></img>
-                            Transfiere dinero a tu familia, amigos, conocidos, de forma sencilla y rápida por nuestra plataforma de calidad.
+                            Transfiere dinero a tu familia, amigos, de forma sencilla y rápida.
                         </div>
                     </div>
 
                     <div align="center" class="divInfo col-xs-12 col-sm-12 col-md-4 col-lg-4" >
                         <div class="divInformacion" data-aos="fade-down" data-aos-duration="2000">
                             <img alt="Seguridad" height="200" src="Imagenes/Seguridad.svg" width="100%" data-aos="fade-down" data-aos-duration="3000"></img>
-                            Al usar la 'BlockChain' todas tus transacciones están seguras.
+                            Al implementar 'BlockChain' todas tus transacciones están seguras.
                             </img>
                         </div>
                     </div>
@@ -74,7 +73,7 @@
                     <div class="divInfo col-xs-12 col-sm-12 col-md-4 col-lg-4" align="center">
                         <div class="divInformacion" data-aos="fade-left" data-aos-duration="2000">
                             <img alt="Comodidad" height="200" src="Imagenes/Portabilidad.svg" width="100%" data-aos="fade-down" data-aos-duration="3000"></img>
-                            Accede a nuestra página desde cualquiera de tus dispositivo.
+                            Accede a nuestra página desde cualquiera de tus dispositivos.
                         </div>
                     </div>
 
@@ -96,10 +95,15 @@
                         </div>
                     </div>
                 </div>
+
+         @section("footer")
+            <h1>YeiWallet</h1>
+            <p>Copyright © - 2018 YeiWallet</p>
         @endsection
 
-        @section("footer")
-        @endsection
+@endsection
+
+
 
 
 

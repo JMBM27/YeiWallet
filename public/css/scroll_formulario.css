@@ -2,9 +2,9 @@
 html {
 	height: 100%;
 	/*Image only BG fallback*/
-	
+
 	/*background = gradient + image pattern combo*/
-	/*background: 
+	/*background:
 		linear-gradient(rgba(196, 102, 0, 0.6), rgba(155, 89, 182, 0.6));
 	*/
 }
@@ -12,10 +12,11 @@ html {
 
 /*form styles*/
 #msform {
-    min-width: 300px;
-    max-width: 400px;
+	min-width: 300px;
+	max-width: 400px;
 	margin: 50px auto;
 	text-align: center;
+	position: relative;
 }
 #msform fieldset {
 	background: #EFEFEF;
@@ -26,7 +27,7 @@ html {
 	box-sizing: border-box;
 	width: 80%;
 	margin: 0 10%;
-	
+
 	/*stacking fieldsets above each other*/
 	position: relative;
 }
@@ -118,7 +119,7 @@ html {
 }
 #progressbar li:first-child:after {
 	/*connector not needed before the first step*/
-	content: none; 
+	content: none;
 }
 /*marking active/completed steps green*/
 /*The number of the step and the connector before it = green*/
@@ -126,4 +127,7 @@ html {
 	background: #3878a3;
 	color: white;
 }
+
+
+
 

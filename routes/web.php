@@ -33,3 +33,12 @@ Route::get('/dashboard',function (){
 Route::get('/recovery',function (){
     return view( 'forgot_psw');
 });
+
+Route::get('/recovery/code',function (){
+    return view( 'confirm_code');
+});
+
+Route::get('/transfer',function (){
+    return view( 'send_money');
+});
+
