@@ -4,10 +4,9 @@ body,html{
     margin: 0;
 }
 
-header{
-    height: 80px;
+body{
+    background-color: #E6E6E6;
 }
-
 /* --------- EL TIPO DE FUENTES ------------*/
 @font-face{
     font-family: Roboto;
@@ -42,9 +41,11 @@ header{
 
 /* ------------------- CONTAINER DE LAS PLANTILLAS --------------------------------------*/
 .header{
-    height: 80px;
+    height: 70px;
     font-family: Roboto;
-    background-color: darkblue;
+    background-color: #42464b;
+    margin-bottom: 10px;
+    padding: 5px;
 }
 
 .body{
@@ -58,15 +59,15 @@ footer{
     bottom: 0;
     text-align: center;
     color: white;
-    background-image: linear-gradient(to bottom, #0B0B3B, #000000);
+    background-image: linear-gradient(to bottom, #65717e , #65717e);
 }
 
 /*------------------------------- ESPACIO -----------------------------------------*/
 
 #espacio{
-    height: 800px;
+    height: 100%;
     min-width:100%;
-    min-height:90%;
+    min-height:80%;
     overflow:hidden;
     top:0;
     left:0;
@@ -84,44 +85,47 @@ footer{
     top:0;
     left:0;
     min-width:100%;
-    min-height: 80%;
+    min-height:100%;
     pointer-events:none;
 }
 
 .splash article{
     text-align:center;
-    height: 90%;
+    height: 100%;
     width: 100%;
 }
 
 .splash{
-    height: 80%;
-    min-height: 60%;
+    height: 500px;
+    min-height: 80%;
     position:relative;
 }
 
 /*---------------- HEADER ----------------------------------------------------------------*/
 .divLogo{
-    top: 9px;
-    margin: 10px auto auto 20px;
+    margin: 0;
     font-size: 22px;
     float: left;
 }
 
+.divLogo a{
+    padding: 0px 0px 0px 20px !important;
+}
+
 .divRegistrarse{
-    width: 130px;
+    width: auto;
     height: 45px;
-    margin: 10px 20px auto auto;
+    margin: 5px 20px auto auto;
     float:right;
     font-size: 22px;
     text-align: center;
 }
 
 .divIngresar{
-    width: 110px;
+    width: auto;
     height: 40px;
-    padding: 1px 0 0 13px;
-    margin: 15px 20px auto auto;
+    padding: 0 10px;
+    margin: 10px 20px auto auto;
     float: right;
     font-size: 22px;
     border: 2px solid white;
@@ -179,21 +183,26 @@ a.class_a_href:hover{
     display: none;
 }
 
+.navbar-header{
+    padding: 5px;
+    height: 50px;
+    font-family: Roboto;
+    background-color: #42464b;
+}
+
 .navbar-toggler-icon{
     background-color: white;
 }
 
-.navbarLogo{
-    color: black;
-    margin-left: 15px;
-}
-
-a.navbarLogo{
-    text-decoration: none;
-}
-
 
 /*--------------- BODY -----------------------*/
+
+.row{
+    overflow: hidden;
+    width: 100%;
+    margin: 0;
+    background-color: #E6E6E6;
+}
 
 .divAlgo{
     font-family: Flamante-Roma-Medium;
@@ -209,12 +218,12 @@ a.navbarLogo{
 
 .divBen{
     width: 100%;
-    font-size: 50px;
+    font-size: 25px;
     text-align: center;
     padding: 15px;
-    background-color: #585858;
+    background-color: #42464b;
     color: white;
-    margin-top: 60px;
+    margin-top: 10px;
 }
 
 .divCryptInfor{
@@ -253,7 +262,7 @@ a.navbarLogo{
     font-size: 50px;
     text-align: center;
     padding: 15px;
-    background-color: #585858;
+    background-color: #42464b;
     color: white; 
 }
 
@@ -273,10 +282,9 @@ a.navbarLogo{
 .divInfoCrypt{
     font-family: Roboto;
     width: 100%;
-    min-height: 1000px;
     text-align: center;
-    padding: 10px;
-    background-color: #2E2E2E;
+    padding: 4%;
+    background-color: #42464b;
     color: white;
     font-size: 45px;
     position: relative;
@@ -286,20 +294,18 @@ a.navbarLogo{
     float: left;
     overflow:hidden;
     text-align: left;
-    font-size: 100px;
-    padding: 2%;
+    font-size: 25px;
+    margin: 30px 0;
+    padding: 3%;
     border: 3px solid white;
 }
 
 .divImgCrypt{
     float: right;
-    margin-top: 10%;
-    padding-bottom: 30px;
+    margin: 30px 0px;
 }
 
-#ajuste{
-  margin-top: 30px;
-}
+
 
 
 /* AJUSTAR EL TAMAÑO DE LAS LETRAS CON LA RESOLUCION < 768*/
@@ -357,17 +363,6 @@ a.navbarLogo{
     position: relative;
 }
 
-
-.divTxtCrypt{
-    float: left;
-    overflow:hidden;
-    margin-top: 10%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-    border: 3px solid white;
-    font-size: 25px;
-}
-
 /* ------------------------------------------------*/
 /*
 .bordetxt{
@@ -421,7 +416,7 @@ a.navbarLogo{
 
 .body_login_sign{
     height: 100%;
-    padding-top: 100px;
+    padding-top: 0;
     background-image: url(../Imagenes/puente.jpg);
     background-size: cover ;
     background-position: center center;

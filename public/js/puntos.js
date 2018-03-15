@@ -2,13 +2,11 @@
         resize: null,
         init: function() {
             var colores =[
-                ["#fff","linear-gradient(to bottom right, #0B0B3B , #000000)"],
-                
+                ["#fff","linear-gradient(to bottom right, #518ad7 , #2ed4bb)"],
             ];
 
             var r=Math.floor(Math.random()*colores.length);
             document.getElementById("espacio").style.background=colores[r][1];
-            
             this.canvas = document.querySelector("canvas");
             this.crearEspacio(colores[r][0]);
         },
@@ -54,7 +52,7 @@
                     y           : 30 * espacio.canvas.height / 100,
                     n           : espacio.canvas.width /5,
                     distancia   : 80,
-                    radio       : espacio.canvas.height /4,
+                    radio       : espacio.canvas.height/4,
                     puntos      : []
                 };
             },
@@ -83,7 +81,9 @@
                 }
             },
             $("#espacio").on("mousemove", function(a) {
-                "mousemove" == a.type && (e.x = a.pageX, e.y = a.pageY) 
+                console.log($(window).height());
+                var xy=document.getElementById("espacio").getBoundingClientRect();
+                "mousemove" == a.type && (e.x = a.pageX-xy.left-document.body.scrollLeft, e.y = a.pageY-xy.top-document.body.scrollTop)
             }),
             punto.reiniciar();
             this.interval = setInterval(pintar, 1e3 / 10)

@@ -8,12 +8,12 @@
             <nav class="nav_dashboard">
                 <ul>
                     <img src="Imagenes/LOGO1.1.svg" width="30" alt="User-photo" align="center">
-                    User
-                <li><a href=""><span></span>Tus Wallets</a></li>
-                <li><a href=""><span></span>Enviar</a></li>
-                <li><a href=""><span></span>Historial</a></li>
-                <li><a href=""><span></span>Configuración</a></li>
-                <li><a href=""><span></span>Salir</a></li>
+                    {{ Auth::user()->usuario }}
+                    <li><a href=""><span></span>Tus Wallets</a></li>
+                    <li><a href=""><span></span>Enviar</a></li>
+                    <li><a href=""><span></span>Historial</a></li>
+                    <li><a href=""><span></span>Configuración</a></li>
+                    <li><a href="{{ route('logout') }}">Salir</a></li>
                 </ul>
             </nav>
         </div>

@@ -11,24 +11,19 @@
 |
 */
 
-Route::get('/inicio', function () {
+Route::get('/', function () {
     return view('inicio');
 });
 
-Route::get('/login',function (){
-    return view('login');
+Route::get('/login','Auth\LoginController@showLoginForm')->name('login');
+Route::post('/login','Auth\LoginController@login')->name('login');
+Route::get('/logout','Auth\LoginController@logout')->name('logout');
+#Route::post('/logout','Auth\LoginController@logout')->name('logout');
 
-});
+Route::get('/sign','Auth\RegisterController@showRegistrationForm')->name('sign');
+Route::post('/sign','Auth\RegisterController@register')->name('sign');
 
-Route::get('/sign',function(){
-    return view('sign');
-
-});
-
-Route::get('/dashboard',function (){
-    return view('dashboard');
-
-});
+Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Route::get('/recovery',function (){
     return view( 'forgot_psw');
@@ -41,4 +36,3 @@ Route::get('/recovery/code',function (){
 Route::get('/transfer',function (){
     return view( 'send_money');
 });
-

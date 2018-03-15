@@ -11,34 +11,33 @@
     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/aos.css')}}" rel="stylesheet">
     <link href="{{ asset('css/Footer.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/menu_icon.css') }}" rel="stylesheet">
 
 </head>
 
 <body>
-
-
-        <div class="body">
-            <div class="wrapper">
-                @yield("body")
-            </div>
+    @yield("header")
+    <div class="body">
+        <div class="wrapper">
+            @yield("body")
         </div>
+    </div>
+    
+    @include("layaouts.plantilla_footer")
 
 
-        @include("layaouts.plantilla_footer")
+    <!-- JS -->
+    <script src= "{{ asset('js/jquery.js') }}"></script>
+    <script src= "{{ asset('js/puntos.js') }}"></script>
+    <script src= "{{ asset('js/aos.js') }}"></script>
+    <script src= "{{ asset('js/Footer.js') }}"></script>
+    <script src= "{{ asset('js/menu_icon.js') }}"></script>
+    <script src= "{{ asset('js/scroll_inicio.js') }}"></script>
+    <script src= "{{ asset('js/velocity.min.js') }}"></script>
 
-
-        <!-- JS -->
-        <script src= "{{ asset('js/jquery.js') }}"></script>
-        <script src= "{{ asset('js/puntos.js') }}"></script>
-        <script src= "{{ asset('js/aos.js') }}"></script>
-        <script src= "{{ asset('js/Footer.js') }}"></script>
-        <script src= "{{ asset('js/scroll_inicio.js') }}"></script>
-        <script src= "{{ asset('js/velocity.min.js') }}"></script>
-
-
-        <!-- ACTIVAR ANIMACIONES -->
-        <script>espacio.init("white");</script>
-        <script>AOS.init();</script>
-        <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
+    <!-- ACTIVAR ANIMACIONES -->
+    <script>espacio.init();</script>
+    <script>AOS.init();</script>
+    <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
 </body>
 </html>
