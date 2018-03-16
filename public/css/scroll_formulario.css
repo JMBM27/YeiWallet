@@ -11,6 +11,10 @@ html {
 
 
 /*form styles*/
+#msform  .col-md-12{
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
 #msform {
 	min-width: 300px;
 	max-width: 400px;

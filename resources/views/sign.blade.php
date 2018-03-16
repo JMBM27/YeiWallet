@@ -74,7 +74,6 @@
                         @endif
                     </div>
                 </div>
-                        
                 <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
                     <div class="col-md-12">
                         <input id="apellido" type="text" class="form-control" name="apellido" placeholder="Apellido" value="{{ old('apellido') }}">
@@ -86,7 +85,7 @@
                         @endif
                     </div>
                 </div>
-                <div class="form group">
+                <div class="form-group">
                     <div class="col-md-12">
                         <select class="form-control" id="pais" name='pais' novalidate>
                             <option selected value="">País</option>

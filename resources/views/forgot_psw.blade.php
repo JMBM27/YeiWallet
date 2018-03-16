@@ -6,17 +6,28 @@
 
 
     @section("body")
-
-            <form id="msform">
-                 <fieldset>
+            <form id="msform" class="form-horizontal" method="POST" action="{{ route('password.email') }} ">
+                {{ csrf_field() }}
+                <fieldset>
                     <p class="formulario_titulo">Recuperar Contraseña</p>
                     <hr>
-                    <input maxlength="" minlength="" id="recover_psw" name="Recuperar Contraseña" placeholder="Ingrese su correo electrónico"/>
-                    <div id="gwd-reCAPTCHA_2">
-                        <div class="g-recaptcha" data-sitekey="6Ld4A0sUAAAAAPBMP0dW1iyw4WyuBAq0MD6ziWqG"> <!-- style="transform:scale(0.86);-webkit-transform:scale(0.86);transform-origin:0 0;-webkit-transform-origin:0 0;"--></div>
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
+                    <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                        <div class="col-md-12">
+                            <input id="email" type="email" placeholder="Ingrese su correo electrónico" class="form-control" name="email" value="{{ old('email') }}" required>
+
+                            @if ($errors->has('email'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('email') }}</strong>
+                                </span>
+                            @endif
+                        </div>
                     </div>
-                    <input type="submit" name="next" class="next action-button" value="Siguiente"/>
+                    <input type="submit" name="next" class="action-button" value="Enviar"/>
                 </fieldset>
             </form>
-
     @endsection
