@@ -12,7 +12,8 @@
     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/scroll_formulario.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
-    <script src= "{{ asset('js/validar.js') }}"></script>
+    <script src="{{asset('js/validar.js')}}"></script>
+    <script src="{{asset('js/validar_persona.js')}}"></script>
     <script src='https://www.google.com/recaptcha/api.js'></script>
 </head>
 

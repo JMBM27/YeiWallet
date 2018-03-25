@@ -15,7 +15,7 @@ Route::get('/', function () {
     return view('inicio');
 });
 
-Route::get('/dashboard', 'HomeController@index')->name('dashboard');
+//Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
 Route::get('/login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login','Auth\LoginController@login')->name('login');
@@ -31,4 +31,8 @@ Route::post('/recovery', 'Auth\ResetPasswordController@reset')->name('password.r
 
 Route::get('/transfer',function (){
     return view( 'send_money');
+});
+
+Route::get('/dash',function (){
+    return view( 'dashboard');
 });

@@ -7,7 +7,7 @@
     @section("body")
 
 
-            <form id="msform" class="form-horizontal" method="POST" action="{{ route('login') }}">
+            <form id="msform" class="form-horizontal" method="POST" action="{{ route('login') }}" autocomplete ="off">
                 {{ csrf_field() }}
                 <fieldset>
                     <p class="formulario_titulo">Ingresar</p>
@@ -15,24 +15,24 @@
 
                     <div class="form-group{{ $errors->has('usuario') ? ' has-error' : '' }}">
                         <div class="col-md-12">
-                            <input id="usuario" type="text" placeholder="Usuario" class="form-control" name="usuario" value="{{ old('usuario') }}" required>
+                            <input id="usuario" type="text" placeholder="Usuario" class="form-control" name="usuario" value="{{ old('usuario') }}">
 
                             @if ($errors->has('usuario'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('usuario') }}</strong>
-                                </span>
+                                <div class="error">
+                                    {{ $errors->first('usuario') }}
+                                </div>
                             @endif
                         </div>
                     </div>
 
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <div class="col-md-12">
-                            <input id="password" type="password" placeholder="Password" class="form-control" name="password" required>
+                            <input id="password" type="password" placeholder="Password" class="form-control" name="password">
 
                             @if ($errors->has('password'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
+                                  <div class="error">
+                                    {{ $errors->first('password') }}
+                                  </div>
                             @endif
                         </div>
                     </div>

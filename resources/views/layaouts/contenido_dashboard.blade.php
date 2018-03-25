@@ -1,12 +1,23 @@
 <!doctype html>
 <html lang="en">
+<head>
+    <title>
+        @yield('title')
+    </title>
 
-    <body>
+    <link href="{{ asset('css/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
 
-    <div class="row">
-        <div class="div_der_dashboard col-xs-12 col-sm-9 col-md-9">
-        </div>
-    </div>
 
-    </body>
+</head>
+
+    @include("layaouts.plantilla_header")
+    @include("layaouts.navbar")
+<body>
+    @yield ('body')
+
+
+    <script src= "{{ asset('js/jquery.js') }}"></script>
+    <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
+</body>
 </html>
