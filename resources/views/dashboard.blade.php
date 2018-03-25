@@ -49,7 +49,8 @@ else{
                     Dashboard
                 </div>
 
-                <div class="div_btc_wallet col-xs-12 col-sm-4 col-md-4 col-lg-3">
+              <div class="row">
+                <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
                    <div class="div_btc_titulo">
                         Bitcoin
                    </div>
@@ -71,7 +72,62 @@ else{
                         </table>
                     </div>
                 </div>
+
+                <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                   <div class="div_eth_titulo">
+                       Ethereum
+                   </div>
+                    <div class="div_eth_body">
+                        <p>$<?php echo $precio; ?></p>
+                    <table class="table">
+                        <tr>
+                            <th>1</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                        </tr>
+                        <tr>
+                            <th>1</th>
+                        </tr>
+                    </table>
+                    </div>
+                </div>
+
+                  <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                      <div class="div_trans_titulo">
+                          Últimas transacciones
+                      </div>
+                      <div class="div_vent_body">
+                      <table class="table">
+                          <tr>
+                              <th>User<th>
+                              <th><img src="Imagenes/money-out.svg" class="icono"">00001</th>
+                              <th>btc</th>
+                          </tr>
+                          <tr>
+                              <th>1</th>
+                          </tr>
+                          <tr>
+                              <th>1</th>
+                          </tr>
+                          <tr>
+                              <th>1</th>
+                          </tr>
+                          <tr>
+                              <th>1</th>
+                          </tr>
+                      </table>
+                      </table>
+
+                  </div>
+              </div>
             @endsection
+
+
+
 
             <script>
                 $('document').ready(function () {

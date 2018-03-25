@@ -496,6 +496,11 @@ a.class_a_href:hover{
     width: 15px;
 }
 
+.icono{
+    margin: -2px 7px 5px 5px;
+    width: 15px;
+}
+
 /* ----------------- PARTE DERECHA DEL DASHBOARD ------------------------------*/
 
 .div_der_dashboard{
@@ -519,51 +524,55 @@ a.class_a_href:hover{
     text-transform: uppercase;
 }
 
-.div_btc_wallet{
+.div_vent_dash{
+    font-family: Roboto;
     background-color: white;
-    margin: 10px;
+    margin: auto;
     padding: 0;
-    -webkit-box-shadow: 0px 3px 33px 1px rgba(0,0,0,0.15);
-    -moz-box-shadow: 0px 3px 33px 1px rgba(0,0,0,0.15);
-    box-shadow: 0px 3px 33px 1px rgba(0,0,0,0.15);
+    text-align: center;
+    -webkit-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
 }
 
 .div_btc_body p{
     color: #FF9900;
     font-size: 40px;
     margin: 10px;
-
 }
 
-.div_btc_body{
+.div_vent_body{
     text-align: center;
+}
+
+.div_eth_titulo{
+    background-color: #102026;
+    height: 60px;
+    color: white;
+    font-size: 20px;
+    padding: 15px;
+    text-transform: uppercase;
+}
+
+.div_eth_body p{
+    color: #102026;
+    font-size: 40px;
+    margin: 10px;
+}
+
+.div_trans_titulo{
+    background-color: #5882FA;
+    height: 60px;
+    color: white;
+    font-size: 15px;
+    padding: 15px;
+    text-transform: uppercase;
 }
 
 .table th{
     text-align: center;
 }
 
-/*
-.div_btc_wallet{
-    width: 100%;
-    background-color: orange;
-    height: 300px;
-    margin: 30px auto;
-
-}
-
-.div_eth_wallet{
-    background-color: #2e6da4;
-    height: 300px;
-    margin: 30px auto;
-}
-
-.div_onix_wallet{
-    background-color: #2E2E2E;
-    height: 300px;
-    margin: 30px auto;
-}
-*/
 .div_enviar_money{
     display: block;
 }
