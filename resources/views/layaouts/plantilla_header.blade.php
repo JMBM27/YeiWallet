@@ -7,6 +7,8 @@
                 <a class ="Link_Header" href="http://www.facebook.com">
                     <img src="Imagenes/LOGO1.1.svg" alt="LOGO" width="30">YeiWallet</a>
             </div>
+
+            @yield('header')
         </div>
     </header>
 </html>

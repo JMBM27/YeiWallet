@@ -6,6 +6,8 @@
 
     @section("body")
 
+
+
         <form id="msform" class="form-horizontal" method="POST" action="{{ route('sign') }}" autocomplete="off">
             {{ csrf_field() }}
             <ul id="progressbar">
@@ -13,8 +15,10 @@
                 <li>Datos Personales</li>
                 <li>Otros</li>
             </ul>
-         <fieldset>
-                <p class="formulario_titulo">Registro</p>
+
+
+            <fieldset>
+               <p class="formulario_titulo">Registro</p>
                 <hr>
                 <div class="form-group{{ $errors->has('usuario') ? ' has-error' : '' }}">
                     <div class="col-md-12">
@@ -93,23 +97,44 @@
                     </div>
                 </div>
 
-
                 <div class="div_terminos">
                     <input type="checkbox"/>
-                    Acepto los <a href="#">terminos y condiciones</a> del sitio
+                    Acepto los <a data-toggle="modal" href="#ventana_codigo" aria-controls="#cod">términos y condiciones</a> del sitio web
                 </div>
-            
+
                 <input type="button" name="previous" class="previous action-button" value="Anterior" />
                 <input type="submit" class="next action-button" value="Registrarse"/>
             </fieldset>
-        <!--
+
+
             <fieldset>
-                <p class ="formulario_titulo">Otros<p>
-                <hr>
-                <input type="button" name="previous" class="previous action-button" value="Anterior" />
-                <button type="submit" class="action-button"> Register</button>
+                @section('titulo_ventana')
+                    <div class="formulario_titulo">
+                        Términos y condiciones
+                    </div>
+                @endsection
+
+                @section('body_ventana')
+                    <div class='div_terminos_texto'>
+                        <iframe class="div_terminos_texto" src="https://docs.google.com/document/d/1GBXEtEc_kkji8hD3Ho4jGLDKVbbmqNdWZe27MX6366k/pub?embedded=true">
+                        </iframe>
+                    </div>
+                @endsection
+
+                @section('footer_ventana')
+                @endsection
+
             </fieldset>
-            -->
+
+
+            <!--
+                <fieldset>
+                    <p class ="formulario_titulo">Otros<p>
+                    <hr>
+                    <input type="button" name="previous" class="previous action-button" value="Anterior" />
+                    <button type="submit" class="action-button"> Register</button>
+                </fieldset>
+                -->
         </form>
 
     @endsection

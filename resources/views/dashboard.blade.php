@@ -45,11 +45,13 @@ else{
        
         @section("body")
             @section("content")
-              <div id="titulo_trans">
-                    Dashboard
-                </div>
 
-              <div class="row">
+                  <div id="titulo_trans" class=" col-col-md-12">
+                      Dashboard
+                  </div>
+
+                  <div class="dash">
+                  <div class="row">
                 <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
                    <div class="div_btc_titulo">
                         Bitcoin
@@ -103,9 +105,8 @@ else{
                       <div class="div_vent_body">
                       <table class="table">
                           <tr>
-                              <th>User<th>
-                              <th><img src="Imagenes/money-out.svg" class="icono"">00001</th>
-                              <th>btc</th>
+                              <th>Jose Boscan<th>
+                              <th><img src="Imagenes/money-out.svg" class="icono">00001 BTC</th>
                           </tr>
                           <tr>
                               <th>1</th>
@@ -122,6 +123,7 @@ else{
                       </table>
                       </table>
 
+                  </div>
                   </div>
               </div>
             @endsection

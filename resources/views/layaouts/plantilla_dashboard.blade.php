@@ -9,15 +9,17 @@
     <title>YeiWallet - @yield('title')</title>
     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/scroll_formulario.css') }}">
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src= "{{ asset('js/validar.js') }}"></script>
-
-       
 
 </head>
 
 
 
         @include("layaouts.plantilla_header")
+        @include("layaouts.plantilla_ventana")
 
     <body>
          @include("layaouts.navbar")
@@ -27,8 +29,7 @@
 
 
 
-
-    <!-- JS
+<!-- JS
     <script src= "{{ asset('js/jquery.js') }}"></script>
     <script src= "{{ asset('multi_form.js') }}"></script>
     <!-- <script src= " {{ asset('refresh.hs') }}"></script>

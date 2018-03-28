@@ -1,5 +1,8 @@
+
+
+<body>
 <div class="modal fade" role="dialog" id="ventana_codigo">
-    <div class="modal-dialog modal-md">
+    <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content" id="msform">
             <div class="modal-header">
                 <div class="modal-title">
@@ -16,3 +19,4 @@
         </div>
     </div>
 </div>
+</body>
