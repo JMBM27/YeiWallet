@@ -15,16 +15,12 @@
     <script src= "{{ asset('js/validar.js') }}"></script>
 
 </head>
-
-
-
-        @include("layaouts.plantilla_header")
-        @include("layaouts.plantilla_ventana")
-
-    <body>
-         @include("layaouts.navbar")
-         @yield("body")
-    </body>
+<body>
+    @include("layaouts.plantilla_header")
+    @include("layaouts.plantilla_ventana")  
+    @include("layaouts.navbar")
+    @yield("body")
+</body>
 
 
 

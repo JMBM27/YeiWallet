@@ -48,18 +48,13 @@ function validar(){
         error_password.innerHTML = "Las contraseñas deben tener un minimo de 8 y un maximo de 20 caracteres";
         return false;
     }
-    else if (!expresion_regular.test(password) || !expresion_regular.test(password_confirm)){
-        error_password.style.display = 'block';
-        error_password.innerHTML = "EL usuario debe tener al menos 1 mayúscula y 2 dígitos";
-        return false;      
-    }
     else if (password != password_confirm){
         error_password.style.display = 'block';
         error_password.innerHTML = "Las contraseñas deben ser iguales";
         return false;     
     }
-     else{
-        return true;
+    else{
+       return true;
     }
 
         
@@ -99,7 +94,6 @@ function eliminar_error() {
     document.getElementById('error_usuario').style.display = 'none';
     document.getElementById('error_email').style.display = 'none';
     document.getElementById('error_password').style.display = 'none';
-
 }
     
 

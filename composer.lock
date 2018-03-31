@@ -4,8 +4,84 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "b7904d07d1e1765a0a199aa11d6301a3",
+    "content-hash": "f8fbc44dd5d9bcb2d6ebc5bc3f1de5ba",
     "packages": [
+        {
+            "name": "block_io-php/block_io-php",
+            "version": "v1.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/BlockIo/block_io-php.git",
+                "reference": "854477bb98fea7af1618373fd90009119791b71b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/BlockIo/block_io-php/zipball/854477bb98fea7af1618373fd90009119791b71b",
+                "reference": "854477bb98fea7af1618373fd90009119791b71b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-gmp": "*",
+                "php": ">=5.6.0"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "lib/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Block.io is the easiest way to create wallets, send, and accept payments through Bitcoin, Litecoin, and Dogecoin. This is its PHP library.",
+            "homepage": "https://block.io",
+            "keywords": [
+                "bitcoin",
+                "block.io",
+                "block_io",
+                "dogecoin",
+                "litecoin"
+            ],
+            "time": "2017-09-10T03:09:30+00:00"
+        },
+        {
+            "name": "blockchain/blockchain",
+            "version": "v1.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/blockchain/api-v1-client-php.git",
+                "reference": "590c83b7fee24f43828bf9587fecbc97ee7f75be"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/blockchain/api-v1-client-php/zipball/590c83b7fee24f43828bf9587fecbc97ee7f75be",
+                "reference": "590c83b7fee24f43828bf9587fecbc97ee7f75be",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Blockchain\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Blockchain API client library",
+            "homepage": "https://github.com/blockchain/api-v1-client-php",
+            "keywords": [
+                "bitcoin",
+                "blockchain"
+            ],
+            "time": "2017-06-13T13:15:17+00:00"
+        },
         {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "0.1",

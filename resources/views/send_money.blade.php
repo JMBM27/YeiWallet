@@ -1,4 +1,4 @@
-@extends("layaouts.plantilla_dashboard")
+@extends("layaouts.contenido_dashboard")
 
     @section("title")
         Transferir
@@ -6,71 +6,51 @@
 
     @section("header")
     @endsection
+    
+    @section("menu")
+        <li><a href="{{ route('dashboard') }}"><img src="{{ asset('Imagenes/home.svg') }}" class="icono">Inicio</a></li>
+        <li class="select"><a href="{{ route('select.wallet.send') }}" onclick="enviar_dinero();"><img src="{{ asset('Imagenes/send.svg') }}" class="icono">Enviar</a></li>
+        <li><a href="{{ route('select.wallet.history') }}"><img src="{{ asset('Imagenes/historial.svg') }}" class="icono">Historial</a></li>
+        <li><a href=""><img src="{{ asset('Imagenes/configuracion.svg') }}" class="icono">Configuración</a></li>
+        <li><a href="{{ route('logout') }}"><img src="{{ asset('Imagenes/salir.svg') }}" class="icono">Salir</a></li>
+    @endsection
 
     @section("body")
         @section("content")
-              <div id="titulo_trans">
-                   Transferir <hr>
+            <div id="titulo_trans">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-6">
+                        Transferir
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                        <h5 style="margin: 17px;"><?php echo $address; ?></h5>
+                    </div>
+                </div> 
             </div>
+            <hr>
+            <h5 style="margin-left: 17px;"><?php echo "  Saldo disponible: " .$balance; ?></h5>
 
-              <h2 style="margin-left: 17px;">Mis wallets</h2>
+            <div class="row" id="trans">
+                <div class="div_enviar_money col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <form action="#">
+                        <div class="row">
 
-              <div class="row" id="trans">
-                <div class="div_direccion_btc col-sm-12 col-lg-4">
-                  <button class="btn-primary" data-toggle="collapse" data-target="#direccion_btc">Bitcoin</button>
-                    <div id="direccion_btc" class="collapse">
-                        Saldo disponible 0000000001
-                        31uEbMgunupShBVTewXjtqbBv5MndwfXhb
-                    </div>
-              </div>
-
-              <div class="div_direccion_eth col-sm-12 col-lg-4">
-                  <button class="btn-primary" data-toggle="collapse" data-target="#direccion_eth">Ethereum</button>
-                     <div id="direccion_eth" class="collapse">
-                         Saldo Disponible 000000000005
-                         31uEbMgunupShBVTewXjtqbBv5MndwfXhb
-                      </div>
-              </div>
-              </div>
-
-
-              <div class="div_enviar_money col-xs-12 col-sm-12 col-md-12 col-lg-12">
-
-                  <form action="#">
-                    <div class="row">
-
-                        <div class="dir_monedero col-xs-12 col-sm-7 col-md-6 col-lg-4">
-                            <label>Dirección de la Wallet</label>
-                            <input class="form-control" type="text" id="wallet_enviar"/>
-                            <!--<div class="error">La wallet ingresada no es correcta</div>-->
-                        </div>
-
-                        <div class="monto_enviar col-xs-12 col-sm-5 col-md-5 col-lg-3">
-                            <label>Cantidad en bitcoins</label>
-                            <input class="form-control" type="text" id="cantidad_enviar">
-                        </div>
-
-                        <div class="select_moneda col-xs-12 col-sm-12 col-md-12">
-                            <p>Seleccione la moneda</p>
-
-                            <div class="row">
-                                <div id="bitcoin">
-                                    <input type="checkbox" id="checkbox1" onclick="check1(this)"/>
-                                    <img src="Imagenes/bitcoin.png" height="60" width="60"/>
-                                </div>
-
-                                <div id="ethereum">
-                                    <input type="checkbox" id="checkbox2" onclick="check2(this)"/>
-                                    <img src="Imagenes/ethereum.png" width="60"/>
-                                </div>
+                            <div class="dir_monedero col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <label>Dirección de la Wallet</label>
+                                <input class="form-control" type="text" id="wallet_enviar"/>
+                                <!--<div class="error">La wallet ingresada no es correcta</div>-->
                             </div>
-                        </div>
 
-                        <input type="button" class="action-button1" data-toggle="modal" data-target="#ventana_codigo" value="Enviar"/>
-                    </div>
-                    <div class="comision">
-                        Al monto enviado se le restara la<a href="">comisión</a>
-                    </div>
+                            <div class="monto_enviar col-xs-12 col-sm-12 col-md-6 col-lg-6">
+                                <label>Cantidad en <?php echo $moneda; ?></label>
+                                <input class="form-control" type="text" id="cantidad_enviar">
+                            </div>
+
+                            <input type="button" class="action-button1" data-toggle="modal" data-target="#ventana_codigo" value="Enviar"/>
+                        </div>
+                        <div class="comision col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            Al monto enviado se le restara la<a href="">comisión</a>
+                        </div>
 
 
                       @section('titulo_ventana')
@@ -118,7 +98,7 @@
                 </form>
             </div>
         @endsection
-        @endsection
+    @endsection
 
 
 
