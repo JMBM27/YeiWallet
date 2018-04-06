@@ -11,7 +11,11 @@
         <li><a href="{{ route('dashboard') }}"><img src="{{ asset('Imagenes/home.svg') }}" class="icono">Inicio</a></li>
         <li class="select"><a href="{{ route('select.wallet.send') }}" onclick="enviar_dinero();"><img src="{{ asset('Imagenes/send.svg') }}" class="icono">Enviar</a></li>
         <li><a href="{{ route('select.wallet.history') }}"><img src="{{ asset('Imagenes/historial.svg') }}" class="icono">Historial</a></li>
-        <li><a href=""><img src="{{ asset('Imagenes/configuracion.svg') }}" class="icono">Configuración</a></li>
+        <li><a class="select" data-toggle="collapse" href="#collapse1" href=""><img src="{{ asset('Imagenes/configuracion.svg') }}" class="icono">Configuración</a></li>
+        <div id="collapse1" class="panel-collapse collapse">
+            <li><a href=""><img src="{{ asset('Imagenes/historial.svg') }}" class="icono">Actualizar</a></li>
+            <li><a href=""><img src="{{ asset('Imagenes/historial.svg') }}" class="icono">Contactanos</a></li>
+        </div>
         <li><a href="{{ route('logout') }}"><img src="{{ asset('Imagenes/salir.svg') }}" class="icono">Salir</a></li>
     @endsection
 

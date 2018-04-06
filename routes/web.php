@@ -51,3 +51,11 @@ Route::get('/transfer',function (){
 Route::get('/dash',function (){
     return view('dashboard');
 });
+
+Route::get('/config',function (){
+    return view('update_email');
+});
+
+Route::get('/config/update',function (){
+    return view('password_act');
+});
