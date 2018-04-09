@@ -349,7 +349,7 @@ a.class_a_href:hover{
     }
 
     .div_enviar_money input{
-        margin: 10 0;
+        margin: 10px 0;
         width: 100%;
     }
 
@@ -358,12 +358,27 @@ a.class_a_href:hover{
         font-size: 40px;
         margin: 10px;
     }
+
+    .div_actualizar_correo input {
+        margin: 10px 0;
+        width: 100%;
+    }
 }
 
 @media only screen and (max-width: 568px) {
 
     .table {
        height: 300px;
+    }
+
+    .div_fech_nac .form-control{
+        width: 130px !important;
+        padding-left: 5px !important;
+    }
+
+    .div_fech_nac .input-group-addon{
+        width: 20px !important;
+        height: 50px !important;
     }
 }
 
@@ -492,11 +507,16 @@ a.class_a_href:hover{
     background-color:#434c53;
 }
 
-.nav_dashboard a:hover{
+.select2{
+    background-color: #2e6da4;
+}
+
+.nav_dashboard a:hover, .nav_dashboard a:link, .nav_dashboard a:visited,
+.nav_dashboard #collapse1 a:hover, .nav_dashboard #collapse1 a:link, .nav_dashboard #collapse1 a:visited{
     text-decoration: none;
     color: white;
 }
-
+/*
 .nav_dashboard a:link{
     color: white;
 }
@@ -504,11 +524,10 @@ a.class_a_href:hover{
 .nav_dashboard a:visited{
     color: white;
 }
-
+*/
 .nav_dashboard li:hover{
     background-color: #2e6da4;
 }
-
 
 .img {
     margin: 10px 10px 10px 20px;
@@ -525,6 +544,34 @@ a.class_a_href:hover{
     width: 15px;
 }
 
+.nav_dashboard #collapse1 li{
+    color: white;
+    background-color: #434c53;
+    text-decoration: none;
+}
+
+.nav_dashboard #collapse1 li:hover{
+    background-color: #2e6da4;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+/*
+#collapse1 li,a{
+    display: block;
+    color: white;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    text-decoration: none;
+}
+*/
 /* ----------------- PARTE DERECHA DEL DASHBOARD ------------------------------*/
 
 .div_der_dashboard{
@@ -611,10 +658,15 @@ a.class_a_href:hover{
 
 /* -------------------------------------------------------------------------*/
 
-#error, #error_usuario, #error_email, #error_password{
+#error, #error_usuario, #error_email,
+#error_password,#error_password_2,#error_nombre,
+#error_apellido,#error_checkbox,#error_f_nacimiento,#error_password_3{
     background-color: rgba(255,0,0,0.4);
     color: black;
     font-size: 15px;
+    padding: 5px;
+    display: none;
+    text-align: center;
 }
 
 a#hide{
@@ -808,4 +860,58 @@ iframe::-webkit-scrollbar{
 a:hover > .div_btc_body,a:hover > .div_btc_titulo{
     opacity: 0.7;
     filter: alpha(opacity=30); 
+}
+
+.div_actualizar_correo{
+    margin-top: 30px;
+}
+
+.div_actualizar_correo p{
+    margin: 10px 0 0 15px;
+    font-size: 25px;
+}
+
+.error_borde{
+    border: 2px solid red;
+}
+
+
+.div_fech_nac{
+    text-align: left;
+    font-size: 18px;
+}
+
+/* MODIFICACIONES DE CLASES DE BOOTSTRAP*/
+
+.div_fech_nac .form-control{
+    background-color: white !important;
+}
+
+.div_fech_nac .input-group-addon{
+    background-color: #EFFBFB !important;
+    margin-top: 5px;
+    height: 51px;
+    padding-top: 0 !important;
+}
+
+.div_fech_nac .input-group-addon:hover{
+    background-color: #0e90d2 !important;
+}
+/* ------------------------------- */
+
+.ocultar{
+    display: none;
+}
+
+/*--------------------------------- */
+
+#cambio_datos img{
+    margin-bottom: 30px;
+}
+
+#cambio_datos{
+    margin: 30px;
+    font-size: 30px;
+    text-align: center;
+    padding: 10px;
 }

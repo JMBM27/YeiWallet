@@ -13,8 +13,8 @@
 
     <link href="{{ asset('css/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
-    
     <script src= "{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{asset('js/validar.js')}}"></script>
 
 
 </head>
@@ -23,7 +23,29 @@
 <body>
     @yield ('body')
 
+    <script>
+            $(document).ready(function () {
+                    $('#cambio_contraseña').on('submit', function (e) {
+                        var enviar = validar_actualizacion_password();
+                        e.preventDefault();
+                        if (enviar) {
+                            $.ajax({
+                                url: $(this).attr('action') || window.location.pathname,
+                                type: "GET",
+                                data: $(this).serialize(),
+                                success: function (data) {
+                                    $("#cambio_contraseña").hide();
+                                    $("#cambio_datos").show();
+                                },
+                                error: function (jXHR, textStatus, errorThrown) {
+                                    alert(errorThrown);
+                                }
+                            });
+                        }
+                    });
+            });
 
+    </script>
     
     <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
 </body>
