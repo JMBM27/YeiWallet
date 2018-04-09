@@ -4,7 +4,7 @@ $isAddressBtc = App\AddressBtc::exists(Auth::user()->id);
 $isAddressLtc = App\AddressLtc::exists(Auth::user()->id);
 $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
 
-$url = "http://www.bitstamp.net/api/ticker/";
+/*$url = "http://www.bitstamp.net/api/ticker/";
 $opt=array(
     "ssl"=>array(
         "verify_peer"=>false,
@@ -37,7 +37,7 @@ else{
     $porcentajeCambio = $indicador.number_format($porcentaje, 2);
     $color = "red";
 }
-
+*/
 ?>
 
 @extends ("layaouts.contenido_dashboard")
@@ -83,19 +83,19 @@ else{
                                 Bitcoin
                             </div>
                             <div class="div_btc_body" id="r_btc">
-                                <p>$<?php echo $precio; ?></p>
+                                <p>$<?php //echo $precio; ?></p>
                                 <table class="table">
                                     <tr>
-                                        <th>Precio más alto $<?php echo $alto; ?></th>
+                                        <th>Precio más alto $<?php //echo $alto; ?></th>
                                     </tr>
                                     <tr>
-                                        <th>Precio más bajo $<?php echo $bajo; ?></th>
+                                        <th>Precio más bajo $<?php //echo $bajo; ?></th>
                                     </tr>
                                     <tr>
-                                        <th><?php echo $fecha; ?></th>
+                                        <th><?php //echo $fecha; ?></th>
                                     </tr>
                                     <tr>
-                                        <th style="color: <?php echo $color?>;"><?php echo $porcentajeCambio; ?></th>
+                                        <th style="color: <?php //echo $color?>;"><?php //echo $porcentajeCambio; ?></th>
                                     </tr>
                                 </table>
                             </div>
@@ -106,7 +106,7 @@ else{
                                 Ethereum
                             </div>
                             <div class="div_eth_body">
-                                <p>$<?php echo $precio; ?></p>
+                                <p>$<?php //echo $precio; ?></p>
                                 <table class="table">
                                     <tr>
                                         <th>1</th>

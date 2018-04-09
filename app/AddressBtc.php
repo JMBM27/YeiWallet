@@ -18,7 +18,7 @@ class AddressBtc extends Model
     }
     
     protected $fillable = [
-        'address','guid','tag','password','usuario_id',
+        'address','guid','label','password','usuario_id',
     ];
     
     protected $hidden = [
