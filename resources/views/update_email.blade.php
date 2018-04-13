@@ -22,17 +22,22 @@
 
     @section('body')
         @section('content')
-            <form id="cambio_contraseña" method="post" autocomplete="off">
+            <form id="cambio_contraseña" method="POST" action="{{ route('password.request') }} " autocomplete="off">
+                {{ csrf_field() }}
+                
+                <input type="hidden" name="token" value="{{ $token }}">
+                <input type="hidden" name="email" value="{{ $email }}" id="email">
+                
                 <div id="titulo_trans">Actualizar su contraseña</div>
                 <div class="row">
                     <div class="div_actualizar_correo col-xs-12 col-sm-12 col-md-5 col-lg-3">
                         <p>Ingrese su contraseña actual</p><br>
-                       <input id="password" type="password" class="form-control" onclick="eliminar_error(3)"/><br>
+                        <input id="password" type="password" class="form-control" onclick="eliminar_error(3)"/><br>
                         <div id="error_password"></div>
                         <p>Ingrese su nueva contraseña</p><br>
-                        <input id="password-confirm" type="password" class="form-control" onclick="eliminar_error(4)" /><br>
+                        <input id="password-confirm" type="password" class="form-control" onclick="eliminar_error(4)" name="password"/><br>
                         <p>Verifique su nueva contraseña</p>
-                        <input id="password-confirm-2" type="password" class="form-control" onclick="eliminar_error(4)"/>
+                        <input id="password-confirm-2" type="password" class="form-control" onclick="eliminar_error(4)" name="password_confirmation"/>
                         <div id="error_password_2"></div>
                        <input type="submit" class="action-button1" value="Enviar"/>
                     </div>

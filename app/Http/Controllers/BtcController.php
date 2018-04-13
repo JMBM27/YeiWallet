@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\AddressBtc;
 
-class BtcController extends Controller
+class BtcController extends AddressController
 {
+    protected $network='BTCTEST';
     /**
      * Create a new controller instance.
      *
@@ -23,29 +24,13 @@ class BtcController extends Controller
      */
     public function createWallet(){
         if(!AddressBtc::exists(Auth::user()->id)){
-            $api_code = env('API_BTC', null);
-
-            $Blockchain = new \Blockchain\Blockchain($api_code);
-            $Blockchain->setServiceUrl('http://localhost:3000/');
-
-            $ps='weakPassword01!';
-            
-            $wallet = $Blockchain->Create->create($ps);
-        
-        
-            $newAddress=new AddressBtc;
-        
-            $newAddress->address=$wallet->address;
-            $newAddress->guid=$wallet->guid;
-            if(is_null($wallet->label)){
-                $newAddress->label='';
+            if(strcmp($this->network,'BTC')==0){
+                $newAddress=new AddressBtc;
+                $wallet = $this->blockchain_new_address($newAddress);
             }else{
-                $newAddress->label=$wallet->label;   
+                $newAddress=new AddressBtc;
+                $wallet = $this->blockio_new_address($newAddress);
             }
-            $newAddress->password=$ps;
-            $newAddress->usuario_id=Auth::user()->id;
-        
-            $newAddress->save();
         }
         return redirect('/dashboard');
     }
@@ -56,19 +41,35 @@ class BtcController extends Controller
     public function send(){
         $add = AddressBtc::getAddress();
         if(!is_null($add)){
-            $api_code = env('API_BTC', null);
-            $Blockchain = new \Blockchain\Blockchain($api_code);
-            $Blockchain->setServiceUrl('http://localhost:3000/');
-            $Blockchain->Wallet->credentials($add['guid'], $add['password']);
-
-            $balance=$Blockchain->Wallet->getBalance();
-            
+            $balance='';
+            if(strcmp($this->network,'BTC')==0){
+                $balance=$this->blockchain_balance($add);
+            }else {
+                $balance=$this->blockio_balance($add);
+            }
             return view('send_money')
                     ->with('address',$add['address'])
                     ->with('balance',$balance)
-                    ->with('moneda','Bitcoins');
+                    ->with('moneda','Bitcoins')
+                    ->with('wallet','btc');
         }
         return redirect('/dashboard');
+    }
+    
+    public function sending($address,$monto){
+        $add = AddressBtc::getAddress();
+        if(!is_null($add)){
+            $balance='';
+            if(strcmp($this->network,'BTC')==0){
+                //$result=$this->blockchain_balance($add);
+            }else {
+                $result=$this->blockio_send($add,$address,$monto);
+                var_dump($result);
+            }
+            
+            return "enviado";
+        }
+        //return redirect('/dashboard');
     }
            
     /* 

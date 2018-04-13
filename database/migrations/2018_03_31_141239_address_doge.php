@@ -13,10 +13,10 @@ class AddressDoge extends Migration
      */
     public function up()
     {
-         Schema::create('address_doge', function (Blueprint $table) {
-            $table->integer('id');
-            $table->string('address',34);
-            $table->string('label',100);
+        Schema::create('address_doge', function (Blueprint $table) {
+            $table->string('address',35);
+            $table->string('priv_key',54)->nullable();
+            $table->string('label',100)->nullable();
             $table->integer('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('usuario');
             $table->primary('usuario_id');

@@ -22,7 +22,11 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
         <li><a href="{{ route('select.wallet.send') }}" onclick="enviar_dinero();"><img src="{{ asset('Imagenes/send.svg') }}" class="icono">Enviar</a></li>
         <li class="select"><a href="{{ route('select.wallet.history') }}"><img src="{{ asset('Imagenes/historial.svg') }}" class="icono">Historial</a></li>
         <?php } ?>
-        <li><a href=""><img src="{{ asset('Imagenes/configuracion.svg') }}" class="icono">Configuración</a></li>
+        <li><a data-toggle="collapse" href="#collapse1" href=""><img src="{{ asset('Imagenes/configuracion.svg') }}" class="icono">Configuración</a></li>
+        <div id="collapse1" class="panel-collapse collapse">
+            <li><a href=""><img src="{{ asset('Imagenes/update.svg') }}" class="icono">Actualizar</a></li>
+            <li><a href=""><img src="{{ asset('Imagenes/email.svg') }}" class="icono">Contactanos</a></li>
+        </div>
         <li><a href="{{ route('logout') }}"><img src="{{ asset('Imagenes/salir.svg') }}" class="icono">Salir</a></li>
     @endsection
 

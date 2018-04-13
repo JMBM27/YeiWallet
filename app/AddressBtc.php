@@ -6,25 +6,18 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Session;
 class AddressBtc extends Model
 {
-    protected $table = 'address_btc';
-    public	$timestamps	=	false;
+    protected $table = 'address_btctest';
+    public $timestamps = false;
     protected $primaryKey	=	'usuario_id';
     
-    protected $connection = 'default';
-    
-    public function __construct() {
-        parent::__construct();
-        $this->connection = Session::get("location");
-    }
+    //protected $fillable = [
+    //    'address','guid','priv_key','label','password','usuario_id',
+    //];
     
     protected $fillable = [
-        'address','guid','label','password','usuario_id',
+        'id','address','priv_key','label','usuario_id',
     ];
-    
-    protected $hidden = [
-        'guid',
-    ];
-    
+
     public static function exists($id){
         $address=Session::get('addressBtc');
         if(is_null($address)){

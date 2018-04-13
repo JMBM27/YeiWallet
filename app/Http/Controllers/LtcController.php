@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\AddressLtc;
 
-class LtcController extends Controller
+class LtcController extends AddressController
 {
+    protected $network='LTCTEST';
     /**
      * Create a new controller instance.
      *
@@ -23,24 +24,9 @@ class LtcController extends Controller
      */
     public function createWallet(){
         if(!AddressLtc::exists(Auth::user()->id)){
-            $api_code = env('API_LTC', null);
-            $pin = env('PIN', null);
-            $version=2;
-
-            $block_io = new \BlockIo\BlockIo($api_code, $pin, $version);
             
-            $label='YeiWallet-'.Auth::user()->id;
-            
-            $wallet = $block_io->get_new_address(array('label' => $label));
-        
             $newAddress=new AddressLtc;
-        
-            $newAddress->id=$wallet->data->user_id;
-            $newAddress->address=$wallet->data->address;
-            $newAddress->label=$wallet->data->label;
-            $newAddress->usuario_id=Auth::user()->id;
-        
-            $newAddress->save();
+            $wallet = $this->blockio_new_address($newAddress);
         }
         return redirect('/dashboard');
     }
@@ -48,18 +34,13 @@ class LtcController extends Controller
     public function send(){
         $add = AddressLtc::getAddress();
         if(!is_null($add)){
-            $api_code = env('API_LTC', null);
-            $pin = env('PIN', null);
-            $version=2;
-
-            $block_io = new \BlockIo\BlockIo($api_code, $pin, $version);
-
-            $balance=$block_io->get_address_balance(array('labels' => $add['label']));
+            $balance=$this->blockio_balance($add);
 
             return view('send_money')
                     ->with('address',$add['address'])
                     ->with('balance',$balance->data->balances[0]->available_balance)
-                    ->with('moneda','Litecoins');
+                    ->with('moneda','Litecoins')
+                    ->with('wallet','ltc');
         }
         return redirect('/dashboard');
     }

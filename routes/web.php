@@ -13,7 +13,7 @@
 
 Route::get('/', function () {
     return view('inicio');
-});
+})->name('home');
 
 Route::get('/dashboard', 'HomeController@index')->name('dashboard');
 
@@ -33,6 +33,8 @@ Route::get('/dashboard/select/wallet/send', 'WalletController@showSelectWalletSe
 Route::get('/dashboard/select/wallet/history', 'WalletController@showSelectWalletHistory')->name('select.wallet.history');
 Route::get('/dashboard/select/wallet', 'WalletController@redirectTo');
 Route::post('/dashboard/select/wallet', 'WalletController@selectWallet')->name('select.wallet');
+Route::get('/dashboard/send/wallet', 'WalletController@redirectTo');
+Route::post('/dashboard/send/wallet', 'WalletController@sendWallet')->name('send.wallet');
 
 Route::get('/login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login','Auth\LoginController@login')->name('login');
@@ -55,7 +57,9 @@ Route::get('/dash',function (){
 });
 
 Route::get('/config',function (){
-    return view('update_email');
+    return view('update_email')
+            ->with('token','SJX1KlnxY7fsU2pZ0aFUCDjOKCZg2iAazouimwTDddNy6vq1er3wFs8P5Wiv')
+            ->with('email','enyelb.gnzlz@gmail.com');
 });
 
 Route::get('/config/update',function (){

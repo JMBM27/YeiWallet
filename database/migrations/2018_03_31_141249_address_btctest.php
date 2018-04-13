@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddreesBtc extends Migration
+class AddressBtctest extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class AddreesBtc extends Migration
      */
     public function up()
     {
-        Schema::create('address_btc', function (Blueprint $table) {
-            $table->string('address',34);
-            $table->string('guid',36);
-            $table->string('label',100);
-            $table->string('password',30);
+         Schema::create('address_btctest', function (Blueprint $table) {
+            $table->string('address',35);
+            $table->string('priv_key',54)->nullable();
+            $table->string('label',100)->nullable();
             $table->integer('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('usuario');
             $table->primary('usuario_id');
@@ -31,6 +30,6 @@ class AddreesBtc extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address_btc');
+        Schema::dropIfExists('address_btctest');
     }
 }

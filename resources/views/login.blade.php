@@ -18,8 +18,11 @@
                             <input id="usuario" type="text" placeholder="Usuario" class="form-control" name="usuario" value="{{ old('usuario') }}">
 
                             @if ($errors->has('usuario'))
-                                <div id="error">
+                                <div style="display: block;" id="error_usuario">
                                     {{ $errors->first('usuario') }}
+                                </div>
+                            @else
+                                <div id="error_usuario">
                                 </div>
                             @endif
                         </div>
@@ -30,9 +33,12 @@
                             <input id="password" type="password" placeholder="Password" class="form-control" name="password">
 
                             @if ($errors->has('password'))
-                                  <div id="error">
+                                <div style="display: block;" id="error_password">
                                     {{ $errors->first('password') }}
-                                  </div>
+                                </div>
+                            @else
+                                <div id="error_password">
+                                </div>
                             @endif
                         </div>
                     </div>

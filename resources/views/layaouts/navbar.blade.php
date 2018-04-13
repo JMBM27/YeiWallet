@@ -3,7 +3,7 @@
 <html lang="en">
 
     <body>
-        <div class="row">
+        <div class="row recortar">
             <div class="div_izq_dashboard col-xs-12 col-sm-3 col-md-3 col-lg-2">
                 <nav class="nav_dashboard">
                     <ul>

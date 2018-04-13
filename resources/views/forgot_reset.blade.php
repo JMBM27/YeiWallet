@@ -18,10 +18,13 @@
                         <div class="col-md-12">
                             <input id="email" type="email"  placeholder="Ingrese su correo electrónico" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
 
-                            @if ($errors->has('email'))
-                                <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                </span>
+                           @if ($errors->has('email'))
+                                <div style="display: block;" id="error_email">
+                                    {{ $errors->first('email') }}
+                                </div>
+                            @else
+                                <div id="error_email">
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -30,9 +33,12 @@
                             <input id="password" type="password" placeholder="Contraseña" class="form-control" name="password">
 
                             @if ($errors->has('password'))
-                                <span class="help-block">
-                                    <strong>{{ $errors->first('password') }}</strong>
-                                </span>
+                                <div style="display: block;" id="error_password">
+                                    {{ $errors->first('password') }}
+                                </div>
+                            @else
+                                <div id="error_password">
+                                </div>
                             @endif
                         </div>
                     </div>

@@ -11,10 +11,10 @@
         <li><a href="{{ route('dashboard') }}"><img src="{{ asset('Imagenes/home.svg') }}" class="icono">Inicio</a></li>
         <li class="select"><a href="{{ route('select.wallet.send') }}" onclick="enviar_dinero();"><img src="{{ asset('Imagenes/send.svg') }}" class="icono">Enviar</a></li>
         <li><a href="{{ route('select.wallet.history') }}"><img src="{{ asset('Imagenes/historial.svg') }}" class="icono">Historial</a></li>
-        <li><a class="select" data-toggle="collapse" href="#collapse1" href=""><img src="{{ asset('Imagenes/configuracion.svg') }}" class="icono">Configuración</a></li>
+        <li><a data-toggle="collapse" href="#collapse1" href=""><img src="{{ asset('Imagenes/configuracion.svg') }}" class="icono">Configuración</a></li>
         <div id="collapse1" class="panel-collapse collapse">
-            <li><a href=""><img src="{{ asset('Imagenes/historial.svg') }}" class="icono">Actualizar</a></li>
-            <li><a href=""><img src="{{ asset('Imagenes/historial.svg') }}" class="icono">Contactanos</a></li>
+            <li><a href=""><img src="{{ asset('Imagenes/update.svg') }}" class="icono">Actualizar</a></li>
+            <li><a href=""><img src="{{ asset('Imagenes/email.svg') }}" class="icono">Contactanos</a></li>
         </div>
         <li><a href="{{ route('logout') }}"><img src="{{ asset('Imagenes/salir.svg') }}" class="icono">Salir</a></li>
     @endsection
@@ -32,25 +32,28 @@
                 </div> 
             </div>
             <hr>
-            <h5 style="margin-left: 17px;"><?php echo "  Saldo disponible: " .$balance; ?></h5>
+            <h5 style="margin-left: 17px;"><?php echo "  Saldo disponible: " . $balance; ?></h5>
 
             <div class="row" id="trans">
                 <div class="div_enviar_money col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <form action="#">
+                    <form method="POST" action="{{ route('send.wallet') }}" autocomplete ="off">
+                        {{ csrf_field() }}
                         <div class="row">
 
                             <div class="dir_monedero col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <label>Dirección de la Wallet</label>
-                                <input class="form-control" type="text" id="wallet_enviar"/>
+                                <input name="address" class="form-control" type="text" id="wallet_enviar"/>
                                 <!--<div class="error">La wallet ingresada no es correcta</div>-->
                             </div>
 
                             <div class="monto_enviar col-xs-12 col-sm-12 col-md-6 col-lg-6">
                                 <label>Cantidad en <?php echo $moneda; ?></label>
-                                <input class="form-control" type="text" id="cantidad_enviar">
+                                <input name="monto" class="form-control" type="text" id="cantidad_enviar">
                             </div>
 
-                            <input type="button" class="action-button1" data-toggle="modal" data-target="#ventana_codigo" value="Enviar"/>
+                            <!--<input type="button" class="action-button1" data-toggle="modal" data-target="#ventana_codigo" value="Enviar"/>-->
+                            <input type="hidden" name="wallet" value="<?php echo $wallet; ?>"/> 
+                            <input type="submit" class="action-button1" value="Enviar"/>
                         </div>
                         <div class="comision col-xs-12 col-sm-12 col-md-12 col-lg-12">
                             Al monto enviado se le restara la<a href="">comisión</a>

@@ -19,32 +19,40 @@
                 <div class="form-group{{ $errors->has('usuario') ? ' has-error' : '' }}">
                     <div class="col-md-12">
                         <input id="usuario" type="text" class="form-control" name="usuario" placeholder="Nombre de usuario" onclick="eliminar_error(1);" value="{{ old('usuario') }}">
-                        <div id="error_usuario">
                         @if ($errors->has('usuario'))
+                            <div style="display: block;" id="error_usuario">
                                 {{ $errors->first('usuario') }}
-                         @endif
-                        </div>
-                      </div>
+                            </div>
+                        @else
+                            <div id="error_usuario">
+                            </div>
+                        @endif
+                    </div>
                 </div>
                 <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                     <div class="col-md-12">
                         <input id="email" type="email" class="form-control" name="email" placeholder="Correo Electronico" onclick="eliminar_error(2);" value="{{ old('email') }}">
-                        <div id="error_email">
-                                @if ($errors->has('email'))
-                                    {{ $errors->first('email') }}
-                                @endif
-                        </div>
-                        </div>
+                        @if ($errors->has('email'))
+                            <div style="display: block;" id="error_email">
+                                {{ $errors->first('email') }}
+                            </div>
+                        @else
+                            <div id="error_email">
+                            </div>
+                        @endif
                      </div>
                 </div>
                 <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                     <div class="col-md-12">
                         <input id="password" type="password" placeholder="Contraseña" class="form-control" name="password" onclick="eliminar_error(3);">
-                        <div id="error_password">
-                            @if ($errors->has('password'))
+                        @if ($errors->has('password'))
+                            <div style="display: block;" id="error_password">
                                 {{ $errors->first('password') }}
-                            @endif
-                        </div>
+                            </div>
+                        @else
+                            <div id="error_password">
+                            </div>
+                        @endif
                      </div>
                 </div>
 
@@ -56,7 +64,7 @@
                 </div>
 
                 <input type="button" name="next" class="next action-button" value="Siguiente">
-           </fieldset>
+            </fieldset>
 
             <fieldset>
                 <p class ="formulario_titulo">Datos Personales<p>
@@ -64,33 +72,39 @@
                 <div class="form-group{{ $errors->has('nombre') ? ' has-error' : '' }}">
                     <div class="col-md-12">
                         <input id="nombre" type="text" class="form-control" name="nombre" placeholder="Nombre" onclick="eliminar_error(5);" value="{{ old('nombre') }}" novalidate>
-                            <div id="error_nombre">
-                                @if ($errors->has('nombre'))
-                                    {{ $errors->first('nombre') }}
-                                @endif
+                        @if ($errors->has('nombre'))
+                            <div style="display: block;" id="error_nombre">
+                                {{ $errors->first('nombre') }}
                             </div>
+                        @else
+                            <div id="error_nombre">
+                            </div>
+                        @endif
                     </div>
                 </div>
                 <div class="form-group{{ $errors->has('apellido') ? ' has-error' : '' }}">
                     <div class="col-md-12">
                         <input id="apellido" type="text" class="form-control" name="apellido" placeholder="Apellido" onclick="eliminar_error(6);" value="{{ old('apellido') }}">
-                             <div id="error_apellido">
-                                @if ($errors->has('apellido'))
-                                    {{ $errors->first('apellido') }}
-                                @endif
-                             </div>
+                        @if ($errors->has('apellido'))
+                            <div style="display: block;" id="error_apellido">
+                                {{ $errors->first('apellido') }}
+                            </div>
+                        @else
+                            <div id="error_apellido">
+                            </div>
+                        @endif
                     </div>
                 </div>
 
-                    <div class="div_fech_nac">
-                        <p>Fecha de nacimiento</p>
-                        <div class="input-group date form_date col-md-12" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
-                            <input id="fecha_nacimiento" class="form-control" size="16" type="text" value="" readonly onclick="eliminar_error(7);">
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><img src="Imagenes/cancelar.svg" width="15"></span></span>
-                            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"><img src="Imagenes/calendario.svg" width="20"></span></span>
-                        </div>
-                        <div id="error_f_nacimiento"></div>
+                <div class="div_fech_nac">
+                    <p>Fecha de nacimiento</p>
+                    <div class="input-group date form_date col-md-12" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
+                        <input id="fecha_nacimiento" class="form-control" size="16" type="text" value="" readonly onclick="eliminar_error(7);">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><img src="Imagenes/cancelar.svg" width="15"></span></span>
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"><img src="Imagenes/calendario.svg" width="20"></span></span>
                     </div>
+                    <div id="error_f_nacimiento"></div>
+                </div>
 
                 <div class="div_terminos">
                     <input id="terminos_checkbox" type="checkbox"/>

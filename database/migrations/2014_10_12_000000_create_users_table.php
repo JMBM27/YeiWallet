@@ -17,13 +17,11 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('nombre',20);
             $table->string('apellido',20);
-            $table->integer('pais')->default('0');
             $table->string('usuario',20)->unique();
             $table->string('email',100)->unique();
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
-            $table->primary('id');
         });
     }
 

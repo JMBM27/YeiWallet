@@ -7,15 +7,11 @@ use Illuminate\Support\Facades\Session;
 class AddressDoge extends Model
 {
     protected $table = 'address_doge';
-    public	$timestamps	=	false;
+    public $timestamps = false;
     protected $primaryKey	=	'usuario_id';
     
     protected $fillable = [
-        'id','address','label','usuario_id',
-    ];
-    
-    protected $hidden = [
-        'guid',
+        'id','address','priv_key','label','usuario_id',
     ];
     
     public static function exists($id){

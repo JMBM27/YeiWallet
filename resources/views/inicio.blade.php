@@ -8,7 +8,7 @@
 @section("header")
      <div class="header">
         <div class="divLogo">
-            <a class ="Link_Header" href="http://www.facebook.com">
+            <a class ="Link_Header" href="{{ route('home') }}">
                 <img alt="Logo" height="60" src="Imagenes/LOGO1.1.svg" width="60">Wallet</a>
         </div>
         @guest

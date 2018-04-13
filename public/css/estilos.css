@@ -211,7 +211,11 @@ a.class_a_href:hover{
 
 .row{
     margin: 0;
-    height: calc(100% - 70px);
+    min-height:100%;
+}
+
+.recortar{
+    overflow: hidden;
 }
 
 .divAlgo{
@@ -661,7 +665,7 @@ a.class_a_href:hover{
 #error, #error_usuario, #error_email,
 #error_password,#error_password_2,#error_nombre,
 #error_apellido,#error_checkbox,#error_f_nacimiento,#error_password_3{
-    background-color: rgba(255,0,0,0.4);
+    background-color: rgba(255,0,0,0.4)!important;
     color: black;
     font-size: 15px;
     padding: 5px;

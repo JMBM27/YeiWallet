@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddressLtc extends Migration
+class AddreesBtc extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,12 @@ class AddressLtc extends Migration
      */
     public function up()
     {
-        Schema::create('address_ltc', function (Blueprint $table) {
+        Schema::create('address_btc', function (Blueprint $table) {
             $table->string('address',35);
-            $table->string('priv_key',54)->nullable();
+            $table->string('guid',36);
             $table->string('label',100)->nullable();
+            $table->string('priv_key',54)->nullable();
+            $table->string('password',30);
             $table->integer('usuario_id')->unsigned();
             $table->foreign('usuario_id')->references('id')->on('usuario');
             $table->primary('usuario_id');
@@ -30,6 +32,6 @@ class AddressLtc extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('address_ltc');
+        Schema::dropIfExists('address_btc');
     }
 }

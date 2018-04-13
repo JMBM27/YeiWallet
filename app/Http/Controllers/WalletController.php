@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use App\Http\Controllers\BtcController;
 
 class WalletController extends Controller
 {
@@ -57,7 +58,7 @@ class WalletController extends Controller
                 return redirect('/dashboard/doge/history');
             }
         }
-        return $add . "  ". $op;
+        return $this->redirectTo();
     }
     
     /* Mostrar Select Wallet
@@ -68,5 +69,24 @@ class WalletController extends Controller
     }
     public function showSelectWalletHistory(){
         return view( 'select_wallet')->with('opcion','history');
+    }
+    
+    /* send Wallet
+     *
+     */
+    public function sendWallet(){
+        
+        $add = Input::get('wallet');
+        $monto = Input::get('monto');
+        $address = Input::get('address');
+        if(strcmp($add,'btc')==0){
+            $btc=new BtcController;
+            $btc->sending($address,$monto);
+        }else if(strcmp($add,'ltc')==0){
+           
+        }else if(strcmp($add,'doge')==0){
+            
+        }
+       // return $this->redirectTo();
     }
 }
