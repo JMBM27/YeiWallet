@@ -36,6 +36,9 @@ Route::post('/dashboard/select/wallet', 'WalletController@selectWallet')->name('
 Route::get('/dashboard/send/wallet', 'WalletController@redirectTo');
 Route::post('/dashboard/send/wallet', 'WalletController@sendWallet')->name('send.wallet');
 
+Route::get('/config/update/password','ConfigController@showUpdatePasswordForm')->name('password.config');
+Route::post('/config/update/password','ConfigController@updatePassword')->name('password.update');
+
 Route::get('/login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login','Auth\LoginController@login')->name('login');
 Route::get('/logout','Auth\LoginController@logout')->name('logout');
@@ -54,12 +57,6 @@ Route::get('/transfer',function (){
 
 Route::get('/dash',function (){
     return view('dashboard');
-});
-
-Route::get('/config',function (){
-    return view('update_email')
-            ->with('token','SJX1KlnxY7fsU2pZ0aFUCDjOKCZg2iAazouimwTDddNy6vq1er3wFs8P5Wiv')
-            ->with('email','enyelb.gnzlz@gmail.com');
 });
 
 Route::get('/config/update',function (){

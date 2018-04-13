@@ -11,6 +11,11 @@
                 <fieldset>
                     <p class="formulario_titulo">Recuperar Contraseña</p>
                     <hr>
+                    @if (session('status'))
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
+                    @endif
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <div class="col-md-12">
                             <input id="email" type="email" placeholder="Ingrese su correo electrónico" class="form-control" name="email" value="{{ old('email') }}" required>
