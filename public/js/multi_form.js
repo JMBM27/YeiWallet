@@ -83,6 +83,10 @@ $(".previous").click(function(){
     });
 });
 
+$('.volver').click(function(){    
+   window.location = "http://localhost/YeiWallet/public";  
+});
+
 $(".submit").click(function(){
     return false;
 })

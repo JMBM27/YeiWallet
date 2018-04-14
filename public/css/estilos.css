@@ -664,7 +664,7 @@ a.class_a_href:hover{
 
 #error, #error_usuario, #error_email,
 #error_password,#error_password_2,#error_nombre,
-#error_apellido,#error_checkbox,#error_f_nacimiento,#error_password_3{
+#error_apellido,#error_checkbox,#error_f_nacimiento,#error_password_3,#error_wallet,#error_cantidad,#error_titulo,#error_mensaje{
     background-color: rgba(255,0,0,0.4)!important;
     color: black;
     font-size: 15px;
@@ -918,4 +918,8 @@ a:hover > .div_btc_body,a:hover > .div_btc_titulo{
     font-size: 30px;
     text-align: center;
     padding: 10px;
+}
+
+.div_buzon_msj{
+    padding: 30px;   
 }

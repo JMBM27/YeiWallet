@@ -6,7 +6,7 @@
 
 
     @section("body")
-            <form id="msform" class="form-horizontal" method="POST" action="{{ route('password.email') }} ">
+            <form id="msform" class="form-horizontal" method="POST" action="{{ route('password.email') }} " onsubmit="return validar_email();">
                 {{ csrf_field() }}
                 <fieldset>
                     <p class="formulario_titulo">Recuperar Contraseña</p>
@@ -18,19 +18,19 @@
                     @endif
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <div class="col-md-12">
-                            <input id="email" type="email" placeholder="Ingrese su correo electrónico" class="form-control" name="email" value="{{ old('email') }}" required>
+                            <input id="email" type="email" placeholder="Ingrese su correo electrónico" class="form-control" name="email" value="{{ old('email') }}" onclick="eliminar_error(2);">
                             
                             @if ($errors->has('email'))
                                 <div style="display: block;" id="error_email">
                                     {{ $errors->first('email') }}
                                 </div>
-                                <script><>
                             @else
                                 <div id="error_email">
                                 </div>
                             @endif
                         </div>
                     </div>
+                    <input type="button" class="volver action-button" value="Volver">
                     <input type="submit" name="next" class="action-button" value="Enviar"/>
                 </fieldset>
                 

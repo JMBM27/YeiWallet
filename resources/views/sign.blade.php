@@ -100,15 +100,15 @@
                     <p>Fecha de nacimiento</p>
                     <div class="input-group date form_date col-md-12" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
                         <input id="fecha_nacimiento" class="form-control" size="16" type="text" value="" readonly onclick="eliminar_error(7);">
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-remove"><img src="Imagenes/cancelar.svg" width="15"></span></span>
-                        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"><img src="Imagenes/calendario.svg" width="20"></span></span>
+                        <span class="input-group-addon"onclick="eliminar_error(7);"><span class="glyphicon glyphicon-remove"><img src="Imagenes/cancelar.svg" width="15" onclick="eliminar_error(7);"></span></span>
+                        <span class="input-group-addon" onclick="eliminar_error(7);"><span class="glyphicon glyphicon-calendar"><img src="Imagenes/calendario.svg" width="20"></span></span>
                     </div>
                     <div id="error_f_nacimiento"></div>
                 </div>
 
                 <div class="div_terminos">
-                    <input id="terminos_checkbox" type="checkbox"/>
-                    Acepto los <a data-toggle="modal" href="#ventana_codigo" aria-controls="#cod">términos y condiciones</a> del sitio web
+                    <input id="terminos_checkbox" type="checkbox" onclick="eliminar_error(12);"/>
+                    Acepto los <a data-toggle="modal" href="#ventana_codigo" aria-controls="#cod" >términos y condiciones</a> del sitio web
                 </div>
                 <div id="error_checkbox"></div>
 

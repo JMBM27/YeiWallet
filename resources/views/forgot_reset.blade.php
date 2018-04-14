@@ -6,7 +6,7 @@
 
 
     @section("body")
-            <form id="msform" class="form-horizontal" method="POST" action="{{ route('password.request') }} ">
+            <form id="msform" class="form-horizontal" method="POST" action="{{ route('password.request') }} " onsubmit="return validar_cambio_contraseña();">
                 {{ csrf_field() }}
                 <fieldset>
                     <p class="formulario_titulo">Cambiar Contraseña</p>
@@ -16,7 +16,7 @@
                     
                     <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                         <div class="col-md-12">
-                            <input id="email" type="email"  placeholder="Ingrese su correo electrónico" class="form-control" name="email" value="{{ $email or old('email') }}" required autofocus>
+                            <input id="email" type="email"  placeholder="Ingrese su correo electrónico" class="form-control" name="email" value="{{ $email or old('email') }}" onclick="eliminar_error(2);" autofocus>
 
                            @if ($errors->has('email'))
                                 <div style="display: block;" id="error_email">
@@ -30,7 +30,7 @@
                     </div>
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <div class="col-md-12">
-                            <input id="password" type="password" placeholder="Contraseña" class="form-control" name="password">
+                            <input id="password" type="password" placeholder="Contraseña" class="form-control" name="password" onclick="eliminar_error(3);">
 
                             @if ($errors->has('password'))
                                 <div style="display: block;" id="error_password">
@@ -44,8 +44,9 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-12">
-                            <input id="password-confirm" type="password" placeholder="Repetir contraseña" class="form-control" name="password_confirmation">
+                            <input id="password-confirm" type="password" placeholder="Repetir contraseña" class="form-control" name="password_confirmation" onclick="eliminar_error(4);">
                         </div>
+                        <div id="error_password_2"></div>
                     </div>
                     <input type="submit" name="next" class="action-button" value="Guardar"/>
                 </fieldset>

@@ -34,16 +34,17 @@
 
                         <div class="dir_monedero col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <label>Dirección de la Wallet</label>
-                            <input name="address" class="form-control" type="text" id="wallet_enviar"/>
-                            <!--<div class="error">La wallet ingresada no es correcta</div>-->
+                            <input name="address" class="form-control" type="text" id="wallet_enviar" onclick="eliminar_error(8);"/>
+                            <div id="error_wallet"></div>
                         </div>
 
                         <div class="monto_enviar col-xs-12 col-sm-12 col-md-6 col-lg-6">
                             <label>Cantidad en <?php echo $moneda; ?></label>
-                            <input name="monto" class="form-control" type="text" id="cantidad_enviar">
+                            <input name="monto" class="form-control" type="text" id="cantidad_enviar" onclick="eliminar_error(9);">
+                            <div id="error_cantidad"></div>
                         </div>
 
-                        <!--<input type="button" class="action-button1" data-toggle="modal" data-target="#ventana_codigo" value="Enviar"/>-->
+                        <input type="button" class="action-button1" data-toggle="modal" data-target="#ventana_codigo" value="Enviar"/>
                         <input type="hidden" name="wallet" value="<?php echo $wallet; ?>"/> 
                         <input type="submit" class="action-button1" value="Enviar"/>
                     </div>
@@ -52,24 +53,24 @@
                     </div>
 
 
-                  @section('titulo_ventana')
-                    <h4>Confirmación del envío</h4>
-                  @endsection
+                      @section('titulo_ventana')
+                        <h4>Confirmación del envío</h4>
+                      @endsection
 
-                  @section('body_ventana')
-                    <div class="div_confirmacion">
-                        Dirección de tu wallet [Bitcoin]
-                            <strong>31uEbMgunupShBVTewXjtqbBv5MndwfXhb</strong>
-                            <hr>
-                            Enviado a<br><strong>Jose Beieie</strong>
-                            <hr>
-                            Dirección de la wallet a transferir <strong>31uEbMgunupShBVTewXjtqbBv5MndwfXhb</strong>
-                            <hr>
-                            Tipo de Moneda <br><strong>Bitcoin</strong>
-                            <hr>
-                            Cantidad <br><strong>0.00001</strong>
-                        </div>
-                    @endsection
+                      @section('body_ventana')
+                        <div class="div_confirmacion">
+                                Destinatario<br><strong>Usuario</strong><hr>
+                                Tipo de Moneda <br><strong>Bitcoin</strong><hr>
+                                Cantidad <br><strong>0.00001</strong><hr>
+                                Codigo
+                                <input type="text" class="form-control" placeholder="Introducir el codigo">
+                                
+                            </div>
+                        @endsection
+
+                  @section('footer_ventana')
+                      <input type="submit" class="action-button1" value="Enviar"/>
+                  @endsection
 
               @section('footer_ventana')
                   <input type="submit" class="action-button1" value="Enviar"/>

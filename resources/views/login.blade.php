@@ -7,7 +7,7 @@
     @section("body")
 
 
-            <form id="msform" class="form-horizontal" method="POST" action="{{ route('login') }}" autocomplete ="off">
+            <form id="msform" class="form-horizontal" method="POST" action="{{ route('login') }}" autocomplete ="off" onsubmit="return validar_login();">
                 {{ csrf_field() }}
                 <fieldset>
                     <p class="formulario_titulo">Ingresar</p>
@@ -15,7 +15,7 @@
 
                     <div class="form-group{{ $errors->has('usuario') ? ' has-error' : '' }}">
                         <div class="col-md-12">
-                            <input id="usuario" type="text" placeholder="Usuario" class="form-control" name="usuario" value="{{ old('usuario') }}">
+                            <input id="usuario" type="text" placeholder="Usuario" class="form-control" name="usuario" value="{{ old('usuario') }}" onclick="eliminar_error(1);">
 
                             @if ($errors->has('usuario'))
                                 <div style="display: block;" id="error_usuario">
@@ -30,7 +30,7 @@
 
                     <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <div class="col-md-12">
-                            <input id="password" type="password" placeholder="Password" class="form-control" name="password">
+                            <input id="password" type="password" placeholder="Password" class="form-control" name="password" onclick="eliminar_error(3);">
 
                             @if ($errors->has('password'))
                                 <div style="display: block;" id="error_password">
@@ -42,7 +42,7 @@
                             @endif
                         </div>
                     </div>
-                    
+                    <input type="button" class="volver action-button" value="Volver">
                     <input type="submit" class="action-button" value="Ingresar"/>
                     <a href="{{ route('password.request') }}"><h6>¿Olvidó su contraseña?</h6></a>
                 </fieldset>

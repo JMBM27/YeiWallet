@@ -1,80 +1,132 @@
-function validar(){
+    function validar(){
+        if (validar_usuario() && validar_email() && validar_contraseñas()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function validar_login(){
+        if (validar_usuario() && validar_contra()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    function validar_cambio_contraseña(){
+        if (validar_email() && validar_contraseñas()){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+    
+
+
+    /*--- VALIDA EL USUARIO -----*/
+
+    function validar_usuario(){
+        var usuario = document.getElementById("usuario").value;
+        var error_usuario = document.getElementById("error_usuario"); 
+        var expresion_regular = /^[A-Za-z]\w+$/;
+
         
-    var usuario = document.getElementById("usuario").value;
-    var email = document.getElementById("email").value;
-    var password = document.getElementById("password").value;
-    var password_confirm = document.getElementById("password-confirm").value;
-    var error_usuario = document.getElementById("error_usuario");
-    var error_email = document.getElementById("error_email");
-    var error_password = document.getElementById("error_password");
+         if (usuario == ""){
+            document.getElementById("usuario").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_usuario.style.display = 'block';
+            error_usuario.innerHTML = "El campo del usuario no puede quedar vacío";
+            return false;
+        }
+        else if (usuario.length < 8 || usuario.length > 20){
+            document.getElementById("usuario").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_usuario.style.display = 'block';
+            error_usuario.innerHTML = "El usuario debe tener un minimo de 8 y un maximo de 20 caracteres";
+            return false;
+        }
+        else if (!expresion_regular.test(usuario)){
+            document.getElementById("usuario").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_usuario.style.display = 'block';
+            error_usuario.innerHTML = "El usuario debe empezar al menos con una letra y no admite caracteres especiales";
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 
-    var expresion_regular = /(?=(?:.*\d){2})(?=(?:.*[A-Z]){1})(?=(?:.*[a-z]){2})\S{8,20}$/;
-    var expresion_correo = /\w+@\w+\.+[a-z]/;
+    /*---- VALIDA EL EMAIL -------*/
 
-    if (usuario == ""){
-        document.getElementById("usuario").style.border= "2px solid rgba(255,0,0,0.4)";
-        error_usuario.style.display = 'block';
-        error_usuario.innerHTML = "El campo del usuario no puede quedar vacío";
-        return false;
+    function validar_email(){
+        var email = document.getElementById("email").value;
+        var error_email = document.getElementById("error_email");
+        var expresion_correo = /\w+@\w+\.+[a-z]/;
+        
+        if (email == ""){
+            document.getElementById("email").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_email.style.display = 'block';
+            error_email.innerHTML = "El campo del email no puede quedar vacío";
+            return false;
+        }
+        else if (!expresion_correo.test(email)){
+            document.getElementById("email").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_email.style.display = 'block';
+            error_email.innerHTML = "El correo ingresado no es válido";
+            return false;
+        }
+        else{
+            return true;
+        }
     }
-    else if (usuario.length < 8 || usuario.length > 20){
-        document.getElementById("usuario").style.border= "2px solid rgba(255,0,0,0.4)";
-        error_usuario.style.display = 'block';
-        error_usuario.innerHTML = "El usuario debe tener un minimo de 8 y un maximo de 20 caracteres";
-        return false;
+
+    /* ---- VALIDA LAS CONTRASEÑAS ------ */
+
+        function validar_contraseñas(){
+        var password = document.getElementById("password").value;
+        var password_confirm = document.getElementById("password-confirm").value;
+        var error_password = document.getElementById("error_password");
+        var error_password_2 = document.getElementById("error_password_2");
+
+        if (password == ""){
+            document.getElementById("password").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_password.style.display = 'block';
+            error_password.innerHTML = "El campo de la contraseña no puede quedar vacío";
+            return false;
+        }
+        else if (password.length < 8 || password.length > 20){
+            document.getElementById("password").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_password.style.display = 'block';
+            error_password.innerHTML = "La contraseña debe tener un minimo de 8 y un maximo de 20 caracteres";
+            return false;
+        }
+        else if(password_confirm == ""){
+            document.getElementById("password-confirm").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_password_2.style.display = 'block';
+            error_password_2.innerHTML = "El campo de la contraseña no puede quedar vacío";
+            return false;
+        }
+        else if (password_confirm.length < 8 || password_confirm.length > 20 ){
+            document.getElementById("password-confirm").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_password_2.style.display = 'block';
+            error_password_2.innerHTML = "La contraseña debe tener un minimo de 8 y un maximo de 20 caracteres";
+            return false;
+        }
+        else if (password != password_confirm){
+            document.getElementById("password-confirm").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_password_2.style.display = 'block';
+            error_password_2.innerHTML = "Las contraseñas deben ser iguales";
+            return false;     
+        }
+        else{
+            return true;
+        }
     }
-    else if (!expresion_regular.test(usuario)){
-        document.getElementById("usuario").style.border= "2px solid rgba(255,0,0,0.4)";
-        error_usuario.style.display = 'block';
-        error_usuario.innerHTML = "EL usuario debe tener al menos, 2 minusculas 1 mayúscula y 2 dígitos";
-        return false;
-    }                                                                        
-    else if (email == ""){
-        document.getElementById("email").style.border= "2px solid rgba(255,0,0,0.4)";
-        error_email.style.display = 'block';
-        error_email.innerHTML = "El campo del email no puede quedar vacío";
-        return false;
-    }
-    else if (!expresion_correo.test(email)){
-        document.getElementById("email").style.border= "2px solid rgba(255,0,0,0.4)";
-        error_email.style.display = 'block';
-        error_email.innerHTML = "El correo ingresado no es válido";
-        return false;
-    }
-    else if (password == ""){
-        document.getElementById("password").style.border= "2px solid rgba(255,0,0,0.4)";
-        error_password.style.display = 'block';
-        error_password.innerHTML = "El campo de la contraseña no puede quedar vacío";
-        return false;
-    }
-    else if (password.length < 8 || password.length > 20){
-        document.getElementById("password").style.border= "2px solid rgba(255,0,0,0.4)";
-        error_password.style.display = 'block';
-        error_password.innerHTML = "La contraseña debe tener un minimo de 8 y un maximo de 20 caracteres";
-        return false;
-    }
-    else if(password_confirm == ""){
-        document.getElementById("password-confirm").style.border= "2px solid rgba(255,0,0,0.4)";
-        error_password_2.style.display = 'block';
-        error_password_2.innerHTML = "El campo de la contraseña no puede quedar vacío";
-        return false;
-    }
-    else if (password_confirm.length < 8 || password_confirm.length > 20 ){
-        document.getElementById("password-confirm").style.border= "2px solid rgba(255,0,0,0.4)";
-        error_password_2.style.display = 'block';
-        error_password_2.innerHTML = "La contraseña debe tener un minimo de 8 y un maximo de 20 caracteres";
-        return false;
-    }
-    else if (password != password_confirm){
-        document.getElementById("password-confirm").style.border= "2px solid rgba(255,0,0,0.4)";
-        error_password_2.style.display = 'block';
-        error_password_2.innerHTML = "Las contraseñas deben ser iguales";
-        return false;     
-    }
-    else{
-       return true;
-    }
-}
+
+
+    /*---------- VALIDA LOS CAMPOS PARA ACTUALIZAR LA PASSWORD ----------*/
 
     function validar_actualizacion_password(){
         var password = document.getElementById("password").value;
@@ -114,6 +166,8 @@ function validar(){
         }
     }
 
+
+    /*----- VALIDA EN EL REGISTRO LOS DATOS PERSONALES ----*/
 
     function validar_datos_personales(){
         var enviando = false;
@@ -182,6 +236,8 @@ function validar(){
             }
     }
 
+    /*--- ELIMINA LOS ERRORES MOSTRADOS -----*/
+
     function eliminar_error(variable) {
 
     if (variable == 1) {
@@ -211,8 +267,147 @@ function validar(){
     else if (variable == 7){
         document.getElementById('error_f_nacimiento').style.display = 'none';
     }
+    else if (variable == 8){
+        document.getElementById('error_wallet').style.display = 'none';
+        document.getElementById('wallet_enviar').style.border = "1px solid rgba(0,0,0,0.2)";
+    }
+    else if (variable == 9){
+         document.getElementById('error_cantidad').style.display = 'none';
+         document.getElementById('cantidad_enviar').style.border = "1px solid rgba(0,0,0,0.2)";
+    }
+    else if(variable == 10){
+        document.getElementById('error_titulo').style.display = 'none';
+        document.getElementById('titulo_msj').style.border = "1px solid rgba(0,0,0,0.2)";
+    }
+    else if(variable == 11){
+        document.getElementById('error_mensaje').style.display = 'none';
+        document.getElementById('redaccion').style.border = "1px solid rgba(0,0,0,0.2)";
+    }
+    else if(variable == 12){
+        document.getElementById('error_checkbox').style.display = 'none';
+    }
 }
+
+
+    /*---- VALIDA LA CONSTRASEÑA DEL LOGIN ------ */
     
+    function validar_contra(){
+        var password = document.getElementById("password").value;
+        var error_password = document.getElementById("error_password");
+        
+        if (password == ""){
+            document.getElementById("password").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_password.style.display = 'block';
+            error_password.innerHTML = "El campo de la contraseña no puede quedar vacío";
+            return false;
+        }
+        else if (password.length < 8 || password.length > 20){
+            document.getElementById("password").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_password.style.display = 'block';
+            error_password.innerHTML = "La contraseña debe tener un minimo de 8 y un maximo de 20 caracteres";
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    /*---- VALIDAR LA TRANSFERENCIA -----*/
+    
+    function validar_transferencia (){
+        var dir_wallet = document.getElementById("wallet_enviar").value;
+        var cant_btc = document.getElementById("cantidad_enviar").value;
+        var error_wallet = document.getElementById("error_wallet");
+        var error_cantidad = document.getElementById("error_cantidad");
+        var patron = /^[\w]+$/;
+        var patron_numeros = /^[0-9]+([.][0-9]+)?$/;
+    
+        
+        if(dir_wallet == ""){
+            document.getElementById("wallet_enviar").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_wallet.style.display = "block";
+            error_wallet.innerHTML = "La dirección del monedero no puede estar vacía";
+            return false;
+        }
+        else if(dir_wallet.length < 27 || dir_wallet.length > 34){
+              document.getElementById("wallet_enviar").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_wallet.style.display = "block";
+            error_wallet.innerHTML = "La dirección del monedero es muy corta o muy larga";
+            return false;
+        }
+        else if(!patron.test(dir_wallet)){
+            document.getElementById("wallet_enviar").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_wallet.style.display = "block";
+            error_wallet.innerHTML = "La dirección del monedero no es válida";
+            return false;
+        }
+         if(cant_btc == ""){
+             document.getElementById("cantidad_enviar").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_cantidad.style.display = "block";
+            error_cantidad.innerHTML = "La cantidad a enviar no puede estar vacía";
+            return false;
+        }
+        else if (cant_btc <= 0){
+            document.getElementById("cantidad_enviar").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_cantidad.style.display = "block";
+            error_cantidad.innerHTML = "No se puede enviar la cantidad ingresada";
+            return false;  
+        }
+       else if(!patron_numeros.test(cant_btc)){
+            document.getElementById("cantidad_enviar").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_cantidad.style.display = "block";
+            error_cantidad.innerHTML = "El monto que quieres enviar no es válido";
+            return false;
+        }
+        else if(cant_btc > balance){
+            document.getElementById("cantidad_enviar").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_cantidad.style.display = "block";
+            error_cantidad.innerHTML = "No dispone del monto que desea enviar";
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    /*------ VALIDAR MENSAJE ------*/
+
+    function validar_mensaje(){
+        var titulo = document.getElementById("titulo_msj").value;
+        var mensaje = document.getElementById("redaccion").value;
+        var error_titulo = document.getElementById("error_titulo");
+        var error_mensaje = document.getElementById("error_mensaje");
+        
+        if(titulo == ""){
+            document.getElementById("titulo_msj").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_titulo.style.display = "block";
+            error_titulo.style.marginLeft = "10px"
+            error_titulo.innerHTML = "El título del mensaje no puede quedar en blanco";
+            return false;
+        }
+        else if(titulo.length < 10  || titulo.length > 100){
+             document.getElementById("titulo_msj").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_titulo.style.display = "block";
+            error_titulo.style.marginLeft = "10px"
+            error_titulo.innerHTML = "El título debe tener entre 10 y 100 caracteres";
+            return false;
+        }
+        else if(mensaje == ""){
+             document.getElementById("redaccion").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_mensaje.style.display = "block";
+            error_mensaje.innerHTML = "El mensaje no puede quedar en blanco";
+            return false;
+        }
+     /*   else if(mensaje.lenght < 10  ||  mensaje.lenght > 1000){
+            document.getElementById("redaccion").style.border= "2px solid rgba(255,0,0,0.4)";
+            error_mensaje.style.display = "block";
+            error_mensaje.style.marginLeft = "10px"
+            error_mensaje.innerHTML = "El mensaje debe tener entre 10 y 1000 caracteres";
+            return false;
+        }*/else{
+            return true;
+        }
+    }
 
 
 
