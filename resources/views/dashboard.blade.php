@@ -43,8 +43,14 @@ else{
     Dashboard
 @endsection
 
-@section("header")
+ @section('header')
+    @section('header_dash')
+        @section('menu_nav')
+            @include("layaouts.plantilla_navbar")
+        @endsection
+    endsection
 @endsection
+
 
 @section("opc1")           
     select
@@ -53,17 +59,17 @@ else{
 
 @section("body")
     @section("content")
-        <div id="titulo_trans" class=" col-col-md-12">
+        <div id="titulo_trans" class="col-col-md-12">
             Dashboard
         </div>
 
         <div class="dash">
             <div class="row">
                 <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
-                    <div class="div_btc_titulo">
+                    <div class="div_moneda_titulo color_btc">
                         Bitcoin
                     </div>
-                    <div class="div_btc_body" id="r_btc">
+                    <div class="div_moneda_body" id="r_btc">
                         <p>$<?php //echo $precio; ?></p>
                         <table class="table">
                             <tr>
@@ -83,21 +89,23 @@ else{
                 </div>
 
                 <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
-                    <div class="div_eth_titulo">
-                        Ethereum
+                    <div class="div_moneda_titulo color_ltc">
+                        Litecoin
                     </div>
-                    <div class="div_eth_body">
+                    <div class="div_moneda_body">
                         <p>$<?php //echo $precio; ?></p>
                         <table class="table">
                             <tr>
                                 <th>1</th>
                             </tr>
-                            <tr>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                            </tr>
+                        </table>
+                    </div>
+                    <div class="div_moneda_titulo color_doge">
+                        Dogecoin
+                    </div>
+                    <div class="div_moneda_body">
+                        <p>$<?php //echo $precio; ?></p>
+                        <table class="table">
                             <tr>
                                 <th>1</th>
                             </tr>
@@ -106,10 +114,10 @@ else{
                 </div>
 
                 <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
-                    <div class="div_trans_titulo">
+                    <div class="div_ult_trans color_ult_trans">
                         Últimas transacciones
                     </div>
-                    <div class="div_vent_body">
+                    <div class="div_moneda_body">
                         <table class="table">
                             <tr>
                                 <th>Jose Boscan<th>

@@ -7,8 +7,7 @@
                 <a class ="Link_Header" href="{{ route('home') }}">
                     <img src="{{ asset('Imagenes/LOGO1.1.svg') }}" alt="LOGO" width="50">YeiWallet</a>
             </div>
-
-            @yield('header')
         </div>
+         @yield('header')
     </header>
 </html>

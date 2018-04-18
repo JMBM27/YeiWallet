@@ -26,7 +26,7 @@
     <nav class="navbar-light navbar-toggleable-sm">
         <div class="navbar-header">
             <div class="divLogo">
-                <a class ="Link_Header" href="http://www.facebook.com">
+                <a class ="Link_Header" href="http://localhost/YeiWallet/public/">
                     <img alt="Logo" height="40" src="Imagenes/LOGO1.1.svg" width="40">Wallet</a>
             </div>
             <button class="navbar-toggler navbar-toggler-right menu-icon" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -76,21 +76,27 @@
         <div class="divInfo col-xs-12 col-sm-12 col-md-4 col-lg-4">
             <div class="divInformacion" data-aos="fade-right" data-aos-duration="2000">
                 <img alt="Social" height="200" src="Imagenes/Transferencia.svg" width="100%" data-aos="fade-down" data-aos-duration="3000">
-                Transfiere dinero a tu familia, amigos, de forma sencilla y rápida.
+                <p>
+                    Transfiere dinero a tu familia, amigos, de forma sencilla y rápida
+                </p>
             </div>
         </div>
 
         <div align="center" class="divInfo col-xs-12 col-sm-12 col-md-4 col-lg-4" >
             <div class="divInformacion" data-aos="fade-down" data-aos-duration="2000">
                 <img alt="Seguridad" height="200" src="Imagenes/Seguridad.svg" width="100%" data-aos="fade-down" data-aos-duration="3000">
-                Al implementar 'BlockChain' todas tus transacciones están seguras.
+                <p>
+                    Al implementar 'BlockChain' todas tus transacciones están seguras
+                </p>
             </div>
         </div>
 
         <div class="divInfo col-xs-12 col-sm-12 col-md-4 col-lg-4" align="center">
             <div class="divInformacion" data-aos="fade-left" data-aos-duration="2000">
                 <img alt="Comodidad" height="200" src="Imagenes/Portabilidad.svg" width="100%" data-aos="fade-down" data-aos-duration="3000">
-                Accede a nuestra página desde cualquiera de tus dispositivos.
+                <p>
+                    Accede a nuestra página desde cualquiera de tus dispositivos
+                </p>
             </div>
         </div>
 
@@ -102,11 +108,11 @@
              data-aos="zoom-out-right" data-aos-duration="2000" data-aos-delay="400">
                 Trabajamos con las cryptomonedas
                 más seguras como Bitcoin. Además nuestro
-                equipo está implementando Onixcoin una cryptomoneda Venezolana con una futura trayectoria internacional.
+                equipo está implementando monedas con un rapido crecimiento como Litecoin y Dogecoin
             </div>
 
             <div class="divImgCrypt col-xs-12 col-sm-12 col-md-6">
-                <img src="Imagenes/Bitcoin.svg" width="250" height="250" style="margin-bottom: 30px;" data-aos="flip-left" data-aos-duration="2000">
+                <img src="Imagenes/Bitcoin_inicio.png" width="250" height="250" style="margin-bottom: 30px;" data-aos="flip-left" data-aos-duration="2000">
                 <img src="Imagenes/onix.svg"
                  width="250" height="250" style="margin-bottom: 30px;" data-aos="flip-right" data-aos-duration="2000" data-aos-delay="500">
             </div>
@@ -114,8 +120,16 @@
     </div>
 
     @section("footer")
-        <h1>YeiWallet</h1>
-        <p>Copyright © - 2018 YeiWallet</p>
+        <div class="footer">
+            <h1>YeiWallet</h1>
+            <div class="boton_wallets" style="background-color:lightblue;">
+                Twitter
+            </div>
+            <div class="boton_wallets">
+                Donanos
+            </div>
+            <p style="margin-bottom:0px">Copyright © - 2018 YeiWallet</p>
+        </div>
     @endsection
 
 @endsection

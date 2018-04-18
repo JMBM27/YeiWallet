@@ -5,8 +5,14 @@
         Configuración
     @endsection
 
-    @section('header')
-    @endsection
+ @section('header')
+    @section('header_dash')
+        @section('menu_nav')
+            @include("layaouts.plantilla_navbar")
+        @endsection
+    endsection
+@endsection
+
 
     @section("menu")
         <li><a href="{{ route('dashboard') }}"><img src="{{ asset('Imagenes/home.svg') }}" class="icono">Inicio</a></li>

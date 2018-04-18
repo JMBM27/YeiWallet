@@ -62,3 +62,16 @@ Route::get('/dash',function (){
 Route::get('/config/update',function (){
     return view('password_act');
 });
+
+Route::get('/config/contact',function (){
+    return view('contact');
+});
+
+Route::get('/config/code',function (){
+    return view('code');
+});
+
+Route::get('/history',function (){
+    return view('history');
+});
+
