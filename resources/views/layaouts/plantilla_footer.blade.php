@@ -4,6 +4,7 @@
 
     <footer>
         @yield('footer')
+        Copyright © - 2018 YeiWallet
     </footer>
 
 

@@ -18,7 +18,8 @@ html {
 #msform {
 	min-width: 300px;
 	max-width: 400px;
-	margin: 50px auto;
+    top: 90px;
+	margin: auto;
 	text-align: center;
 	position: relative;
 }

@@ -4,6 +4,7 @@
         Registarse
     @endsection
 
+
     @section("body")
 
         <form id="msform" class="form-horizontal" method="POST" action="{{ route('sign') }}" autocomplete="off" onsubmit="return validar_datos_personales();">
@@ -62,7 +63,7 @@
                         <div id="error_password_2"></div>
                     </div>
                 </div>
-
+                <input type="button" name="volver" class="volver action-button" value="Volver">
                 <input type="button" name="next" class="next action-button" value="Siguiente">
             </fieldset>
 
