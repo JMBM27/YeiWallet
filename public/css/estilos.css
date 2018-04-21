@@ -2,12 +2,25 @@ body,html{
     width: 100%;
     height: 100%;
 }
+<<<<<<< HEAD
 a,a:hover,a:visited,a:active,a:focus,a:link{
+=======
+
+a:hover{
+>>>>>>> 9c88433bd09a195b3eea63ad6d7e62b19f4fb498
   text-decoration: none;  
 }
+
 body{
     background-color: #E6E6E6;
     margin: 0;
+}
+
+footer{
+    bottom: 0;
+    text-align: center;
+    color: white;
+    background-color: #42464b;
 }
 /* --------- EL TIPO DE FUENTES ------------*/
 @font-face{
@@ -24,6 +37,12 @@ body{
     font-family: Montserrat SemiBold;
     src:url(../Fuente/Montserrat-SemiBoldItalic.otf);
 }
+
+@font-face{
+    font-family: Code-Bold;
+    src:url(../Fuente/CODE-Bold.otf);
+}
+
 
 li {
     margin: 0;
@@ -64,14 +83,6 @@ ul {
     margin:auto;
     font-family: Roboto;
     background-size: 100% 100%;
-}
-
-footer{
-    height: 300px;
-    bottom: 0;
-    text-align: center;
-    color: white;
-    background-image: linear-gradient(to bottom, #65717e , #65717e);
 }
 
 /*------------------------------- ESPACIO -----------------------------------------*/
@@ -116,7 +127,8 @@ footer{
 /*---------------- HEADER ----------------------------------------------------------------*/
 .divLogo{
     margin: 0;
-    font-size: 22px;
+    font-size: 24px;
+    font-weight: bold;
     float: left;
 }
 
@@ -128,7 +140,7 @@ footer{
     width: auto;
     height: 33px;
     margin: 15px 20px auto auto;
-    float:right;
+    float: right;
     font-size: 22px;
     text-align: center;
 }
@@ -181,14 +193,24 @@ a.class_a_href:hover{
     1px 1px 0 #000;
 }
 
+.nav{
+    background-color: #42464a;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.5);
+}
+
 .nav-link{
     margin-top: 10px;
     width: 100%;
-    text-align: center;
+    color: white;
+}
+
+#navbarTogglerDemo01 a{
+    color: white !important;
 }
 
 .nav-link:hover{
-    background-color: darkgrey;
+    background-color: gray;
 }
 
 .navbar-toggleable-sm{
@@ -206,17 +228,22 @@ a.class_a_href:hover{
     background-color: white;
 }
 
+.header_dashboard .nav{
+    display: none;
+}
 
 /*--------------- BODY -----------------------*/
 
 .row{
     margin: 0;
-    min-height:100%;
+    height: auto;
 }
 
 .recortar{
+    min-height: 100%;
     overflow: hidden;
 }
+
 
 .divAlgo{
     font-family: Flamante-Roma-Medium;
@@ -231,13 +258,15 @@ a.class_a_href:hover{
 }
 
 .divBen{
+    font-family: Code-Bold;
+    letter-spacing: 3px;
     width: 100%;
-    font-size: 25px;
+    font-size: 50px;
+    font-weight: bold;
     text-align: center;
     padding: 15px;
     background-color: #42464b;
     color: white;
-    margin-top: 10px;
 }
 
 .divCryptInfor{
@@ -270,8 +299,9 @@ a.class_a_href:hover{
     position: relative;
 }
 
+
 .divTituloInfo{
-    font-family: "Montserrat SemiBold";
+    font-family: Code-Bold;
     width: 100%;
     font-size: 50px;
     text-align: center;
@@ -282,36 +312,42 @@ a.class_a_href:hover{
 
 
 .divInformacion{
+    font-family: Roboto;
     background-color: #F2F2F2;
-    padding: 10px 10px 3px 10px;
+    padding: 15px 10px 3px 10px;
     margin: 30px 20px;
     text-align: center;
-    font-size: 26px;
+    font-size: 20px;
     color: black;
     -webkit-box-shadow: 2px 10px 5px -5px rgba(0,0,0,0.42);
     -moz-box-shadow: 2px 10px 5px -5px rgba(0,0,0,0.42);
     box-shadow: 2px 10px 5px -5px rgba(0,0,0,0.42);
 }
 
+.divInformacion p{
+    margin: 15px auto auto auto;
+    width: 70%;
+}
+
+
 .divInfoCrypt{
-    font-family: Roboto;
     width: 100%;
     text-align: center;
-    padding: 4%;
-    background-color: #42464b;
     color: white;
     font-size: 45px;
+    font-family: Code-Bold;
+    background-color: #42464b;
     position: relative;
 }
 
 .divTxtCrypt{
+    font-family: Code-Bold;
     float: left;
     overflow:hidden;
     text-align: left;
     font-size: 25px;
     margin: 30px 0;
     padding: 3%;
-    border: 3px solid white;
 }
 
 .divImgCrypt{
@@ -320,9 +356,7 @@ a.class_a_href:hover{
 }
 
 
-
-
-/* AJUSTAR EL TAMAÑO DE LAS LETRAS CON LA RESOLUCION < 768*/
+/* RESOLUCION < 768px*/
 
 @media only screen and (max-width: 768px) {
 
@@ -330,24 +364,28 @@ a.class_a_href:hover{
         font-size: 30px;
     }
 
+    .divInformacion p{
+        margin: 15px auto auto auto;
+        width: 100%;
+    }
+    
     .divInfoCrypt {
         font-size: 30px;
     }
-
+    
     .divCryptInfor {
         font-size: 25px;
     }
 
-    .navbar-toggleable-sm {
+    .navbar-toggleable-sm{
         display: block;
-        margin-bottom: 10px;
     }
 
     .header{
         display: none;
         cursor: none;
     }
-
+    
     .div_der_dashboard #titulo_trans{
         font-size: 25px;
     }
@@ -367,9 +405,19 @@ a.class_a_href:hover{
         margin: 10px 0;
         width: 100%;
     }
+
+    .div_izq_dashboard{
+        display: none;
+    } 
+
+    .header_dashboard .nav{
+        display: block;
+        background-color: #062c33;
+        text-align: center;
+    } 
 }
 
-@media only screen and (max-width: 568px) {
+@media only screen and (max-width: 576px) {
 
     .table {
        height: 300px;
@@ -420,7 +468,6 @@ a.class_a_href:hover{
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
-
 
 .divNombre_usuario{
     height: 80px;
@@ -474,7 +521,6 @@ a.class_a_href:hover{
 /* ------------------ BARRA DE NAVEGACION DEL DASHBOARD ----------------------------------*/
 
 .div_izq_dashboard{
-    width: 100%;
     background-color: #062c33;
     font-family: Roboto;
     margin: 0px !important;
@@ -559,23 +605,6 @@ a.class_a_href:hover{
     text-decoration: none;
 }
 
-
-
-
-
-
-
-/*
-#collapse1 li,a{
-    display: block;
-    color: white;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-bottom: 20px;
-    padding-top: 20px;
-    text-decoration: none;
-}
-*/
 /* ----------------- PARTE DERECHA DEL DASHBOARD ------------------------------*/
 
 .div_der_dashboard{
@@ -591,7 +620,10 @@ a.class_a_href:hover{
     display: block;
 }
 
-.div_btc_titulo{
+/*------------------------*/
+
+.div_moneda_titulo{
+    font-family: Code-Bold;
     background-color: #FF9900;
     height: 60px;
     color: white;
@@ -599,6 +631,41 @@ a.class_a_href:hover{
     padding: 15px;
     text-transform: uppercase;
 }
+
+.div_moneda_body p{
+    color: #FF9900;
+    font-size: 40px;
+    margin: 10px;
+}
+
+.div_moneda_body{
+    font-family: Code-Bold;
+}
+
+.div_ult_trans{
+    height: 60px;
+    color: white;
+    padding: 5px;
+    font-size: 18px;
+}
+
+.color_btc{
+    background-color: #FF9900;
+}
+
+.color_ltc{
+    background-color: grey;
+}
+
+.color_doge{
+    background-color: yellowgreen;
+}
+
+.color_ult_trans{
+    background-color: skyblue;
+}
+
+/*------------------------*/
 
 .div_vent_dash{
     font-family: Roboto;
@@ -611,23 +678,19 @@ a.class_a_href:hover{
     box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
 }
 
-.div_btc_body p{
-    color: #FF9900;
-    font-size: 40px;
-    margin: 10px;
+th{
+    color: black;
+    width: 100%;
 }
 
+.tab-size{
+    width: 100%;
+    max-width: 100%;
+}
+
+/*
 .div_vent_body{
     text-align: center;
-}
-
-.div_eth_titulo{
-    background-color: #102026;
-    height: 60px;
-    color: white;
-    font-size: 20px;
-    padding: 15px;
-    text-transform: uppercase;
 }
 
 .div_eth_body p{
@@ -635,6 +698,7 @@ a.class_a_href:hover{
     font-size: 40px;
     margin: 10px;
 }
+
 
 .div_trans_titulo{
     background-color: #5882FA;
@@ -644,10 +708,8 @@ a.class_a_href:hover{
     padding: 15px;
     text-transform: uppercase;
 }
+*/
 
-.table th{
-    text-align: center;
-}
 
 .div_enviar_money{
     display: block;
@@ -664,7 +726,8 @@ a.class_a_href:hover{
 
 #error, #error_usuario, #error_email,
 #error_password,#error_password_2,#error_nombre,
-#error_apellido,#error_checkbox,#error_f_nacimiento,#error_password_3,#error_wallet,#error_cantidad,#error_titulo,#error_mensaje{
+#error_apellido,#error_checkbox,#error_f_nacimiento,
+#error_password_3,#error_wallet,#error_cantidad,#error_titulo,#error_mensaje{
     background-color: rgba(255,0,0,0.4)!important;
     color: black;
     font-size: 15px;
@@ -719,6 +782,8 @@ a:hover#hide{
     font-size: 20px;
 }
 
+/*------------- TERMINOS Y CONDICIONES --------------------*/
+
 .div_terminos{
     margin: 0;
     font-size: 13px;
@@ -734,8 +799,6 @@ a:hover#hide{
     margin-left: -45%;
     margin-right: -45%;
 }
-
-
 
 iframe{
     height: 400px;
@@ -762,6 +825,8 @@ iframe::-webkit-scrollbar{
     display: none;
 }
 
+/*-------------------------------------------*/
+
 .table{
     display: block !important;
     text-align: center;
@@ -771,7 +836,7 @@ iframe::-webkit-scrollbar{
 .dash{
    margin: 0;
 }
-
+/*
 .div_direccion_btc .btn-primary{
     background-color: #ffa500;
     border: 2px solid white;
@@ -830,7 +895,7 @@ iframe::-webkit-scrollbar{
 .div_direccion_wallets{
     display: inline-block;
 }
-
+*/
 .row #trans{
     height: auto;
     margin: 0 0 10px 15px ;
@@ -845,7 +910,7 @@ iframe::-webkit-scrollbar{
     text-align: center;
 }
 
-.action-button1, .modal-footer .action-button1{
+.action-button1, .modal-footer{
     width: 100px;
     background: #3878a3;
     font-weight: bold;
@@ -861,12 +926,18 @@ iframe::-webkit-scrollbar{
     background-color: #2581ba;
 }
 
+.action-button1:disabled,.action-button:hover{
+    background: "#D9D9D9" !important;
+    cursor: default;
+    box-shadow: none;
+}
+
 a:hover > .div_btc_body,a:hover > .div_btc_titulo{
     opacity: 0.7;
     filter: alpha(opacity=30); 
 }
 
-.div_actualizar_correo{
+.div_actualizar_correo, .div_solicitar_codigo{
     margin-top: 30px;
 }
 
@@ -901,6 +972,7 @@ a:hover > .div_btc_body,a:hover > .div_btc_titulo{
 .div_fech_nac .input-group-addon:hover{
     background-color: #0e90d2 !important;
 }
+
 /* ------------------------------- */
 
 .ocultar{
@@ -923,3 +995,51 @@ a:hover > .div_btc_body,a:hover > .div_btc_titulo{
 .div_buzon_msj{
     padding: 30px;   
 }
+
+/*------------ FOOTER -------------*/
+
+.boton_wallets{
+    height: 70px;
+    width: 150px;
+    text-transform: uppercase;
+    color: white;
+    border: 1px solid white;
+    padding: 15px 0 0 8px;
+    float: right;
+    display: block;
+    margin: 10px;
+    background: rgba(156,156,156,0.3);
+    text-align: left;
+}
+
+.boton_wallets:hover{
+    font-size: 19px;
+    border: none;
+}
+
+#twitter:hover{
+    background: rgb(0,132,180);
+}
+
+#facebook:hover{
+   background: rgb(59,89,152); 
+}
+
+.texto_footer{
+    text-align: left;
+    padding: 10px;
+    font-size: 20px;
+    font-family: Montserrat;
+}
+
+.div_redes_sociales{
+    text-align: right;
+    font-weight: bold;
+}
+
+.div_redes_sociales .boton_wallets img{
+    margin-right: 5px;
+} 
+
+
+/*---------------------------------*/

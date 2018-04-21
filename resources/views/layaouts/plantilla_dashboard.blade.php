@@ -24,12 +24,15 @@
 
 
 
-
-<!-- JS
+ <!-- JS -->
     <script src= "{{ asset('js/jquery.js') }}"></script>
-    <script src= "{{ asset('multi_form.js') }}"></script>
-    <!-- <script src= " {{ asset('refresh.hs') }}"></script>
+    <script src= "{{ asset('js/puntos.js') }}"></script>
+    <script src= "{{ asset('js/aos.js') }}"></script>
+    <script src= "{{ asset('js/Footer.js') }}"></script>
+    <script src= "{{ asset('js/menu_icon.js') }}"></script>
+    <script src= "{{ asset('js/scroll_inicio.js') }}"></script>
+    <script src= "{{ asset('js/velocity.min.js') }}"></script>
     <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
-    -->
+ 
 
 </html>
