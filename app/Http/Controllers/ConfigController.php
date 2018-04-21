@@ -22,7 +22,7 @@ class ConfigController extends Controller
     
     public function showUpdatePasswordForm()
     {
-        return view('update_email');
+        return view('update_psw');
     }
     
     public function updatePassword(Request $request){
@@ -50,5 +50,14 @@ class ConfigController extends Controller
             'old' => 'required',
             'password' => 'required|string|min:6|confirmed',
         ]);
+    }
+    
+    public function showMessageForm()
+    {
+        return view('contact');
+    }
+    
+    public function message(){
+        return "mensaje enviado";
     }
 }

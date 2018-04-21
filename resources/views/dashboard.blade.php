@@ -134,6 +134,24 @@ else{
         </div>
     @endsection
 
+    @if (session('notificacion'))
+        @section('titulo_ventana')
+            <h4><?php echo session('titulo');?></h4>
+        @endsection
+
+        @section('body_ventana')
+            @if (session('imagen'))
+                <img align="center" src="<?php echo asset(session('imagen'));?>" width="120">
+            @endif
+            <?php echo session('notificacion');?>
+        @endsection
+
+        @section('footer_ventana')
+            <?php echo session('pie');?>
+        @endsection
+        @include('layaouts.ventana_notificacion')
+    @endif
+    
     <script>
         $("document").ready(function(){
             setInterval(function(){

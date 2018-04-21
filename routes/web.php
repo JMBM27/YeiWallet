@@ -38,6 +38,8 @@ Route::post('/dashboard/send/wallet', 'WalletController@sendWallet')->name('send
 
 Route::get('/config/update/password','ConfigController@showUpdatePasswordForm')->name('password.config');
 Route::post('/config/update/password','ConfigController@updatePassword')->name('password.update');
+Route::get('/config/contact','ConfigController@showMessageForm')->name('contact');
+Route::post('/config/contact','ConfigController@message')->name('contact.send');
 
 Route::get('/login','Auth\LoginController@showLoginForm')->name('login');
 Route::post('/login','Auth\LoginController@login')->name('login');
@@ -49,16 +51,3 @@ Route::get('/recovery','Auth\ForgotPasswordController@showLinkRequestForm')->nam
 Route::post('/recovery/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('/recovery/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('/recovery', 'Auth\ResetPasswordController@reset')->name('password.request');;
-
-Route::get('/transfer',function (){
-    return view( 'send_money');
-});
-
-
-Route::get('/dash',function (){
-    return view('dashboard');
-});
-
-Route::get('/config/update',function (){
-    return view('password_act');
-});

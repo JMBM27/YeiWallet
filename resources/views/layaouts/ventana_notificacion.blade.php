@@ -1,7 +1,7 @@
 
 
 <body>
-<div class="modal fade" role="dialog" id="ventana_codigo">
+<div class="modal fade" role="dialog" id="notificacion" style="display: block;">
     <div class="modal-dialog modal-dialog-centered modal-md">
         <div class="modal-content" id="msform">
             <div class="modal-header">
@@ -14,9 +14,14 @@
                 @yield('body_ventana')
             </div>
             <div class="modal-footer">
-                @yield('footer_ventana')
+               @yield('footer_ventana')
             </div>
         </div>
     </div>
 </div>
+
+<script>
+    $("#notificacion").modal('show')
+</script>
+    
 </body>

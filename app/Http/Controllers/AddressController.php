@@ -86,6 +86,7 @@ class AddressController extends Controller
         $modelo->label=$wallet->data->label;
         $modelo->usuario_id=Auth::user()->id;
         $modelo->save();
+        return $modelo;
     }
     
     protected function blockio_balance($add){
@@ -97,5 +98,10 @@ class AddressController extends Controller
     protected function blockio_send($wallet,$address,$monto){
         $block_io = $this->blockio();
         return $block_io->withdraw_from_labels(array('amounts' => $monto,'from_labels' => $wallet['label'],'to_addresses' => $address,'pin' => env('PIN',null)));
+    }
+    
+    protected function blockio_fee($wallet,$balance){
+        $block_io = $this->blockio();
+        return $block_io->get_network_fee_estimate(array('amounts' => $balance, 'to_addresses' => $wallet['address']))->data->estimated_network_fee;
     }
 }
