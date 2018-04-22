@@ -84,7 +84,7 @@
 
     /* ---- VALIDA LAS CONTRASEÑAS ------ */
 
-        function validar_contraseñas(){
+    function validar_contraseñas(){
         var password = document.getElementById("password").value;
         var password_confirm = document.getElementById("password-confirm").value;
         var error_password = document.getElementById("error_password");
@@ -240,53 +240,53 @@
 
     function eliminar_error(variable) {
 
-    if (variable == 1) {
-        document.getElementById('error_usuario').style.display = 'none';
-        document.getElementById('usuario').style.border = "1px solid rgba(0,0,0,0.2)";
+        if (variable == 1) {
+            document.getElementById('error_usuario').style.display = 'none';
+            document.getElementById('usuario').style.border = "1px solid rgba(0,0,0,0.2)";
+        }
+        else if (variable == 2) {
+            document.getElementById('error_email').style.display = 'none';
+            document.getElementById('email').style.border = "1px solid rgba(0,0,0,0.2)";
+        }
+        else if (variable == 3) {
+            document.getElementById('error_password').style.display = 'none';
+            document.getElementById('password').style.border = "1px solid rgba(0,0,0,0.2)";
+        }
+        else if (variable == 4) {
+            document.getElementById('error_password_2').style.display = 'none';
+            document.getElementById('password-confirm').style.border = "1px solid rgba(0,0,0,0.2)";
+        }
+        else if (variable == 5) {
+            document.getElementById('error_nombre').style.display = 'none';
+            document.getElementById('nombre').style.border = "1px solid rgba(0,0,0,0.2)";
+        }
+        else if (variable == 6) {
+            document.getElementById('error_apellido').style.display = 'none';
+            document.getElementById('apellido').style.border = "1px solid rgba(0,0,0,0.2)";
+        }
+        else if (variable == 7){
+            document.getElementById('error_f_nacimiento').style.display = 'none';
+        }
+        else if (variable == 8){
+            document.getElementById('error_wallet').style.display = 'none';
+            document.getElementById('wallet_enviar').style.border = "1px solid rgba(0,0,0,0.2)";
+        }
+        else if (variable == 9){
+             document.getElementById('error_cantidad').style.display = 'none';
+             document.getElementById('cantidad_enviar').style.border = "1px solid rgba(0,0,0,0.2)";
+        }
+        else if(variable == 10){
+            document.getElementById('error_titulo').style.display = 'none';
+            document.getElementById('titulo_msj').style.border = "1px solid rgba(0,0,0,0.2)";
+        }
+        else if(variable == 11){
+            document.getElementById('error_mensaje').style.display = 'none';
+            document.getElementById('redaccion').style.border = "1px solid rgba(0,0,0,0.2)";
+        }
+        else if(variable == 12){
+            document.getElementById('error_checkbox').style.display = 'none';
+        }
     }
-    else if (variable == 2) {
-        document.getElementById('error_email').style.display = 'none';
-        document.getElementById('email').style.border = "1px solid rgba(0,0,0,0.2)";
-    }
-    else if (variable == 3) {
-        document.getElementById('error_password').style.display = 'none';
-        document.getElementById('password').style.border = "1px solid rgba(0,0,0,0.2)";
-    }
-    else if (variable == 4) {
-        document.getElementById('error_password_2').style.display = 'none';
-        document.getElementById('password-confirm').style.border = "1px solid rgba(0,0,0,0.2)";
-    }
-    else if (variable == 5) {
-        document.getElementById('error_nombre').style.display = 'none';
-        document.getElementById('nombre').style.border = "1px solid rgba(0,0,0,0.2)";
-    }
-    else if (variable == 6) {
-        document.getElementById('error_apellido').style.display = 'none';
-        document.getElementById('apellido').style.border = "1px solid rgba(0,0,0,0.2)";
-    }
-    else if (variable == 7){
-        document.getElementById('error_f_nacimiento').style.display = 'none';
-    }
-    else if (variable == 8){
-        document.getElementById('error_wallet').style.display = 'none';
-        document.getElementById('wallet_enviar').style.border = "1px solid rgba(0,0,0,0.2)";
-    }
-    else if (variable == 9){
-         document.getElementById('error_cantidad').style.display = 'none';
-         document.getElementById('cantidad_enviar').style.border = "1px solid rgba(0,0,0,0.2)";
-    }
-    else if(variable == 10){
-        document.getElementById('error_titulo').style.display = 'none';
-        document.getElementById('titulo_msj').style.border = "1px solid rgba(0,0,0,0.2)";
-    }
-    else if(variable == 11){
-        document.getElementById('error_mensaje').style.display = 'none';
-        document.getElementById('redaccion').style.border = "1px solid rgba(0,0,0,0.2)";
-    }
-    else if(variable == 12){
-        document.getElementById('error_checkbox').style.display = 'none';
-    }
-}
 
 
     /*---- VALIDA LA CONSTRASEÑA DEL LOGIN ------ */
@@ -314,14 +314,16 @@
 
     /*---- VALIDAR LA TRANSFERENCIA -----*/
     
-    function validar_transferencia (){
+    function validar_transferencia(){
         var dir_wallet = document.getElementById("wallet_enviar").value;
         var cant_btc = document.getElementById("cantidad_enviar").value;
         var error_wallet = document.getElementById("error_wallet");
         var error_cantidad = document.getElementById("error_cantidad");
+        
         var patron = /^[\w]+$/;
         var patron_numeros = /^[0-9]+([.][0-9]+)?$/;
-    
+        
+        console.log(parseFloat(balance) - parseFloat(comision));
         
         if(dir_wallet == ""){
             document.getElementById("wallet_enviar").style.border= "2px solid rgba(255,0,0,0.4)";
@@ -329,7 +331,7 @@
             error_wallet.innerHTML = "La dirección del monedero no puede estar vacía";
             return false;
         }
-        else if(dir_wallet.length < 27 || dir_wallet.length > 34){
+        else if(dir_wallet.length < 26 || dir_wallet.length > 35){
               document.getElementById("wallet_enviar").style.border= "2px solid rgba(255,0,0,0.4)";
             error_wallet.style.display = "block";
             error_wallet.innerHTML = "La dirección del monedero es muy corta o muy larga";
@@ -359,7 +361,7 @@
             error_cantidad.innerHTML = "El monto que quieres enviar no es válido";
             return false;
         }
-        else if(cant_btc > balance){
+        else if(parseFloat(cant_btc) + parseFloat(comision) > balance){
             document.getElementById("cantidad_enviar").style.border= "2px solid rgba(255,0,0,0.4)";
             error_cantidad.style.display = "block";
             error_cantidad.innerHTML = "No dispone del monto que desea enviar";
@@ -386,14 +388,14 @@
             return false;
         }
         else if(titulo.length < 10  || titulo.length > 100){
-             document.getElementById("titulo_msj").style.border= "2px solid rgba(255,0,0,0.4)";
+            document.getElementById("titulo_msj").style.border= "2px solid rgba(255,0,0,0.4)";
             error_titulo.style.display = "block";
             error_titulo.style.marginLeft = "10px"
             error_titulo.innerHTML = "El título debe tener entre 10 y 100 caracteres";
             return false;
         }
         else if(mensaje == ""){
-             document.getElementById("redaccion").style.border= "2px solid rgba(255,0,0,0.4)";
+            document.getElementById("redaccion").style.border= "2px solid rgba(255,0,0,0.4)";
             error_mensaje.style.display = "block";
             error_mensaje.innerHTML = "El mensaje no puede quedar en blanco";
             return false;

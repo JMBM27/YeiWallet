@@ -17,7 +17,7 @@
 </head>
 <body>
     @include("layaouts.plantilla_header")
-    @include("layaouts.plantilla_ventana")  
+    @include("layaouts.plantilla_ventana") 
     @include("layaouts.navbar")
     @yield("body")
 </body>

@@ -22,16 +22,25 @@ class BtcController extends AddressController
     /* Crear nueva wallet BTC
      *
      */
-    public function createWallet(){
+    public function createWallet(Request $request){
         if(!AddressBtc::exists(Auth::user()->id)){
-            if(strcmp($this->network,'BTC')==0){
+            /*if(strcmp($this->network,'BTC')==0){
                 $newAddress=new AddressBtc;
                 $wallet = $this->blockchain_new_address($newAddress);
             }else{
                 $newAddress=new AddressBtc;
                 $wallet = $this->blockio_new_address($newAddress);
-            }
+            }*/
         }
+        
+        $mensaje='<br><br>¡Felicidades! <strong>'.Auth::user()->usuario.'</strong><br>
+                  Tu dirección es<br><strong> 34wd5wda6sd4as56d78asd6ad4a6yda </strong>';
+        
+        $request->session()->flash('titulo','Address Creada');
+        $request->session()->flash('imagen','Imagenes/bitlogo.svg');
+        $request->session()->flash('notificacion',$mensaje);
+        $request->session()->flash('pie','<h6>Ahora puedes gestionar tus direcciones</h6>');
+        
         return redirect('/dashboard');
     }
  
@@ -41,17 +50,20 @@ class BtcController extends AddressController
     public function send(){
         $add = AddressBtc::getAddress();
         if(!is_null($add)){
-            $balance='';
-            if(strcmp($this->network,'BTC')==0){
+            $balance='0.2';
+            $fee='0.0000261';
+            /*if(strcmp($this->network,'BTC')==0){
                 $balance=$this->blockchain_balance($add);
             }else {
                 $balance=$this->blockio_balance($add);
-            }
+                $fee=$this->blockio_fee($add,$balance);
+            }*/
             return view('send_money')
                     ->with('address',$add['address'])
                     ->with('balance',$balance)
+                    ->with('comision',$fee)
                     ->with('moneda','Bitcoins')
-                    ->with('wallet','btc');
+                    ->with('tipo','btc');
         }
         return redirect('/dashboard');
     }
@@ -59,17 +71,12 @@ class BtcController extends AddressController
     public function sending($address,$monto){
         $add = AddressBtc::getAddress();
         if(!is_null($add)){
-            $balance='';
             if(strcmp($this->network,'BTC')==0){
                 //$result=$this->blockchain_balance($add);
             }else {
-                $result=$this->blockio_send($add,$address,$monto);
-                var_dump($result);
+                //$result=$this->blockio_send($add,$address,$monto);
             }
-            
-            return "enviado";
         }
-        //return redirect('/dashboard');
     }
            
     /* 

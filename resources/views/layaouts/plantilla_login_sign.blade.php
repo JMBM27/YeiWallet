@@ -21,6 +21,7 @@
 </head>
 
 @include('layaouts.plantilla_ventana')
+
 <body class="body_login_sign">
     @yield('body')
 

@@ -3,8 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BtcController;
+use App\Http\Controllers\LtcController;
+use App\Http\Controllers\DogeController;
+use App\AddressBtc;
+use App\AddressLtc;
+use App\AddressDoge;
 
 class WalletController extends Controller
 {
@@ -40,6 +47,7 @@ class WalletController extends Controller
         $add = Input::get('wallet');
         $op = Input::get('opcion');
         if(strcmp($add,'btc')==0){
+            
             if(strcmp($op,'send')==0){
                 return redirect('/dashboard/btc/send');
             }else{
@@ -65,28 +73,68 @@ class WalletController extends Controller
      *
      */
     public function showSelectWalletSend(){
-        return view( 'select_wallet')->with('opcion','send');
+        $isAddressBtc = AddressBtc::exists(Auth::user()->id);
+        $isAddressLtc = AddressLtc::exists(Auth::user()->id);
+        $isAddressDoge= AddressDoge::exists(Auth::user()->id);
+        if($isAddressBtc || $isAddressLtc || $isAddressDoge){
+            return view( 'select_wallet')->with('opcion','send');
+        }
+        return $this->redirectTo();
     }
     public function showSelectWalletHistory(){
-        return view( 'select_wallet')->with('opcion','history');
+        $isAddressBtc = AddressBtc::exists(Auth::user()->id);
+        $isAddressLtc = AddressLtc::exists(Auth::user()->id);
+        $isAddressDoge= AddressDoge::exists(Auth::user()->id);
+        if($isAddressBtc || $isAddressLtc || $isAddressDoge){
+            return view( 'select_wallet')->with('opcion','history');
+        }
+        return $this->redirectTo();
     }
     
     /* send Wallet
      *
      */
-    public function sendWallet(){
+    public function sendWallet(Request $request){
+        $this->validatorSendWallet($request->all())->validate();
         
-        $add = Input::get('wallet');
-        $monto = Input::get('monto');
-        $address = Input::get('address');
-        if(strcmp($add,'btc')==0){
-            $btc=new BtcController;
-            $btc->sending($address,$monto);
-        }else if(strcmp($add,'ltc')==0){
-           
-        }else if(strcmp($add,'doge')==0){
-            
+        if(Auth::user()->pin_status==1 && strcmp(Auth::user()->pin,$request->pin)!=0){
+            $request->session()->flash('error','Pin Incorrecto');
+            return back();
         }
-       // return $this->redirectTo();
+        
+        if(!WalletValidador::validateAddress($request->address)){
+            $request->session()->flash('error','Address no valida');
+            return back();
+        }
+        
+        if(strcmp($request->tipo,'btc')==0){
+            $btc=new BtcController;
+            $btc->sending($request->address,$request->cantidad);
+        }else if(strcmp($request->tipo,'ltc')==0){
+            $btc=new LtcController;
+            $btc->sending($request->address,$request->cantidad);
+        }else if(strcmp($request->tipo,'doge')==0){
+            $btc=new DogeController;
+            $btc->sending($request->address,$request->cantidad);
+        }
+        
+        $mensaje='<br><br>Se ha enviado la cantidad de <strong>' 
+                  . $request->cantidad . ' ' . $request->tipo . '</strong><br>
+                  A la dirección <br><strong>' . $request->address . '</strong>';
+    
+        $request->session()->flash('titulo','¡Enviado!');
+        $request->session()->flash('imagen','Imagenes/confirmar.svg');
+        $request->session()->flash('notificacion',$mensaje);
+        $request->session()->flash('pie','<h6>Es posible que la transacción tarde algunos minutos en ser procesada</h6>');
+        
+        return $this->redirectTo();
+    }
+    
+    protected function validatorSendWallet(array $data)
+    {
+        return Validator::make($data, [
+            'address' => 'required',
+            'cantidad' => 'required',
+        ]);
     }
 }

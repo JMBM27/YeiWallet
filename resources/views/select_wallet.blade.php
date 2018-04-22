@@ -44,7 +44,7 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
                         </div>
                         <div class="div_btc_body" id="r_btc">
                             <p>$<?php //echo $precio; ?></p>
-                            <img src="{{ asset('/Imagenes/bitcoin.png') }}" height="50" width="50"/>
+                            <img src="{{ asset('/Imagenes/bitlogo.svg') }}" height="50" width="50"/>
                         </div>
                     </a>
 
@@ -62,7 +62,7 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
                         </div>
                         <div class="div_btc_body" id="r_btc">
                             <p>$<?php //echo $precio; ?></p>
-                            <img src="{{ asset('/Imagenes/bitcoin.png') }}" height="50" width="50"/>
+                            <img src="{{ asset('/Imagenes/litelogo.svg') }}" height="50" width="50"/>
                         </div>
                     </a>
 
@@ -80,7 +80,7 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
                         </div>
                         <div class="div_btc_body" id="r_btc">
                             <p>$<?php //echo $precio; ?></p>
-                            <img src="{{ asset('/Imagenes/bitcoin.png') }}" height="50" width="50"/>
+                            <img src="{{ asset('/Imagenes/dogelogo.svg') }}" height="50" width="50"/>
                         </div>
                     </a>
 

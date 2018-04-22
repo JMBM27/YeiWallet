@@ -3,7 +3,8 @@ body,html{
     height: 100%;
 }
 
-a:hover{
+a,a:hover,a:visited,a:active,a:focus,a:link{
+
   text-decoration: none;  
 }
 
@@ -558,7 +559,7 @@ a.class_a_href:hover{
 }
 
 .nav_dashboard a:hover, .nav_dashboard a:link, .nav_dashboard a:visited,
-.nav_dashboard #collapse1 a:hover, .nav_dashboard #collapse1 a:link, .nav_dashboard #collapse1 a:visited{
+.nav_dashboard .collaps a:hover, .nav_dashboard .collaps a:link, .nav_dashboard .collaps a:visited{
     text-decoration: none;
     color: white;
 }
@@ -590,13 +591,13 @@ a.class_a_href:hover{
     width: 15px;
 }
 
-.nav_dashboard #collapse1 li{
+.nav_dashboard .collaps li{
     color: white;
     background-color: #434c53;
     text-decoration: none;
 }
 
-.nav_dashboard #collapse1 li:hover{
+.nav_dashboard .collaps li:hover{
     background-color: #2e6da4;
     text-decoration: none;
 }
@@ -712,7 +713,7 @@ th{
 }
 
 .div_enviar_money label,input{
-    margin: 5px;
+    margin: 5px 0px;
     width: auto;
 }
 
@@ -906,7 +907,7 @@ iframe::-webkit-scrollbar{
     text-align: center;
 }
 
-.action-button1, .modal-footer{
+.action-button1{
     width: 100px;
     background: #3878a3;
     font-weight: bold;
