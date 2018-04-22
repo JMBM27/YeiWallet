@@ -20,6 +20,8 @@ class CreateUsersTable extends Migration
             $table->string('usuario',20)->unique();
             $table->string('email',100)->unique();
             $table->string('password');
+            $table->string('pin')->nulleble();
+            $table->boolean('pin_status')->default(false);
             $table->rememberToken();
             $table->timestamps();
         });
