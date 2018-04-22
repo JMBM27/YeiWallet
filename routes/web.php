@@ -38,6 +38,8 @@ Route::post('/dashboard/send/wallet', 'WalletController@sendWallet')->name('send
 
 Route::get('/config/update/password','ConfigController@showUpdatePasswordForm')->name('password.config');
 Route::post('/config/update/password','ConfigController@updatePassword')->name('password.update');
+Route::get('/config/code','ConfigController@showCodeForm')->name('code.config');
+Route::post('/config/code','ConfigController@updateCode')->name('code.update');
 Route::get('/config/contact','ConfigController@showMessageForm')->name('contact');
 Route::post('/config/contact','ConfigController@message')->name('contact.send');
 
@@ -50,34 +52,9 @@ Route::post('/sign','Auth\RegisterController@register')->name('sign');
 Route::get('/recovery','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
 Route::post('/recovery/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
 Route::get('/recovery/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
-<<<<<<< HEAD
-Route::post('/recovery', 'Auth\ResetPasswordController@reset')->name('password.request');;
-=======
-Route::post('/recovery', 'Auth\ResetPasswordController@reset')->name('password.request');;
+Route::post('/recovery', 'Auth\ResetPasswordController@reset')->name('password.request');
 
-Route::get('/transfer',function (){
-    return view( 'send_money');
-});
-
-
-Route::get('/dash',function (){
-    return view('dashboard');
-});
-
-Route::get('/config/update',function (){
-    return view('password_act');
-});
-
-Route::get('/config/contact',function (){
-    return view('contact');
-});
-
-Route::get('/config/code',function (){
-    return view('code');
-});
 
 Route::get('/history',function (){
     return view('history');
 });
-
->>>>>>> 9c88433bd09a195b3eea63ad6d7e62b19f4fb498

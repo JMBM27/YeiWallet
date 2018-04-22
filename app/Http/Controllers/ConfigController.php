@@ -44,16 +44,64 @@ class ConfigController extends Controller
         return back();
     }
     
-    protected function validatorUpdatePassword(array $data)
-    {
+    protected function validatorUpdatePassword(array $data){
         return Validator::make($data, [
             'old' => 'required',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
     
-    public function showMessageForm()
-    {
+    public function showCodeForm(){
+        return view('code');
+    }
+    
+    public function updateCode(Request $request){
+        $this->validatorCode($request->all())->validate();
+        
+        $user=User::find(Auth::user()->id);
+        $passwordHash=$user->password;
+        
+        $code=str_random(10);
+        
+        if(Hash::check($request->password,$passwordHash)){
+            if(isset($request->create)){
+                $user->fill([
+                    'pin_status'=>1,
+                    'pin'=>$code
+                ])->save();
+                $mensaje='<br><br>¡Pin Activado!<br>
+                        Su pin es <strong> '.$code.' </strong>';
+
+                $request->session()->flash('titulo','Codigo');
+                $request->session()->flash('imagen','Imagenes/password.svg');
+                $request->session()->flash('notificacion',$mensaje);
+                $request->session()->flash('pie','');
+            }else{
+                $user->fill(['pin_status'=>0])->save();
+                $mensaje='<br><br>¡Pin Desactivado!<br>';
+
+                $request->session()->flash('titulo','Codigo');
+                $request->session()->flash('imagen','Imagenes/password.svg');
+                $request->session()->flash('notificacion',$mensaje);
+                $request->session()->flash('pie','');
+            }
+            
+        
+            return redirect('/dashboard');
+            
+        }
+        
+        $request->session()->flash('error','Contaseña Actual Icorrecta');
+        return back();
+    }
+    
+    protected function validatorCode(array $data){
+        return Validator::make($data, [
+            'password' => 'required',
+        ]);
+    }
+    
+    public function showMessageForm(){
         return view('contact');
     }
     

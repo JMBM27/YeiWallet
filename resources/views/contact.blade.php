@@ -5,19 +5,13 @@
     Configuración
 @endsection
 
-<<<<<<< HEAD
 @section('header')
-@endsection
-=======
- @section('header')
     @section('header_dash')
         @section('menu_nav')
             @include("layaouts.plantilla_navbar")
         @endsection
     endsection
 @endsection
-
->>>>>>> 9c88433bd09a195b3eea63ad6d7e62b19f4fb498
 
 @section("opc4")           
     select

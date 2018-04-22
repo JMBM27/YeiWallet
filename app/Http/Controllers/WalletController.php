@@ -7,6 +7,11 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\BtcController;
+use App\Http\Controllers\LtcController;
+use App\Http\Controllers\DogeController;
+use App\AddressBtc;
+use App\AddressLtc;
+use App\AddressDoge;
 
 class WalletController extends Controller
 {
@@ -68,10 +73,22 @@ class WalletController extends Controller
      *
      */
     public function showSelectWalletSend(){
-        return view( 'select_wallet')->with('opcion','send');
+        $isAddressBtc = AddressBtc::exists(Auth::user()->id);
+        $isAddressLtc = AddressLtc::exists(Auth::user()->id);
+        $isAddressDoge= AddressDoge::exists(Auth::user()->id);
+        if($isAddressBtc || $isAddressLtc || $isAddressDoge){
+            return view( 'select_wallet')->with('opcion','send');
+        }
+        return $this->redirectTo();
     }
     public function showSelectWalletHistory(){
-        return view( 'select_wallet')->with('opcion','history');
+        $isAddressBtc = AddressBtc::exists(Auth::user()->id);
+        $isAddressLtc = AddressLtc::exists(Auth::user()->id);
+        $isAddressDoge= AddressDoge::exists(Auth::user()->id);
+        if($isAddressBtc || $isAddressLtc || $isAddressDoge){
+            return view( 'select_wallet')->with('opcion','history');
+        }
+        return $this->redirectTo();
     }
     
     /* send Wallet

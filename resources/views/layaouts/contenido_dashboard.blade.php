@@ -25,25 +25,10 @@
     @include("layaouts.plantilla_header_dashboard")
     @include("layaouts.navbar")
     @yield ('body')
-<<<<<<< HEAD
-=======
-    
-         <script>
-        $('#enviar_btc').click(function(){
-            var enviar = validar_transferencia();
-            if (!enviar){
-               $('#ventana_codigo').modal("hide");
-             }
-            else{
-                 $('#ventana_codigo').modal("show");
-            }
-        });     
-    </script>
    
     <!-- JS -->
     <script src= "{{ asset('js/menu_icon.js') }}"></script>
     <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
-    
->>>>>>> 9c88433bd09a195b3eea63ad6d7e62b19f4fb498
+
 </body>
 </html>
