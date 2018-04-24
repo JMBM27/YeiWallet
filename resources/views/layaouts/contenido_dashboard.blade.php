@@ -17,7 +17,6 @@
     <link href="{{ asset('css/bootstrap/bootstrap-datetimepicker.css') }}" rel="stylesheet">
     <script src= "{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{asset('js/validar.js')}}"></script>
-    <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
 
 
 
@@ -28,7 +27,7 @@
     @include("layaouts.plantilla_header_dashboard")
     @include("layaouts.navbar")
     @yield ('body')
-<<<<<<< HEAD
+
     
  <!--   <script src= "{{ asset('js/menu_icon.js') }}"></script>
 --> <script src= "{{ asset('js/jquery.js') }}"></script>
@@ -71,12 +70,11 @@
         });
     </script>
 
-=======
+
    
     <!-- JS -->
     <script src= "{{ asset('js/menu_icon.js') }}"></script>
     <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
->>>>>>> a0494705f0084cb1e449420389dd5a2f03be6f8c
 
 </body>
 </html>

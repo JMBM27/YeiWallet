@@ -897,66 +897,7 @@ th{
 .dash{
    margin: 0;
 }
-/*
-.div_direccion_btc .btn-primary{
-    background-color: #ffa500;
-    border: 2px solid white;
-    width: 110px;
-    height: 60px;
-}
 
-.div_direccion_btc .btn-primary:hover{
-    background-color: #ffa500;
-    border: 2px solid white;
-    font-size: 23px;
-    cursor: pointer;
-}
-
-.div_direccion_btc{
-    font-family: Rockwell;
-    font-size: 20px;
-}
-#direccion_btc{
-    width: 430px;
-    font-family: Rockwell;
-    font-size: 20px;
-    background-color: rgba(255,153,0,0.9);
-    color: white;
-    padding: 5px;
-}
-
-.div_direccion_eth{
-    font-family: Rockwell;
-    font-size: 20px;
-}
-
-.div_direccion_eth .btn-primary{
-    border: 2px solid white;
-    background-color: #686868;
-    width: 110px;
-    height: 60px;
-}
-
-.div_direccion_eth .btn-primary:hover {
-    background-color: #686868;
-    font-size: 21px;
-    border: 2px solid white;
-    cursor: pointer;
-    width: 110px;
-}
-
-#direccion_eth{
-    width: 430px;
-    font-family: Rockwell;
-    background-color: rgba(104,104,104,0.9);
-    color: white;
-    padding: 5px;
-}
-
-.div_direccion_wallets{
-    display: inline-block;
-}
-*/
 .row #trans{
     height: auto;
     margin: 0 0 10px 15px ;
@@ -1019,11 +960,6 @@ a:hover > .div_btc_body,a:hover > .div_btc_titulo{
     font-size: 18px;
 }
 
-/* MODIFICACIONES DE CLASES DE BOOTSTRAP
-    -webkit-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
-    -moz-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
-    box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
-*/
 .div_datapicker .form-control{
     background-color: white !important;
 }

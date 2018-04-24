@@ -54,7 +54,6 @@ Route::post('/recovery/email', 'Auth\ForgotPasswordController@sendResetLinkEmail
 Route::get('/recovery/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('/recovery', 'Auth\ResetPasswordController@reset')->name('password.request');
 
-<<<<<<< HEAD
 
 Route::get('/history',function (){
     return view('history');
@@ -65,10 +64,3 @@ Route::get('/contact',function (){
 });
 
 
-
-=======
-
-Route::get('/history',function (){
-    return view('history');
-});
->>>>>>> a0494705f0084cb1e449420389dd5a2f03be6f8c

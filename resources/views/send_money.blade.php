@@ -31,11 +31,7 @@
             </div> 
         </div>
         <hr>
-<<<<<<< HEAD
         <h5 style="margin: 0 0 0 45px;"><?php echo "  Saldo disponible: " . $balance . "  <br> Comisión estimada: " . $comision;?></h5>
-=======
-        <h5 style="margin-left: 17px;"><?php echo "  Saldo disponible: " . $balance . "  Comision estimada: " . $comision;?></h5>
->>>>>>> a0494705f0084cb1e449420389dd5a2f03be6f8c
 
         <div class="row" id="trans">
             <div class="div_enviar_money col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -90,10 +86,7 @@
                             }
                         </script>
                     </div>
-                    <div class="comision col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        Al monto enviado se le restara la<a href="">comisión</a>
-                    </div>
-                    
+     
                     @section('titulo_ventana')
                         <h4>Confirmación del envío</h4>
                     @endsection
