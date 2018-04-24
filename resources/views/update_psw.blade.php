@@ -28,7 +28,7 @@
 
 @section('body')
     @section('content')
-        <form id="cambio_contraseña" method="POST" action="{{ route('password.update') }} " autocomplete="off" onsubmit="return validar_contraseñas();">
+        <form id="cambio_contraseña" method="POST" action="{{ route('password.update') }} " autocomplete="off" onsubmit="return validar_actualizacion_password();">
             {{ csrf_field() }}
 
             <div id="titulo_trans">Actualizar su contraseña</div>

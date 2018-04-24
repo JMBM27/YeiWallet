@@ -14,9 +14,11 @@
     <link href="{{ asset('css/bootstrap/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{ asset('css/estilos.css') }}" rel="stylesheet">
     <link href="{{ asset('css/menu_icon.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap/bootstrap-datetimepicker.css') }}" rel="stylesheet">
     <script src= "{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{asset('js/validar.js')}}"></script>
-    <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
+
+
 
 
 </head>
@@ -25,10 +27,48 @@
     @include("layaouts.plantilla_header_dashboard")
     @include("layaouts.navbar")
     @yield ('body')
-   
-    <!-- JS -->
-    <script src= "{{ asset('js/menu_icon.js') }}"></script>
+    
+ <!--   <script src= "{{ asset('js/menu_icon.js') }}"></script>
+--> <script src= "{{ asset('js/jquery.js') }}"></script>
+    <script src= "{{ asset('js/jquery.easy.js') }}"></script>
     <script src= "{{ asset('js/bootstrap.min.js') }}"></script>
+    <script src= "{{ asset ('js/bootstrap-datetimepicker.min.js')}}"></script>
+    <script src= "{{ asset ('js/bootstrap-datetimepicker.es.js')}}"></script>
+
+    
+    <script>
+        var dt = new Date();
+        $('#fecha_1').datetimepicker({
+            viewMode: "years",
+            endDate: dt,
+            language:  'es',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0
+        });
+    </script>
+    
+    <script>
+        var dt = new Date();
+        $('#fecha_2').datetimepicker({
+            viewMode: "years",
+            endDate: dt,
+            language:  'es',
+            weekStart: 1,
+            todayBtn:  1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            next: 'Imagenes/bitlogo.svg'
+        });
+    </script>
+
 
 </body>
 </html>

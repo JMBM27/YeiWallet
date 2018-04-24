@@ -97,7 +97,7 @@
                     </div>
                 </div>
 
-                <div class="div_fech_nac">
+                <div class="div_datapicker">
                     <p>Fecha de nacimiento</p>
                     <div class="input-group date form_date col-md-12" data-date="" data-date-format="dd MM yyyy" data-link-field="dtp_input2" data-link-format="yyyy-mm-dd">
                         <input id="fecha_nacimiento" class="form-control" size="16" type="text" value="" readonly onclick="eliminar_error(7);">

@@ -655,7 +655,7 @@ a.class_a_href:hover{
 }
 
 .color_doge{
-    background-color: yellowgreen;
+    background: rgb(225,179,3);
 }
 
 .color_ult_trans{
@@ -775,9 +775,61 @@ a:hover#hide{
     text-decoration: none;
 }
 
-.dir_monedero, .monto_enviar, .elegir_wallet{
+/**/
+.elegir_wallet{
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
     font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 30px;
+    background-color: white;
 }
+
+.elegir_wallet a{
+    color: black;
+}
+
+.elegir_wallet img{
+    margin-right: 5px;
+}
+
+.elegir_wallet:hover{
+    font-size: 22px;
+    cursor: pointer;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.btn-btc,.btn-ltc,.btn-dgc{
+    height: 100%;
+    padding: 10px;
+}
+
+.elegir_wallet .btn-btc:hover{
+    color: white;
+    background: #FF9900;
+}
+
+.elegir_wallet .btn-ltc:hover{
+    color: white;
+    background: darkgray;
+}
+
+.elegir_wallet .btn-dgc:hover{
+    color: white;
+    background: rgb(225,179,3);
+}
+
+
+
+
+
+/**/
 
 /*------------- TERMINOS Y CONDICIONES --------------------*/
 
@@ -825,9 +877,21 @@ iframe::-webkit-scrollbar{
 /*-------------------------------------------*/
 
 .table{
+    padding: 0;
     display: block !important;
+    text-align: center !important;
+    border: 2px solid black;
+}
+
+
+th{
+    text-align: center !important;
+    border: 2px solid black;
+    min-width: 100% !important;
+}
+
+#transacciones{
     text-align: center;
-    width: 100%;
 }
 
 .dash{
@@ -927,7 +991,9 @@ iframe::-webkit-scrollbar{
     background: "#D9D9D9" !important;
     cursor: default;
     box-shadow: none;
-}
+}    -webkit-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
 
 a:hover > .div_btc_body,a:hover > .div_btc_titulo{
     opacity: 0.7;
@@ -948,28 +1014,38 @@ a:hover > .div_btc_body,a:hover > .div_btc_titulo{
 }
 
 
-.div_fech_nac{
+.div_datapicker{
     text-align: left;
     font-size: 18px;
 }
 
-/* MODIFICACIONES DE CLASES DE BOOTSTRAP*/
-
-.div_fech_nac .form-control{
+/* MODIFICACIONES DE CLASES DE BOOTSTRAP
+    -webkit-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+*/
+.div_datapicker .form-control{
     background-color: white !important;
 }
 
-.div_fech_nac .input-group-addon{
-    background-color: #EFFBFB !important;
+.div_datapicker .input-group-addon{
+    background-color: white !important;
     margin-top: 5px;
     height: 51px;
     padding-top: 0 !important;
 }
 
-.div_fech_nac .input-group-addon:hover{
+.div_datapicker .input-group-addon:hover{
     background-color: #0e90d2 !important;
 }
 
+.ordenar_historial{
+    margin-bottom: 20px;
+}
+
+.ordenar_historial p{
+    margin: 15px 0 0 15px;
+}
 /* ------------------------------- */
 
 .ocultar{

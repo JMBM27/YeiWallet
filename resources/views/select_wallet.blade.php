@@ -10,7 +10,12 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
     Wallet
 @endsection
 
-@section("header")
+ @section('header')
+    @section('header_dash')
+        @section('menu_nav')
+            @include("layaouts.plantilla_navbar")
+        @endsection
+    endsection
 @endsection
 
 <?php if(strcmp($opcion,'send')==0){ ?>
@@ -37,15 +42,12 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
         <div class="dash">
             <div class="row">
                 <?php if($isAddressBtc){ ?>
-                <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <div class="elegir_wallet col-xs-12 col-sm-3 col-md-4 col-lg-2">
                     <a class="wallet-select" href=" @yield('redirect') " onclick="event.preventDefault(); document.getElementById('btc-form').submit();">
-                        <div class="div_btc_titulo">
-                            Bitcoin
-                        </div>
-                        <div class="div_btc_body" id="r_btc">
-                            <p>$<?php //echo $precio; ?></p>
+                    <div class="btn-btc">
                             <img src="{{ asset('/Imagenes/bitlogo.svg') }}" height="50" width="50"/>
-                        </div>
+                             Bitcoin
+                    </div>
                     </a>
 
                     <form id="btc-form" action="@yield('redirect')" method="POST" style="display: none;">
@@ -55,16 +57,12 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
                     </form>
                 </div>
                 <?php } if($isAddressLtc){ ?>
-                <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <div class="elegir_wallet col-xs-12 col-sm-3 col-md-4 col-lg-2">
                     <a class="wallet-select" href=" @yield('redirect') " onclick="event.preventDefault(); document.getElementById('ltc-form').submit();">
-                        <div class="div_eth_titulo">
-                            Litecoin
+                         <div class="btn-ltc">
+                            <img src="{{ asset('/Imagenes/litelogo.svg') }}" height="50" width="50"/>Litecoin
                         </div>
-                        <div class="div_btc_body" id="r_btc">
-                            <p>$<?php //echo $precio; ?></p>
-                            <img src="{{ asset('/Imagenes/litelogo.svg') }}" height="50" width="50"/>
-                        </div>
-                    </a>
+                     </a>
 
                     <form id="ltc-form" action="@yield('redirect')" method="POST" style="display: none;">
                         {{ csrf_field() }}
@@ -72,6 +70,14 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
                         <input type="hidden" name="opcion" value="<?php echo $opcion; ?>"/> 
                     </form>
                 </div>
+                 <div class="elegir_wallet col-xs-12 col-sm-3 col-md-4 col-lg-2">
+                     <a class="wallet-select" href=" @yield('redirect') " onclick="event.preventDefault(); document.getElementById('ltc-form').submit();">
+                         <div class="btn-dgc">
+                            <img src="{{ asset('/Imagenes/dogelogo.png') }}" height="60" width="60"/>Dogecoin
+                        </div>
+                     </a>
+                </div>
+            
                 <?php } if($isAddressDoge){ ?>
                 <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
                     <a class="wallet-select" href=" @yield('redirect') " onclick="event.preventDefault(); document.getElementById('doge-form').submit();">

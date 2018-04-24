@@ -34,6 +34,8 @@ else{
     $color = "red";
 }
 */
+
+
 ?>
 
 @extends ("layaouts.contenido_dashboard")
@@ -82,7 +84,7 @@ else{
                                 <th><?php //echo $fecha; ?></th>
                             </tr>
                             <tr>
-                                <th style="color: <?php //echo $color?>;"><?php //echo $porcentajeCambio; ?></th>
+                                <th style="color:" <?php //echo $color?>;><?php //echo $porcentajeCambio; ?></th>
                             </tr>
                         </table>
                     </div>
@@ -93,7 +95,7 @@ else{
                         Litecoin
                     </div>
                     <div class="div_moneda_body">
-                        <p>$<?php //echo $precio; ?></p>
+                        <p style="color:darkgray;">$<?php //echo $precio_doge ?></p>
                         <table class="table">
                             <tr>
                                 <th>1</th>
@@ -104,7 +106,7 @@ else{
                         Dogecoin
                     </div>
                     <div class="div_moneda_body">
-                        <p>$<?php //echo $precio; ?></p>
+                        <p style="color:rgb(225,179,3);;">$<?php// echo $precio_doge ?></p>
                         <table class="table">
                             <tr>
                                 <th>1</th>

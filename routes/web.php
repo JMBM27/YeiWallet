@@ -58,3 +58,10 @@ Route::post('/recovery', 'Auth\ResetPasswordController@reset')->name('password.r
 Route::get('/history',function (){
     return view('history');
 });
+
+Route::get('/contact',function (){
+    return view('contact');
+});
+
+
+

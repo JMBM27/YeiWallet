@@ -132,8 +132,8 @@
         var password = document.getElementById("password").value;
         var password_confirm = document.getElementById("password-confirm").value;
         var password_confirm_2 = document.getElementById("password-confirm-2").value;
-
         var error_password = document.getElementById("error_password");
+        var error_password_2 = document.getElementById("error_password_2");
 
         if (password == ""){
             document.getElementById("password").style.border= "2px solid rgba(255,0,0,0.4)";
@@ -160,10 +160,12 @@
         else if(password_confirm != password_confirm_2){
             error_password_2.style.display = 'block';
             error_password_2.innerHTML = "La contraseña nueva no coinciden";
+            return false;
         }
         else{
             return true;
         }
+        
     }
 
 
