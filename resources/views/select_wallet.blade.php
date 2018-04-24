@@ -44,10 +44,20 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
                 <?php if($isAddressBtc){ ?>
                 <div class="elegir_wallet col-xs-12 col-sm-3 col-md-4 col-lg-2">
                     <a class="wallet-select" href=" @yield('redirect') " onclick="event.preventDefault(); document.getElementById('btc-form').submit();">
+<<<<<<< HEAD
                     <div class="btn-btc">
                             <img src="{{ asset('/Imagenes/bitlogo.svg') }}" height="50" width="50"/>
                              Bitcoin
                     </div>
+=======
+                        <div class="div_btc_titulo">
+                            Bitcoin
+                        </div>
+                        <div class="div_btc_body" id="r_btc">
+                            <p>$<?php //echo $precio; ?></p>
+                            <img src="{{ asset('/Imagenes/bitlogo.svg') }}" height="50" width="50"/>
+                        </div>
+>>>>>>> a0494705f0084cb1e449420389dd5a2f03be6f8c
                     </a>
 
                     <form id="btc-form" action="@yield('redirect')" method="POST" style="display: none;">
@@ -62,7 +72,15 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
                          <div class="btn-ltc">
                             <img src="{{ asset('/Imagenes/litelogo.svg') }}" height="50" width="50"/>Litecoin
                         </div>
+<<<<<<< HEAD
                      </a>
+=======
+                        <div class="div_btc_body" id="r_btc">
+                            <p>$<?php //echo $precio; ?></p>
+                            <img src="{{ asset('/Imagenes/litelogo.svg') }}" height="50" width="50"/>
+                        </div>
+                    </a>
+>>>>>>> a0494705f0084cb1e449420389dd5a2f03be6f8c
 
                     <form id="ltc-form" action="@yield('redirect')" method="POST" style="display: none;">
                         {{ csrf_field() }}
