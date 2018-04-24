@@ -398,8 +398,7 @@ a.class_a_href:hover{
         margin: 10px;
     }
 
-    .div_actualizar_correo input {
-        margin: 10px 0;
+    .div_actualizar_password input {
         width: 100%;
     }
 
@@ -731,6 +730,7 @@ th{
     padding: 5px;
     display: none;
     text-align: center;
+    margin-bottom: 5px;
 }
 
 a#hide{
@@ -785,6 +785,9 @@ a:hover#hide{
     text-transform: uppercase;
     margin: 30px;
     background-color: white;
+    -webkit-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
 }
 
 .elegir_wallet a{
@@ -876,18 +879,22 @@ iframe::-webkit-scrollbar{
 
 /*-------------------------------------------*/
 
-.table{
+.dash .table{
     padding: 0;
     display: block !important;
     text-align: center !important;
-    border: 2px solid black;
+}
+
+.dash table { 
+    table-layout: fixed; 
+    width:100%;
+    min-width: 100%;
 }
 
 
-th{
+.dash th{
+    width: 450px !important;
     text-align: center !important;
-    border: 2px solid black;
-    min-width: 100% !important;
 }
 
 #transacciones{
@@ -955,6 +962,7 @@ a:hover > .div_btc_body,a:hover > .div_btc_titulo{
 }
 
 
+/*------- DATA PICKER -----------*/
 .div_datapicker{
     text-align: left;
     font-size: 18px;
@@ -975,13 +983,17 @@ a:hover > .div_btc_body,a:hover > .div_btc_titulo{
     background-color: #0e90d2 !important;
 }
 
+/* HISTORIAL */
 .ordenar_historial{
     margin-bottom: 20px;
 }
 
 .ordenar_historial p{
-    margin: 15px 0 0 15px;
+    font-size: 19px;
+    margin: 15px 0 0 30px;
 }
+
+
 /* ------------------------------- */
 
 .ocultar{
@@ -1050,5 +1062,37 @@ a:hover > .div_btc_body,a:hover > .div_btc_titulo{
     margin-right: 5px;
 } 
 
+.div_leer_mensajes{
+    width: 100%;
+}
 
+.mensaje{
+    height: 70px;
+     border: 1px solid rgba(1,1,1,0.5);
+    padding-top: 12px;
+    background: #ECECEC;
+}
+
+.div_leer_mensajes a{
+    color: black;
+    font-family: Roboto;
+    letter-spacing: 0.5px;
+    font-size: 18px;
+}
+
+.mensaje img{
+    margin-top: -30px !important;
+    float: right;
+    border: 1px solid rgba(1,1,1,0.5);
+}
+
+.mensaje img:hover{
+    border:10px solid black;
+}
+
+.div_leer_mensajes .panel-collapse{
+    padding: 10px;
+    border: 1px solid rgba(1,1,1,0.5);
+    background-color: white;
+}
 /*---------------------------------*/

@@ -75,7 +75,7 @@ else{
                         <p>$<?php //echo $precio; ?></p>
                         <table class="table">
                             <tr>
-                                <th>Precio más alto $<?php //echo $alto; ?></th>
+                                <th class="text-center">Precio más alto $<?php //echo $alto; ?></th>
                             </tr>
                             <tr>
                                 <th>Precio más bajo $<?php //echo $bajo; ?></th>
@@ -122,8 +122,8 @@ else{
                     <div class="div_moneda_body">
                         <table class="table">
                             <tr>
-                                <th>Jose Boscan<th>
-                                <th><img src="Imagenes/money-out.svg" class="icono">00001 BTC</th>
+                                <th>Jose Boscan
+                                <img src="Imagenes/money-out.svg" class="icono">00001 BTC</th>
                             </tr>
                             <tr>
                                 <th>1</th>

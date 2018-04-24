@@ -63,4 +63,8 @@ Route::get('/contact',function (){
     return view('contact');
 });
 
+Route::get('/config/contact/admin',function (){
+    return view('contact_admin');
+});
+
 
