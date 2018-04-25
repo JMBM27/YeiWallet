@@ -33,6 +33,8 @@ Route::get('/dashboard/select/wallet/send', 'WalletController@showSelectWalletSe
 Route::get('/dashboard/select/wallet/history', 'WalletController@showSelectWalletHistory')->name('select.wallet.history');
 Route::get('/dashboard/select/wallet', 'WalletController@redirectTo');
 Route::post('/dashboard/select/wallet', 'WalletController@selectWallet')->name('select.wallet');
+Route::get('/dashboard/history/wallet', 'WalletController@redirectTo');
+Route::post('/dashboard/history/wallet', 'WalletController@historyWallet')->name('history.wallet');
 Route::get('/dashboard/send/wallet', 'WalletController@redirectTo');
 Route::post('/dashboard/send/wallet', 'WalletController@sendWallet')->name('send.wallet');
 
@@ -58,3 +60,9 @@ Route::post('/recovery', 'Auth\ResetPasswordController@reset')->name('password.r
 Route::get('/history',function (){
     return view('history');
 });
+
+Route::get('/contact',function (){
+    return view('contact');
+});
+
+

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\AddressLtc;
+use App\TransactionLtc;
 
 class LtcController extends AddressController
 {
@@ -64,7 +65,7 @@ class LtcController extends AddressController
             $result=$this->blockio_send($add,$request->address,$request->cantidad);
             
             if(strcmp($result->status,'success')==0){
-                $tx = new TransactionBtc;
+                $tx = new TransactionLtc;
                 $tx->txid = $result->data->txid;
                 $tx->tipo = 1;
                 $tx->address = $request->address;
@@ -89,12 +90,42 @@ class LtcController extends AddressController
     }
            
     /* 
-     * Historial de Btc desde la address del usuario logeado  
+     * Historial de Ltc desde la address del usuario logeado  
      */
-    public function history(){
+    public function history(Request $request){
         $add = AddressLtc::getAddress();
         if(!is_null($add)){
-            return 'true';
+            $max=10;
+            if($request->session()->get('action', 'null')=='null'){
+                $txs=$this->blockio_get_transactions('received',$add);
+                if($txs->status == 'success'){
+                    TransactionLtc::actTransactionReceived($txs->data->txs,Auth::user()->id,$add['address']);
+                }
+            
+                $txs=$this->blockio_get_transactions('sent',$add);
+                if($txs->status == 'success'){
+                    TransactionLtc::actTransactionSent($txs->data->txs,Auth::user()->id,$add['address']);
+                }
+                
+                TransactionLtc::ctotal();
+                $page=0;
+            }else if($request->session()->get('action', 'null') == 'Sig'){
+                $page=$request->session()->get('page', 'null')+1;
+            }else if($request->session()->get('action', 'null') == 'Ant'){
+                $page=$request->session()->get('page', 'null')-1;
+            }
+            
+            $history=TransactionLtc::getTransaction($page*$max,$max,Auth::user()->id);
+            $total=TransactionLtc::total();
+            $ult=($total/$max)-1;
+                
+            return view('history')
+                ->with('history',$history)
+                ->with('tipo','ltc')
+                ->with('ult',$ult)
+                ->with('total',$total)
+                ->with('page',$page);
+            
         }
         return redirect('/dashboard');
     }

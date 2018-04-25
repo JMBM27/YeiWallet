@@ -639,7 +639,7 @@ a.class_a_href:hover{
 }
 
 #r_doge p{
-    color: yellowgreen;
+    color: rgb(225,179,3);
 }
 
 .div_moneda_body{
@@ -662,7 +662,7 @@ a.class_a_href:hover{
 }
 
 .color_doge{
-    background-color: yellowgreen;
+    background: rgb(225,179,3);
 }
 
 .color_ult_trans{
@@ -782,9 +782,61 @@ a:hover#hide{
     text-decoration: none;
 }
 
-.dir_monedero, .monto_enviar, .elegir_wallet{
+/**/
+.elegir_wallet{
+    padding: 0;
+    text-align: center;
+    font-weight: bold;
     font-size: 20px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 10px auto;
+    background-color: white;
 }
+
+.elegir_wallet a{
+    color: black;
+}
+
+.elegir_wallet img{
+    margin-right: 5px;
+}
+
+.elegir_wallet:hover{
+    font-size: 22px;
+    cursor: pointer;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.btn-btc,.btn-ltc,.btn-dgc{
+    height: 100%;
+    padding: 10px;
+}
+
+.elegir_wallet .btn-btc:hover{
+    color: white;
+    background: #FF9900;
+}
+
+.elegir_wallet .btn-ltc:hover{
+    color: white;
+    background: darkgray;
+}
+
+.elegir_wallet .btn-dgc:hover{
+    color: white;
+    background: rgb(225,179,3);
+}
+
+
+
+
+
+/**/
 
 /*------------- TERMINOS Y CONDICIONES --------------------*/
 
@@ -837,69 +889,14 @@ iframe::-webkit-scrollbar{
     width: 100%;
 }
 
+#transacciones{
+    text-align: center;
+}
+
 .dash{
    margin: 0;
 }
-/*
-.div_direccion_btc .btn-primary{
-    background-color: #ffa500;
-    border: 2px solid white;
-    width: 110px;
-    height: 60px;
-}
 
-.div_direccion_btc .btn-primary:hover{
-    background-color: #ffa500;
-    border: 2px solid white;
-    font-size: 23px;
-    cursor: pointer;
-}
-
-.div_direccion_btc{
-    font-family: Rockwell;
-    font-size: 20px;
-}
-#direccion_btc{
-    width: 430px;
-    font-family: Rockwell;
-    font-size: 20px;
-    background-color: rgba(255,153,0,0.9);
-    color: white;
-    padding: 5px;
-}
-
-.div_direccion_eth{
-    font-family: Rockwell;
-    font-size: 20px;
-}
-
-.div_direccion_eth .btn-primary{
-    border: 2px solid white;
-    background-color: #686868;
-    width: 110px;
-    height: 60px;
-}
-
-.div_direccion_eth .btn-primary:hover {
-    background-color: #686868;
-    font-size: 21px;
-    border: 2px solid white;
-    cursor: pointer;
-    width: 110px;
-}
-
-#direccion_eth{
-    width: 430px;
-    font-family: Rockwell;
-    background-color: rgba(104,104,104,0.9);
-    color: white;
-    padding: 5px;
-}
-
-.div_direccion_wallets{
-    display: inline-block;
-}
-*/
 .row #trans{
     height: auto;
     margin: 0 0 10px 15px ;
@@ -934,7 +931,9 @@ iframe::-webkit-scrollbar{
     background: "#D9D9D9" !important;
     cursor: default;
     box-shadow: none;
-}
+}    -webkit-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+    -moz-box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
+    box-shadow: 0 3px 33px 1px rgba(0,0,0,0.15);
 
 a:hover > .div_btc_body,a:hover > .div_btc_titulo{
     opacity: 0.7;
@@ -955,28 +954,33 @@ a:hover > .div_btc_body,a:hover > .div_btc_titulo{
 }
 
 
-.div_fech_nac{
+.div_datapicker{
     text-align: left;
     font-size: 18px;
 }
 
-/* MODIFICACIONES DE CLASES DE BOOTSTRAP*/
-
-.div_fech_nac .form-control{
+.div_datapicker .form-control{
     background-color: white !important;
 }
 
-.div_fech_nac .input-group-addon{
-    background-color: #EFFBFB !important;
+.div_datapicker .input-group-addon{
+    background-color: white !important;
     margin-top: 5px;
     height: 51px;
     padding-top: 0 !important;
 }
 
-.div_fech_nac .input-group-addon:hover{
+.div_datapicker .input-group-addon:hover{
     background-color: #0e90d2 !important;
 }
 
+.ordenar_historial{
+    margin-bottom: 20px;
+}
+
+.ordenar_historial p{
+    margin: 15px 0 0 15px;
+}
 /* ------------------------------- */
 
 .ocultar{

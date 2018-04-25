@@ -25,12 +25,13 @@
                     Transferir
                 </div>
                 <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-                    <h5 style="margin: 17px;"><?php echo $address; ?></h5>
+                    <h5 style="margin: 17px;">Tu dirección <?php echo $moneda; ?></h5>
+                    <h6 style="margin: 17px;"><?php echo $address; ?></h6>
                 </div>
             </div> 
         </div>
         <hr>
-        <h5 style="margin-left: 17px;"><?php echo "  Saldo disponible: " . $balance . "  Comision estimada: " . $comision;?></h5>
+        <h5 style="margin: 0 0 0 45px;"><?php echo "  Saldo disponible: " . $balance . "  <br> Comisión estimada: " . $comision;?></h5>
 
         <div class="row" id="trans">
             <div class="div_enviar_money col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -85,10 +86,7 @@
                             }
                         </script>
                     </div>
-                    <div class="comision col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                        Al monto enviado se le restara la<a href="">comisión</a>
-                    </div>
-                    
+     
                     @section('titulo_ventana')
                         <h4>Confirmación del envío</h4>
                     @endsection

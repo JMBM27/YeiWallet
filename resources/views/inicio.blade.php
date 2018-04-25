@@ -111,11 +111,11 @@
             </div>
 
             <div class="divImgCrypt col-xs-12 col-sm-12 col-md-6">
-                <img src="Imagenes/Bitcoin_inicio.png" width="250" height="250" style="margin-bottom: 30px;" data-aos="flip-left" data-aos-duration="2000">
-                <img src="Imagenes/dogecoin.jpg"
+                <img src="Imagenes/bitlogo.svg" width="200" height="200" style="margin-bottom: 30px;" data-aos="flip-left" data-aos-duration="2000">
+                <img src="Imagenes/dogelogo.png"
                  width="250" height="250" style="margin-bottom: 30px;" data-aos="flip-right" data-aos-duration="2000" data-aos-delay="500">
-                <img src="Imagenes/litecoin.jpg"
-                 width="250" height="250" style="margin-bottom: 30px;" data-aos="flip-right" data-aos-duration="2000" data-aos-delay="500">
+                <img src="Imagenes/litelogo.svg"
+                 width="200" height="200" style="margin-bottom: 30px;" data-aos="flip-right" data-aos-duration="2000" data-aos-delay="500">
             </div>
         </div>
     </div>
@@ -138,7 +138,7 @@
                         <div id="facebook" class="boton_wallets col-xs-12-col-sm-4 col-md-4">
                             <img src="Imagenes/facebook.svg" width="35">Facebook</div>
                         </a>
-                         <a href="www.twitter.com/yeiwallet">
+                         <a href="https://www.twitter.com/yeiwallet">
                         <div id="twitter" class="boton_wallets col-xs-12-col-sm-4 col-md-4">
                             <img src="Imagenes/twitter.svg" width="40">Twitter</div>
                         </a>

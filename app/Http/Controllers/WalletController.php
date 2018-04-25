@@ -12,6 +12,9 @@ use App\Http\Controllers\DogeController;
 use App\AddressBtc;
 use App\AddressLtc;
 use App\AddressDoge;
+use App\TransactionBtc;
+use App\TransactionLtc;
+use App\TransactionDoge;
 
 class WalletController extends Controller
 {
@@ -51,19 +54,19 @@ class WalletController extends Controller
             if(strcmp($op,'send')==0){
                 return redirect('/dashboard/btc/send');
             }else{
-                return redirect('/dashboard/btc/history');
+                return redirect('/dashboard/btc/history/');
             }
         }else if(strcmp($add,'ltc')==0){
             if(strcmp($op,'send')==0){
                 return redirect('/dashboard/ltc/send');
             }else{
-                return redirect('/dashboard/ltc/history');
+                return redirect('/dashboard/ltc/history/');
             }
         }else if(strcmp($add,'doge')==0){
             if(strcmp($op,'send')==0){
-                return redirect('/dashboard/doge/send');
+                return redirect('/dashboard/doge/send/');
             }else{
-                return redirect('/dashboard/doge/history');
+                return redirect('/dashboard/doge/history/');
             }
         }
         return $this->redirectTo();
@@ -121,6 +124,27 @@ class WalletController extends Controller
         return $this->redirectTo();
     }
     
+    /* history Wallet
+     *
+     */
+    public function historyWallet(Request $request){
+        if(strcmp($request->tipo,'btc')==0){
+            return redirect('/dashboard/btc/history')
+                ->with('action',$request->action)
+                ->with('page',$request->page);
+        }else if(strcmp($request->tipo,'ltc')==0){
+           return redirect('/dashboard/ltc/history')
+                ->with('action',$request->action)
+                ->with('page',$request->page);
+        }else if(strcmp($request->tipo,'doge')==0){
+            return redirect('/dashboard/doge/history')
+                ->with('action',$request->action)
+                ->with('page',$request->page);
+        }
+        
+        return $request->tipo;
+    }
+    
     protected function validatorSendWallet(array $data)
     {
         return Validator::make($data, [
@@ -128,4 +152,20 @@ class WalletController extends Controller
             'cantidad' => 'required',
         ]);
     }
+    
+    public static function ultimasTransaction($i){
+        if($i==1){
+             $tx1=TransactionBtc::getTransaction1(6,Auth::user()->id);
+            return $tx1;
+        }
+        if($i==2){
+             $tx2=TransactionLtc::getTransaction1(6,Auth::user()->id);
+            return $tx2;
+        }
+        if($i==3){
+             $tx3=TransactionDoge::getTransaction1(6,Auth::user()->id);
+            return $tx3;
+        }
+    }
+        
 }

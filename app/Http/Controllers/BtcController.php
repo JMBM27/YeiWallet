@@ -95,19 +95,41 @@ class BtcController extends AddressController
     /* 
      * Historial de Btc desde la address del usuario logeado  
      */
-    public function history(){
+    
+    public function history(Request $request){
         $add = AddressBtc::getAddress();
         if(!is_null($add)){
-            $txs=$this->blockio_get_transactions('received',$add);
-            if($txs->status == 'success'){
-                TransactionBtc::actTransactionReceived($txs->data->txs,Auth::user()->id,$add['address']);
+            $max=10;
+            if($request->session()->get('action', 'null')=='null'){
+                /*$txs=$this->blockio_get_transactions('received',$add);
+                if($txs->status == 'success'){
+                    TransactionBtc::actTransactionReceived($txs->data->txs,Auth::user()->id,$add['address']);
+                }
+            
+                $txs=$this->blockio_get_transactions('sent',$add);
+                if($txs->status == 'success'){
+                    TransactionBtc::actTransactionSent($txs->data->txs,Auth::user()->id,$add['address']);
+                }*/
+                
+                //TransactionBtc::ctotal();
+                $page=0;
+            }else if($request->session()->get('action', 'null') == 'Sig'){
+                $page=$request->session()->get('page', 'null')+1;
+            }else if($request->session()->get('action', 'null') == 'Ant'){
+                $page=$request->session()->get('page', 'null')-1;
             }
             
-            $txs=$this->blockio_get_transactions('sent',$add);
-            if($txs->status == 'success'){
-                TransactionBtc::actTransactionSent($txs->data->txs,Auth::user()->id,$add['address']);
-            }
-            return 'true';
+            $history=TransactionBtc::getTransaction($page*$max,$max,Auth::user()->id);
+            $total=TransactionBtc::total();
+            $ult=($total/$max)-1;
+                
+            return view('history')
+                ->with('history',$history)
+                ->with('tipo','btc')
+                ->with('ult',$ult)
+                ->with('total',$total)
+                ->with('page',$page);
+            
         }
         return redirect('/dashboard');
     }

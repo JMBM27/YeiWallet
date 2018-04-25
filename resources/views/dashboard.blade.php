@@ -34,6 +34,8 @@ else{
     $color = "red";
 }
 */
+
+
 ?>
 
 @extends ("layaouts.contenido_dashboard")
@@ -82,7 +84,7 @@ else{
                                 <th><?php //echo $fecha; ?></th>
                             </tr>
                             <tr>
-                                <th style="color: <?php //echo $color?>;"><?php //echo $porcentajeCambio; ?></th>
+                                <th style="color:" <?php //echo $color?>;><?php //echo $porcentajeCambio; ?></th>
                             </tr>
                         </table>
                     </div>
@@ -119,22 +121,37 @@ else{
                     </div>
                     <div class="div_moneda_body">
                         <table class="table">
-                            <tr>
-                                <th>Jose Boscan<th>
-                                <th><img src="Imagenes/money-out.svg" class="icono">00001 BTC</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                            </tr>
-                            <tr>
-                                <th>1</th>
-                            </tr>
+                            <?php 
+                            $r=rand (1,3);
+                            if($r==1) $tipo='Btc';
+                            if($r==2) $tipo='Ltc';
+                            if($r==3) $tipo='Doge';
+                            
+                            $tx=App\Http\Controllers\WalletController::ultimasTransaction($r); ?>
+                            @if(count($tx)!=0)
+                                @for($i	=	0;	$i	< count($tx)  ;	$i++)
+                                    <?php if($tx[$i]->tipo==1){
+                                        $color = 'style="color: #4ED6A2 !important"';
+                                        $sy='+';    
+                                        $url='Imagenes/money-in.svg';
+                                    }else{
+                                        $color = 'style="color: #F97F7F !important"';
+                                        $sy='-';
+                                        $url='Imagenes/money-out.svg';
+                                    }?>
+                                    <tr>
+                                        <td>{{ $tx[$i]->id }}</td>
+                                        <td {{ $color }}>{{ $sy }}{{ number_format($tx[$i]->monto, 8, '.', '') }}</td>
+                                        <th><img src="{{ $url }}" class="icono"></th>
+                                        <td>{{$tipo}}</td>
+                                    </tr>
+                                @endfor 
+                            @else
+                                <tr>
+                                    <td>No hay transacciones {{$tipo}}</td>
+                                </tr>
+                            @endif
+                            
                         </table>
                     </div>
                 </div>
