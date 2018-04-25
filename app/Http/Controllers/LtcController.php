@@ -25,10 +25,11 @@ class LtcController extends AddressController
     public function createWallet(Request $request){
         if(!AddressLtc::exists(Auth::user()->id)){
             
-            //$newAddress=new AddressLtc;
-            //$wallet = $this->blockio_new_address($newAddress);
+            $newAddress=new AddressLtc;
+            $wallet = $this->blockio_new_address($newAddress);
+            
             $mensaje='<br><br>¡Felicidades! <strong>'.Auth::user()->usuario.'</strong><br>
-                  Tu dirección es<br><strong> 34wd5wda6sd4as56d78asd6ad4a6yda </strong>';
+                  Tu dirección es<br><strong> '.$wallet->address.' </strong>';
         
             $request->session()->flash('titulo','Address Creada');
             $request->session()->flash('imagen','Imagenes/litelogo.svg');
@@ -43,10 +44,10 @@ class LtcController extends AddressController
         if(!is_null($add)){
             $balance='0.2';
             $fee='0.0000261';
-            /*
+            
             $balance=$this->blockio_balance($add);
             $fee=$this->blockio_fee($add,$balance);
-            */
+            
             return view('send_money')
                     ->with('address',$add['address'])
                     ->with('balance',$balance)
@@ -57,10 +58,33 @@ class LtcController extends AddressController
         return redirect('/dashboard');
     }
     
-    public function sending($address,$monto){
+    public function sending(Request $request){
         $add = AddressLtc::getAddress();
         if(!is_null($add)){
-            //$result=$this->blockio_send($add,$address,$monto);
+            $result=$this->blockio_send($add,$request->address,$request->cantidad);
+            
+            if(strcmp($result->status,'success')==0){
+                $tx = new TransactionBtc;
+                $tx->txid = $result->data->txid;
+                $tx->tipo = 1;
+                $tx->address = $request->address;
+                $tx->monto = $result->data->amount_sent;
+                $tx->fee = $result->data->network_fee;
+                $tx->confirmacion = 0;
+                $tx->usuario_id = Auth::user()->id;
+                $tx->save();
+                
+                $mensaje='<br><br>Se ha enviado la cantidad de <strong>' 
+                    . $request->cantidad . ' ' . $request->tipo . '</strong><br>
+                    A la dirección <br><strong>' . $request->address . '</strong>';
+    
+                $request->session()->flash('titulo','¡Enviado!');
+                $request->session()->flash('imagen','Imagenes/confirmar.svg');
+                $request->session()->flash('notificacion',$mensaje);
+                $request->session()->flash('pie','<h6>Es posible que la transacción tarde algunos minutos en ser procesada</h6>');
+                
+                return redirect('/dashboard');
+            }
         }
     }
            

@@ -14,16 +14,8 @@
 @endsection
 
 
-@section("opc4")           
+@section("opc3")           
     select
-@endsection
-
-@section("v1")           
-    show
-@endsection
-
-@section("sub1")           
-    select2
 @endsection
 
 @section('body')

@@ -109,23 +109,14 @@ class WalletController extends Controller
         
         if(strcmp($request->tipo,'btc')==0){
             $btc=new BtcController;
-            $btc->sending($request->address,$request->cantidad);
+            $btc->sending($request);
         }else if(strcmp($request->tipo,'ltc')==0){
             $btc=new LtcController;
-            $btc->sending($request->address,$request->cantidad);
+            $btc->sending($request);
         }else if(strcmp($request->tipo,'doge')==0){
             $btc=new DogeController;
-            $btc->sending($request->address,$request->cantidad);
+            $btc->sending($request);
         }
-        
-        $mensaje='<br><br>Se ha enviado la cantidad de <strong>' 
-                  . $request->cantidad . ' ' . $request->tipo . '</strong><br>
-                  A la dirección <br><strong>' . $request->address . '</strong>';
-    
-        $request->session()->flash('titulo','¡Enviado!');
-        $request->session()->flash('imagen','Imagenes/confirmar.svg');
-        $request->session()->flash('notificacion',$mensaje);
-        $request->session()->flash('pie','<h6>Es posible que la transacción tarde algunos minutos en ser procesada</h6>');
         
         return $this->redirectTo();
     }

@@ -8,7 +8,7 @@ $opt=array(
 );  
 $fgc = file_get_contents($url,false, stream_context_create($opt));
 $json = json_decode($fgc, true);
-$precio = $json["last"];
+$precio = number_format($json["last"],2);
 $alto = number_format($json["high"],2);
 $bajo = number_format($json["low"],2);
 $open = $json["open"];

@@ -15,7 +15,7 @@ class AddressBtc extends Model
     //];
     
     protected $fillable = [
-        'id','address','priv_key','label','usuario_id',
+        'address','priv_key','label','usuario_id',
     ];
 
     public static function exists($id){

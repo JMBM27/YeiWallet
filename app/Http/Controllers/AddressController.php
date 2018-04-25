@@ -102,6 +102,12 @@ class AddressController extends Controller
     
     protected function blockio_fee($wallet,$balance){
         $block_io = $this->blockio();
-        return $block_io->get_network_fee_estimate(array('amounts' => $balance, 'to_addresses' => $wallet['address']))->data->estimated_network_fee;
+        $fee = $block_io->get_network_fee_estimate(array('amounts' => $balance, 'to_addresses' => $wallet['address']));
+        return $fee->data->estimated_network_fee;
+    }
+    
+    protected function blockio_get_transactions($tipo,$wallet){
+        $block_io = $this->blockio();
+        return $block_io->get_transactions(array('type' => $tipo, 'addresses' => $wallet['address']));
     }
 }

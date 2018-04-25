@@ -416,10 +416,6 @@ a.class_a_href:hover{
 
 @media only screen and (max-width: 576px) {
 
-    .table {
-       height: 300px;
-    }
-
     .div_fech_nac .form-control{
         width: 130px !important;
         padding-left: 5px !important;
@@ -630,9 +626,20 @@ a.class_a_href:hover{
 }
 
 .div_moneda_body p{
-    color: #FF9900;
     font-size: 40px;
     margin: 10px;
+}
+
+#r_btc p{
+    color: #FF9900;
+}
+
+#r_ltc p{
+    color: gray;
+}
+
+#r_doge p{
+    color: yellowgreen;
 }
 
 .div_moneda_body{
@@ -825,7 +832,7 @@ iframe::-webkit-scrollbar{
 /*-------------------------------------------*/
 
 .table{
-    display: block !important;
+    display: table;
     text-align: center;
     width: 100%;
 }
@@ -1040,3 +1047,7 @@ a:hover > .div_btc_body,a:hover > .div_btc_titulo{
 
 
 /*---------------------------------*/
+
+table td, .table th {
+    text-align: center;
+}

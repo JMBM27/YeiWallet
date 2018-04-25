@@ -65,7 +65,7 @@ else{
 
         <div class="dash">
             <div class="row">
-                <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <div class="div_vent_dash col-xs-12 col-sm-5 col-md-5 col-lg-3">
                     <div class="div_moneda_titulo color_btc">
                         Bitcoin
                     </div>
@@ -88,11 +88,11 @@ else{
                     </div>
                 </div>
 
-                <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <div class="div_vent_dash col-xs-12 col-sm-5 col-md-5 col-lg-3">
                     <div class="div_moneda_titulo color_ltc">
                         Litecoin
                     </div>
-                    <div class="div_moneda_body">
+                    <div class="div_moneda_body" id="r_ltc">
                         <p>$<?php //echo $precio; ?></p>
                         <table class="table">
                             <tr>
@@ -103,7 +103,7 @@ else{
                     <div class="div_moneda_titulo color_doge">
                         Dogecoin
                     </div>
-                    <div class="div_moneda_body">
+                    <div class="div_moneda_body" id="r_doge">
                         <p>$<?php //echo $precio; ?></p>
                         <table class="table">
                             <tr>
@@ -113,7 +113,7 @@ else{
                     </div>
                 </div>
 
-                <div class="div_vent_dash col-xs-12 col-sm-4 col-md-4 col-lg-3">
+                <div class="div_vent_dash col-xs-12 col-sm-12 col-md-12 col-lg-5">
                     <div class="div_ult_trans color_ult_trans">
                         Últimas transacciones
                     </div>
@@ -164,6 +164,20 @@ else{
         $("document").ready(function(){
             setInterval(function(){
                 $("#r_btc").load("{{ asset('precio_bitcoin.php') }}");
+            },10000);
+        });
+    </script>
+    <script>
+        $("document").ready(function(){
+            setInterval(function(){
+                $("#r_ltc").load("{{ asset('precio_litecoin.php') }}");
+            },10000);
+        });
+    </script>
+    <script>
+        $("document").ready(function(){
+            setInterval(function(){
+                $("#r_doge").load("{{ asset('precio_dogecoin.php') }}");
             },10000);
         });
     </script>

@@ -11,17 +11,22 @@ $isAddressDoge=App\AddressDoge::exists(Auth::user()->id);
 @endsection
 
 @section("header")
+    @section('header_dash')
+        @section('menu_nav')
+            @include("layaouts.plantilla_navbar")
+        @endsection
+    endsection
 @endsection
 
-<?php if(strcmp($opcion,'send')==0){ ?>
+@if(strcmp($opcion,'send')==0)
     @section("opc2")
         select
     @endsection
-<?php } else {?>
+@else
     @section("opc3")
         select
     @endsection
-<?php } ?>
+@endif
 
 @section("redirect")
     {{ route('select.wallet') }}
