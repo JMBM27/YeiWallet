@@ -75,7 +75,7 @@ else{
                         <p>$<?php //echo $precio; ?></p>
                         <table class="table">
                             <tr>
-                                <th>Precio más alto $<?php //echo $alto; ?></th>
+                                <th class="text-center">Precio más alto $<?php //echo $alto; ?></th>
                             </tr>
                             <tr>
                                 <th>Precio más bajo $<?php //echo $bajo; ?></th>
@@ -121,6 +121,7 @@ else{
                     </div>
                     <div class="div_moneda_body">
                         <table class="table">
+<<<<<<< HEAD
                             <?php 
                             $r=rand (1,3);
                             if($r==1) $tipo='Btc';
@@ -152,6 +153,24 @@ else{
                                 </tr>
                             @endif
                             
+=======
+                            <tr>
+                                <th>Jose Boscan
+                                <img src="Imagenes/money-out.svg" class="icono">00001 BTC</th>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                            </tr>
+                            <tr>
+                                <th>1</th>
+                            </tr>
+>>>>>>> 281cbabe959e2dbb63a1806ce6f6af5fde5d12bf
                         </table>
                     </div>
                 </div>

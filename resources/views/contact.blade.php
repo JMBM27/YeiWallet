@@ -33,9 +33,6 @@
 
             <div class= "row">
                 <div class="div_buzon_msj col-xs-12 col-md-12 col-sm-12 col-md-12">
-                    <p>Título del mensaje</p>
-
-            <div id="titulo_trans">Buzon de mensajes</div>
 
             <div class= "row">
                 <div class="div_buzon_msj col-xs-12 col-md-12 col-sm-12 col-md-12">

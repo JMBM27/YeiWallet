@@ -16,7 +16,7 @@ $isAddressDoge= App\AddressDoge::exists(Auth::user()->id);
                         
                         @if(!$isAddressBtc || !$isAddressLtc || !$isAddressDoge)
    
-                            <li><a class="@yield('opc4')" data-toggle="collapse" href="#collapse1" href=""><img src="{{ asset('Imagenes/address.svg') }}" class="icono">Address</a></li>
+                            <li><a class="@yield('opc5')" data-toggle="collapse" href="#collapse1" href=""><img src="{{ asset('Imagenes/address.svg') }}" class="icono">Address</a></li>
                             <div id="collapse1" class="collaps panel-collapse collapse">
                                 @if(!$isAddressBtc)
                                     <li><a href="{{ route('new.btc') }}"><img src="{{ asset('Imagenes/bit.svg') }}" class="icono">Bitcoin</a></li>

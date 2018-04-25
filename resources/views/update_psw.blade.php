@@ -33,7 +33,7 @@
 
             <div id="titulo_trans">Actualizar su contraseña</div>
             <div class="row">
-                <div class="div_actualizar_correo col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="div_actualizar_password col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     @if (session('status'))
                         <div class="alert alert-success">
                             {{ session('status') }}

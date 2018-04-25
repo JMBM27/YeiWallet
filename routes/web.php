@@ -56,13 +56,3 @@ Route::post('/recovery/email', 'Auth\ForgotPasswordController@sendResetLinkEmail
 Route::get('/recovery/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
 Route::post('/recovery', 'Auth\ResetPasswordController@reset')->name('password.request');
 
-
-Route::get('/history',function (){
-    return view('history');
-});
-
-Route::get('/contact',function (){
-    return view('contact');
-});
-
-

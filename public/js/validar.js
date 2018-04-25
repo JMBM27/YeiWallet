@@ -374,6 +374,28 @@
         }
     }
 
+
+    function validar_fecha_historial(){
+        var fecha_1 = document.getElementById("fecha_1").value;
+        var fecha_2 = document.getElementById("fecha_2").value;
+        var error_1 = document.getElementById("error_f_nacimiento");
+        var error_2 = document.getElementById("error_usuario");
+        
+        if (fecha_1 == ""){
+            error_1.style.display = "block";
+            error_1.innerHTML = "La fecha no puede quedar en blanco";
+            return false;
+        }
+        else if(fecha_2 == ""){
+            error_2.style.display = "block";
+            error_2.innerHTML = "La fecha no puede quedar en blanco";
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
     /*------ VALIDAR MENSAJE ------*/
 
     function validar_mensaje(){
